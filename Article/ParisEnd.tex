@@ -1,10 +1,19 @@
 \documentclass[sageh,times]{sagej}
 \usepackage{moreverb,url}
-\usepackage[colorlinks,bookmarksopen,bookmarksnumbered,citecolor=black,urlcolor=black]{hyperref}
+%\usepackage[bookmarksopen,bookmarksnumbered,citecolor=black,urlcolor=black]{hyperref}
 \newcommand\BibTeX{{\rmfamily B\kern-.05em \textsc{i\kern-.025em b}\kern-.08em
 T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 \def\volumeyear{2017}
 
+\RequirePackage[citecolor=0 0 0,colorlinks=false]{hyperref}
+\hypersetup{
+     breaklinks=true,
+     bookmarksopen=true,
+     bookmarksnumbered=true,
+     linkcolor=black,
+     urlcolor=black,
+     citecolor=black,
+     colorlinks=true}
 
 
 %%% The amssymb package provides various useful mathematical symbols
@@ -155,28 +164,26 @@ The second type of imagery, Google Satellite (GS) imagery used was obtained usin
 
 \begin{figure}[!htbp]
     \centering    
-\includegraphics[scale=0.40]{Images/Satellite/{Adelaide,Australia_0_-34.892090,138.603093}.png} 
-\includegraphics[scale=0.40]{Images/Satellite/{Adelaide,Australia_0_-34.893723,138.582879}.png} 
-\includegraphics[scale=0.40]{Images/Satellite/{Beijing,China_0_39.763402,116.457312}.png} 
-\includegraphics[scale=0.40]{Images/Satellite/{Beijing,China_0_39.783779,116.531780}.png} 
+\includegraphics[scale=0.30]{Images/Satellite/{Adelaide,Australia_0_-34.892090,138.603093}.png} 
+\includegraphics[scale=0.30]{Images/Satellite/{Adelaide,Australia_0_-34.893723,138.582879}.png} 
+\includegraphics[scale=0.30]{Images/Satellite/{Beijing,China_0_39.763402,116.457312}.png} 
+\includegraphics[scale=0.30]{Images/Satellite/{Beijing,China_0_39.783779,116.531780}.png} 
 \caption{Sample GS images for Adelaide, Australia and Beijing, China. \citep{GoogleStatic2017}}    
  \label{fig:satbeiade}  
 \end{figure} 
 
 The third imagery type was street view imagery obtained through a combination of Google Street View (GSV) \citep{GoogleMaps2017b} and Baidu Maps Street View (BSV) \citep{Baidu2017}. 1000 images were sampled for 1074 cities (for a total of 1,074,000 images) at a 256x256 resolution with a pitch of 0, a field of view of 90 degrees and a random heading. Images inside tunnels, indoor locations, or dark locations were manually removed and more images sampled to bring each city's total up to 1000 again.
 
-No street view imagery of China is available through GSV, so BSV was used to supplement.  In order to minimise the differences between the two data sources as well as to minimise strong country-specific items (i.e. text on road signs) influencing the neural network training, further image processing was performed to segment each image before using the images in training and evaluation. The Python module \textit{pymeanshift} \citep{Pymeanshift2017} was used to segment each image, using a spatial radius of 6, range radius of 4.5, and minimum density of 50. Figure \ref{fig:sydstreet} shows an example of an original GSV image (taken from Sydney, Australia) and its segmented version as well as an original BSV image (taken from Beijing, China) and its segmented version.
+No street view imagery of China is available through GSV, so BSV was used to supplement.  In order to minimise the differences between the two data sources as well as to minimise strong country-specific items (i.e. text on road signs) influencing the neural network training, further image processing was performed to segment each image before using the images in training and evaluation. The Python module \textit{pymeanshift} \citep{Pymeanshift2017} was used to segment each image, using a spatial radius of 6, range radius of 4.5, and minimum density of 50. Figure \ref{fig:gsvbsv} shows an example of an original GSV image (taken from Sydney, Australia) and its segmented version as well as an original BSV image (taken from Beijing, China) and its segmented version.
 
 \begin{figure}[!htbp]
     \centering    
-\includegraphics[scale=0.4]{Images/SydStreetView/{9990_-33.806205549999845_150.939042099999940}.jpg} 
-%\includegraphics[scale=0.4]{Images/SydStreetView/{9997_-33.806205549999845_150.964242099999980}.jpg} 
-\includegraphics[scale=0.4]{Images/SydSegStreetView/{9990_-33.806205549999845_150.939042099999940}.jpg} 
-%\includegraphics[scale=0.4]{Images/SydSegStreetView/{9997_-33.806205549999845_150.964242099999980}.jpg} 
-    \includegraphics[scale=0.4]{Images/ChinaBSV/{Beijing,China_0_39.785332,116.345079}.jpg} 
-    \includegraphics[scale=0.4]{Images/ChinaBSVSeg/{Beijing,China_0_39.78533,116.345079}.jpg} 
+\includegraphics[scale=0.30]{Images/SydStreetView/{9990_-33.806205549999845_150.939042099999940}.jpg} 
+\includegraphics[scale=0.30]{Images/SydSegStreetView/{9990_-33.806205549999845_150.939042099999940}.jpg} 
+    \includegraphics[scale=0.30]{Images/ChinaBSV/{Beijing,China_0_39.785332,116.345079}.jpg} 
+    \includegraphics[scale=0.30]{Images/ChinaBSVSeg/{Beijing,China_0_39.78533,116.345079}.jpg} 
 \caption{Sample GSV image (from Sydney, Australia) \citep{GoogleMaps2017b} and the processed segmented version. Sample BSV image (from Beijing, China) \citep{Baidu2017} and the processed segmented version.}    
- \label{fig:sydstreet}  
+ \label{fig:gsvbsv}  
 \end{figure} 
 
 %Melbourne maps 22996
@@ -226,7 +233,7 @@ Finally, using the three trained models, inference was performed using the three
 
 
 \section{Results}\label{sec:results}
-The resulting predictions from performing the inference of the three evaluation data sets by the three trained neural networks were analysed in a number of different ways. The top 20 predicted cities for the evaluation points are calculated 
+The resulting predictions from performing the inference of the three evaluation data sets by the three trained neural networks were analysed in a number of different ways. The top 20 predicted cities for the evaluation points for each imaery data set were calculated. The top 20 predictions for GM are presented in Table \ref{tab:melbournesydneyGM}, GS in Table \ref{tab:melbournesydneyGS}, and GSV-BSV in Table \ref{tab:melbournesydneyGSV}.
 
 \begin{table}[!htbp]
 \caption{Top 20 cities like Melbourne and Sydney through GM \label{tab:melbournesydneyGM}}     
@@ -465,8 +472,8 @@ San Diego, United States of America & 197 & 0.94 & 300 & 2.05 \\ \hline
 Vereeniging, South Africa & 188 & 0.9 & 145 & 0.99 \\ \hline
 Jacksonville, Florida, United States of America  &-&- & 156 & 1.07\\ \hline
 Virginia Beach, United States of America  &-&- & 152 & 1.04\\ \hline
-McAllen, United States of America & 123 & 0.84\\ \hline
-Corpus Christi, United States of America & 97 & 0.66\\ \hline
+McAllen, United States of America&-&- & 123 & 0.84\\ \hline
+Corpus Christi, United States of America&-&- & 97 & 0.66\\ \hline
 
 \end{tabular}
 \end{table}
@@ -553,87 +560,63 @@ Corpus Christi, United States of America & 97 & 0.66\\ \hline
 
 \begin{figure}[!htbp]
 \centering    
-\includegraphics[scale=0.25]{Images/MelbourneOverall_maps.png} 
-\includegraphics[scale=0.25]{Images/MelbourneOverallAbrev_maps.png} 
+\includegraphics[scale=0.20]{Images/MelbourneOverall_maps.png} 
+\includegraphics[scale=0.20]{Images/MelbourneOverallAbrev_maps.png} 
 \caption{Melbourne is like Maps}    
  \label{fig:melmaps}  
 \end{figure} 
 
-%\begin{figure}[!htbp]
-%\centering    
-%\caption{Melbourne is like Maps}    
-% \label{fig:melmapsabv}  
-%\end{figure} 
+
 
 \begin{figure}[!htbp]
 \centering    
-\includegraphics[scale=0.25]{Images/SydneyOverall_maps.png} 
-\includegraphics[scale=0.25]{Images/SydneyOverallAbrev_maps.png}  
+\includegraphics[scale=0.20]{Images/SydneyOverall_maps.png} 
+\includegraphics[scale=0.20]{Images/SydneyOverallAbrev_maps.png}  
 \caption{Sydney is like Maps}    
  \label{fig:sydmaps}  
 \end{figure} 
 
-%\begin{figure}[!htbp]
-%\centering    
-%\caption{Sydney is like Maps}    
-% \label{fig:sydmapsabv}  
-%\end{figure} 
+
 
 \begin{figure}[!htbp]
 \centering    
-\includegraphics[scale=0.25]{Images/MelbourneOverall_sat.png} 
-\includegraphics[scale=0.25]{Images/MelbourneOverallAbrev_sat.png} 
+\includegraphics[scale=0.20]{Images/MelbourneOverall_sat.png} 
+\includegraphics[scale=0.20]{Images/MelbourneOverallAbrev_sat.png} 
 \caption{Melbourne is like Satellite}    
- \label{fig:melmaps}  
+ \label{fig:melsat}  
 \end{figure} 
 
-%\begin{figure}[!htbp]
-%\centering    
-%\caption{Melbourne is like Satellite}    
-% \label{fig:melmapsabv}  
-%\end{figure} 
+
 
 \begin{figure}[!htbp]
 \centering    
-\includegraphics[scale=0.25]{Images/SydneyOverall_sat.png} 
-\includegraphics[scale=0.25]{Images/SydneyOverallAbrev_sat.png} 
+\includegraphics[scale=0.20]{Images/SydneyOverall_sat.png} 
+\includegraphics[scale=0.20]{Images/SydneyOverallAbrev_sat.png} 
 \caption{Sydney is like Satellite}    
- \label{fig:sydmaps}  
+ \label{fig:sydsat}  
 \end{figure} 
 
-%\begin{figure}[!htbp]
-%\centering     
-%\caption{Sydney is like Satellite}    
-% \label{fig:sydmapsabv}  
-%\end{figure} 
+
 
 \begin{figure}[!htbp]
 \centering    
-\includegraphics[scale=0.25]{Images/MelbourneOverall_street.png} 
-\includegraphics[scale=0.25]{Images/MelbourneOverallAbrev_street.png} 
+\includegraphics[scale=0.20]{Images/MelbourneOverall_street.png} 
+\includegraphics[scale=0.20]{Images/MelbourneOverallAbrev_street.png} 
 \caption{Melbourne is like Street View}    
- \label{fig:melmaps}  
+ \label{fig:melstreet}  
 \end{figure} 
 
-%\begin{figure}[!htbp]
-%\centering    
-%\caption{Melbourne is like Street View}    
-% \label{fig:melmapsabv}  
-%\end{figure} 
+
 
 \begin{figure}[!htbp]
 \centering    
-\includegraphics[scale=0.25]{Images/SydneyOverall_street.png} 
-\includegraphics[scale=0.25]{Images/SydneyOverallAbrev_street.png}  
+\includegraphics[scale=0.20]{Images/SydneyOverall_street.png} 
+\includegraphics[scale=0.20]{Images/SydneyOverallAbrev_street.png}  
 \caption{Sydney is like Street View}    
- \label{fig:sydmaps}  
+ \label{fig:sydstreet}  
 \end{figure} 
 
-%\begin{figure}[!htbp]
-%\centering    
-%\caption{Sydney is like Street View}    
-% \label{fig:sydmapsabv}  
-%\end{figure} 
+
 
 
 
@@ -645,8 +628,8 @@ Parameters lead to what sorts of results.
 
 \section{Conclusion}\label{sec:conclusion}
 
-
-\section*{References}\label{sec:ref}
+%\begin{thebibliography}{}
+%\subsection*{References}\label{sec:ref}
 
   %%Harvard (name/date)
   \bibliographystyle{SageH}
@@ -654,31 +637,8 @@ Parameters lead to what sorts of results.
   %\bibliographystyle{SageV} 
   \bibliography{library}
 %  \bibitem[ ()]{}
-  
-
-%\begin{thebibliography}{00}
-%
-%%% \bibitem[Author(year)]{label}
-%%% Text of bibliographic item
-%
-%
-%
-%\end{thebibliography}
-
-
-%% The Appendices part is started with the command \appendix;
-%% appendix sections are then done as normal sections
-\appendix
-\setcounter{table}{0}
-\renewcommand{\thetable}{A\arabic{table}}
-
-%\subsection{}                               %% Appendix A1, A2, etc.
-
-
+% \end{thebibliography} 
 
 
 \end{document}
 
-\endinput
-%%
-%% End of file `elsarticle-template-harv.tex'.
