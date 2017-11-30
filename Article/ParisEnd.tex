@@ -233,7 +233,12 @@ Finally, using the three trained models, inference was performed using the three
 
 
 \section{Results}\label{sec:results}
-The resulting predictions from performing the inference of the three evaluation data sets by the three trained neural networks were analysed in a number of different ways. The top 20 predicted cities for the evaluation points for each imaery data set were calculated. The top 20 predictions for GM are presented in Table \ref{tab:melbournesydneyGM}, GS in Table \ref{tab:melbournesydneyGS}, and GSV-BSV in Table \ref{tab:melbournesydneyGSV}.
+
+
+
+The resulting predictions from performing the inference of the three evaluation data sets by the three trained neural networks were analysed in a number of different ways. The top 20 predicted cities for the evaluation points for each imagery data set were calculated. These top 20 predictions for GM are presented in Table \ref{tab:melbournesydneyGM}, GS in Table \ref{tab:melbournesydneyGS}, and GSV-BSV in Table \ref{tab:melbournesydneyGSV}.
+
+The predictions through GM (Table \ref{tab:melbournesydneyGM}) are dominated by other Australian cities (Brisbane, Canberra, Sunshine Coast, Perth, Newcastle and Lake Macquarie, and Adelaide) as well as a number of cities from Israel, South Africa, and the United States. Australian cities make up nearly 33\% of the top 20 predictions for Melbourne and 32\% for Sydney. Melbourne and Sydney also show strong similarities with each other, sharing 12 common predictions in the top 20 between them.
 
 \begin{table}[!htbp]
 \caption{Top 20 cities like Melbourne and Sydney through GM \label{tab:melbournesydneyGM}}     
@@ -272,67 +277,7 @@ West Yorkshire, United Kingdom&-&- & 131 & 0.53\\ \hline
 \end{tabular}
 \end{table}
 
-%
-%\begin{table}[!htbp]
-%\caption{Top 20 cities like Melbourne through GM \label{tab:melbourneGM}}     
-%\begin{tabular}{| l | l |l|}
-%\hline
-%\textbf{City} & \textbf{Number of matches} & \textbf{\% matching} \\ \hline
-%Brisbane, Australia & 4061 & 17.64\\ \hline
-%Canberra, Australia & 1699 & 7.38\\ \hline
-%Beer Sheva, Israel & 1110 & 4.82\\ \hline
-%Sunshine Coast, Australia & 793 & 3.44\\ \hline
-%Valpara\'{i}so, Chile & 751 & 3.26\\ \hline
-%Haifa, Israel & 563 & 2.44\\ \hline
-%McAllen, United States of America & 442 & 1.92\\ \hline
-%Auckland, New Zealand & 330 & 1.43\\ \hline
-%Adelaide, Australia & 308 & 1.34\\ \hline
-%Perth, Australia & 287 & 1.25\\ \hline
-%Johannesburg, South Africa & 244 & 1.06\\ \hline
-%Newcastle and Lake Macquarie, Australia & 245 & 1.06\\ \hline
-%Washington, D.C., United States of America & 198 & 0.86\\ \hline
-%Toronto, Canada & 140 & 0.61\\ \hline
-%Port Elizabeth, South Africa & 138 & 0.6\\ \hline
-%Effon Alaiye, Nigeria & 133 & 0.58\\ \hline
-%Gold Coast, Australia & 132 & 0.57\\ \hline
-%Pretoria, South Africa & 131 & 0.57\\ \hline
-%Louisville, United States of America & 127 & 0.55\\ \hline
-%Tel Aviv-Jaffa, Israel & 126 & 0.55\\ \hline
-%\end{tabular}
-%\end{table}
-%
-%
-%
-%\begin{table}[!htbp]
-%\caption{Top 20 cities like Sydney through GM \label{tab:sydneyGM}}     
-%\begin{tabular}{| l | l |l|}
-%\hline
-%\textbf{City} & \textbf{Number of matches} & \textbf{\% matching} \\ \hline
-%Brisbane, Australia & 3591 & 14.60\\ \hline
-%Beer Sheva, Israel & 1989 & 8.09\\ \hline
-%Canberra, Australia & 1972 & 8.02\\ \hline
-%Newcastle and Lake Macquarie, Australia & 1318 & 5.36\\ \hline
-%Haifa, Israel & 1066 & 4.33\\ \hline
-%Valpara\'{i}so, Chile & 434 & 1.76\\ \hline
-%Sunshine Coast, Australia & 364 & 1.48\\ \hline
-%Kiev, Ukraine & 351 & 1.43\\ \hline
-%Tasikmalaya, Indonesia & 344 & 1.40\\ \hline
-%Adelaide, Australia & 326 & 1.33\\ \hline
-%Caruaru, Brazil & 241 & 0.98\\ \hline
-%Auckland, New Zealand & 208 & 0.85\\ \hline
-%London, United Kingdom & 175 & 0.71\\ \hline
-%Gold Coast, Australia & 163 & 0.66\\ \hline
-%Toronto, Canada & 151 & 0.61\\ \hline
-%Jerusalem, Israel & 143 & 0.58\\ \hline
-%London, Canada & 132 & 0.54\\ \hline
-%Perth, Australia & 132 & 0.54\\ \hline
-%Shantou, China & 130 & 0.53\\ \hline
-%West Yorkshire, United Kingdom & 131 & 0.53\\ \hline
-%\end{tabular}
-%\end{table}
-
-
-
+The results for the predictions through GS (Table \ref{tab:melbournesydneyGS}) show wider divergences from both Australia and between Melbourne and Sydney. Both Melbourne and Sydney are strongly matched to Brazil. Melbourne is matched to Brazil in 39.5\% of the evaluation locations (and 43.6\% for Brazil and Argentina) while Sydney is matched to Brazil in 50.3 of the evaluation locations (and 54.4\% for Brazil and Argentina). Melbourne and Sydney show wider divergences from each other, only having 7 of the top 20 predicted cities in common. Melbourne shows a stronger connection to Wellington, NZ while Sydney is much more similar to Sevastopol, Ukraine.
 
 \begin{table}[!htbp]
 \caption{Top 20 cities like Melbourne and Sydney through GS \label{tab:melbournesydneyGS}}     
@@ -376,72 +321,7 @@ Baixada Santista, Brazil &-&- & 135 & 0.55\\ \hline
 \end{tabular}
 \end{table}
 
-
-
-
-
-
-%
-%\begin{table}[!htbp]
-%\caption{Top 20 cities like Melbourne through GS \label{tab:melbourneGS}}     
-%\begin{tabular}{| l | l |l|}
-%\hline
-%\textbf{City} & \textbf{Number of matches} & \textbf{\% matching} \\ \hline
-%Jundia\'{i}, Brazil & 6509 & 28.27\\ \hline
-%Wellington, NZ & 3124 & 13.57\\ \hline
-%Adelaide, Australia & 1624 & 7.05\\ \hline
-%Campinas, Brazil & 1408 & 6.11\\ \hline
-%Miami, United States of America & 1095 & 4.76\\ \hline
-%Provo-Orem, United States of America & 1022 & 4.44\\ \hline
-%Macap\'{a}, Brazil & 614 & 2.67\\ \hline
-%Rosario, Argentina & 542 & 2.35\\ \hline
-%Gold Coast, Australia & 463 & 2.01\\ \hline
-%Catania, Italy & 410 & 1.78\\ \hline
-%Juiz De Fora, Brazil & 411 & 1.78\\ \hline
-%Buenos Aires, Argentina & 392 & 1.7\\ \hline
-%Canberra, Australia & 372 & 1.62\\ \hline
-%Palma, Spain & 323 & 1.4\\ \hline
-%Newcastle and Lake Macquarie, Australia & 274 & 1.19\\ \hline
-%Sunshine Coast, Australia & 228 & 0.99\\ \hline
-%Surakarta, Indonesia & 214 & 0.93\\ \hline
-%Johannesburg, South Africa & 212 & 0.92\\ \hline
-%Palm Bay-Melbourne, United States of America & 176 & 0.76\\ \hline
-%Bel\'{e}m, Brazil & 169 & 0.73\\ \hline
-%\end{tabular}
-%\end{table}
-%
-%
-%
-%\begin{table}[!htbp]
-%\caption{Top 20 cities like Sydney through GS \label{tab:sydneyGS}}     
-%\begin{tabular}{| l | l |l|}
-%\hline
-%\textbf{City} & \textbf{Number of matches} & \textbf{\% matching} \\ \hline
-%Jundia\'{i}, Brazil & 6478 & 26.34\\ \hline
-%Campinas, Brazil & 4088 & 16.62\\ \hline
-%Sevastopol, Ukraine & 3360 & 13.66\\ \hline
-%Juiz De Fora, Brazil & 1481 & 6.02\\ \hline
-%Belgaum, India & 1177 & 4.79\\ \hline
-%Rosario, Argentina & 1006 & 4.09\\ \hline
-%Memphis, United States of America & 604 & 2.46\\ \hline
-%Baaqoobah, Iraq & 442 & 1.8\\ \hline
-%Nagasaki, Japan & 359 & 1.46\\ \hline
-%Qazvin, Iran  & 303 & 1.23\\ \hline
-%Guayaquil, Ecuador & 216 & 0.88\\ \hline
-%Malaga, Spain & 201 & 0.82\\ \hline
-%Campos dos Goytacazes, Brazil & 197 & 0.8\\ \hline
-%Canberra, Australia & 170 & 0.69\\ \hline
-%Wellington, NZ & 161 & 0.65\\ \hline
-%Newcastle and Lake Macquarie, Australia & 152 & 0.62\\ \hline
-%Guangyuan, China & 147 & 0.6\\ \hline
-%New Orleans, United States of America & 147 & 0.6\\ \hline
-%Chiinu, Republic of Moldova & 146 & 0.59\\ \hline
-%Baixada Santista, Brazil & 135 & 0.55\\ \hline
-%\end{tabular}
-%\end{table}
-
-
-
+Finally, the predictions through GSV-BSV (Table \ref{tab:melbournesydneyGSV}) show stronger similarities between Melbourne and Sydney than the previous two data sources. In the Melbourne evaluation, just over 30\% (7 of the top 8 picks) are other Australian cities, while Sydney matched other Australian cities for 34.6\% of the evaluation locations (and were 7 of the top 7 picks). In addition, 16 of the top 20 predicted cities are shared between Melbourne and Sydney. 
 
 \begin{table}[!htbp]
 \caption{Top 20 cities like Melbourne and Sydney through GSV-BSV \label{tab:melbournesydneyGSV}}     
@@ -449,7 +329,6 @@ Baixada Santista, Brazil &-&- & 135 & 0.55\\ \hline
 \hline
  \hline    &  \multicolumn{2}{c|}{\textbf{Melbourne evaluation}} & \multicolumn{2}{c|}{\textbf{Sydney evaluation}}  \\  
 \textbf{Predicted city} & \textbf{Matches} & \textbf{\% matching}  & \textbf{Matches} & \textbf{\% matching}\\ \hline
-
 Perth, Australia & 1424 & 6.79 & 497 & 3.39 \\ \hline
 Adelaide, Australia & 1349 & 6.43 & 346 & 2.36 \\ \hline
 Sunshine Coast, Australia & 1344 & 6.41 & 1139 & 7.78 \\ \hline
@@ -480,80 +359,18 @@ Corpus Christi, United States of America&-&- & 97 & 0.66\\ \hline
 
 
 
-%\begin{table}[!htbp]
-%\caption{Top 20 cities like Melbourne through GSV-BSV \label{tab:melbourneGSV}}     
-%\begin{tabular}{| l | l |l|}
-%\hline
-%\textbf{City} & \textbf{Number of matches} & \textbf{\% matching} \\ \hline
-%Perth, Australia & 1424 & 6.79\\ \hline
-%Adelaide, Australia & 1349 & 6.43\\ \hline
-%Sunshine Coast, Australia & 1344 & 6.41\\ \hline
-%Auckland, New Zealand & 930 & 4.43\\ \hline
-%Canberra, Australia & 714 & 3.4\\ \hline
-%Newcastle and Lake Macquarie, Australia & 669 & 3.19\\ \hline
-%Gold Coast, Australia & 470 & 2.24\\ \hline
-%Brisbane, Australia & 384 & 1.83\\ \hline
-%Curitiba, Brazil & 379 & 1.81\\ \hline
-%Stockton, United States of America & 366 & 1.75\\ \hline
-%Christchurch, New Zealand & 339 & 1.62\\ \hline
-%Concord, United States of America & 330 & 1.57\\ \hline
-%Cape Town, South Africa & 285 & 1.36\\ \hline
-%Bonita Springs-Naples, United States of America & 274 & 1.31\\ \hline
-%Teeside , United Kingdom & 262 & 1.25\\ \hline
-%East London, South Africa & 253 & 1.21\\ \hline
-%West Yorkshire, United Kingdom & 248 & 1.18\\ \hline
-%Los Angeles, United States of America & 203 & 0.97\\ \hline
-%San Diego, United States of America & 197 & 0.94\\ \hline
-%Vereeniging, South Africa & 188 & 0.9\\ \hline
-%\end{tabular}
-%\end{table}
-%
-%
-%
-%\begin{table}[!htbp]
-%\caption{Top 20 cities like Sydney through GSV-BSV \label{tab:sydneyGSV}}     
-%\begin{tabular}{| l | l |l|}
-%\hline
-%\textbf{City} & \textbf{Number of matches} & \textbf{\% matching} \\ \hline
-%Sunshine Coast, Australia & 1139 & 7.78\\ \hline
-%Brisbane, Australia & 828 & 5.65\\ \hline
-%Newcastle and Lake Macquarie, Australia & 789 & 5.39\\ \hline
-%Canberra, Australia & 770 & 5.26\\ \hline
-%Gold Coast, Australia & 702 & 4.79\\ \hline
-%Perth, Australia & 497 & 3.39\\ \hline
-%Adelaide, Australia & 346 & 2.36\\ \hline
-%San Diego, United States of America & 300 & 2.05\\ \hline
-%Auckland, New Zealand & 242 & 1.65\\ \hline
-%Stockton, United States of America & 184 & 1.26\\ \hline
-%Jacksonville, Florida, United States of America & 156 & 1.07\\ \hline
-%Virginia Beach, United States of America & 152 & 1.04\\ \hline
-%East London, South Africa & 150 & 1.02\\ \hline
-%Vereeniging, South Africa & 145 & 0.99\\ \hline
-%Bonita Springs-Naples, United States of America & 141 & 0.96\\ \hline
-%Cape Town, South Africa & 132 & 0.9\\ \hline
-%Concord, United States of America & 131 & 0.89\\ \hline
-%Curitiba, Brazil & 131 & 0.89\\ \hline
-%McAllen, United States of America & 123 & 0.84\\ \hline
-%Corpus Christi, United States of America & 97 & 0.66\\ \hline
-%\end{tabular}
-%\end{table}
 
-
-\begin{figure}[!htbp]
-\centering    
-\includegraphics[scale=0.25]{Images/Melbourne_Brisbane,Australia-GM.png} 
-\caption{Distribution of Brisbane predictions in Melbourne using GM.}    
- \label{fig:gm_mel_bris}  
-\end{figure} 
-
+The predicted output for the three neural networks was plotted on maps of Melbourne and Sydney. To allow a visual identification of geographically similar predictions, the color scheme for the plotted points was determined by the latitude and longitude of the predicted city. This color scheme is shown in Figure \ref{fig:colorscheme}. Using this latitude/longitude color scheme, plots were made for both Melbourne and Sydney for all three neural networks.
 
 \begin{figure}[!htbp]
 \centering    
 \includegraphics[scale=0.25]{Images/World_map_color_scheme.png} 
-\caption{Lat/lon based color scheme for plotting matching cities.}    
+\caption{Latitude/longitude based color scheme for plotting matching cities.}    
  \label{fig:colorscheme}  
 \end{figure} 
 
+
+Figure \ref{fig:melmaps} shows all cities plotted against the Melbourne evaluation locations as well as the top 42 predicted locations for the GM neural network. The other Australian cities show a strong grouping in the inner and outer suburbs while the CBD region shows no single strong grouping of regions or specific cities. In Melbourne's far outer suburbs and rural areas shows a wide mix of North and South American, South African, European, and Mid-Eastern cities with small localized clusters of each.
 
 
 
@@ -562,17 +379,17 @@ Corpus Christi, United States of America&-&- & 97 & 0.66\\ \hline
 \centering    
 \includegraphics[scale=0.20]{Images/MelbourneOverall_maps.png} 
 \includegraphics[scale=0.20]{Images/MelbourneOverallAbrev_maps.png} 
-\caption{Melbourne is like Maps}    
+\caption{Predicted similar cities using GM neural network for Melbourne evaluation locations. All 1665 cities plotted using Figure \ref{fig:colorscheme} color scheme (left) and top 42 predicted cities (right)}    
  \label{fig:melmaps}  
 \end{figure} 
 
-
+Figure \ref{fig:sydmaps} shows all cities plotted against the Sydney evaluation locations as well as the top 42 predicted locations for the GM neural network. Australian cities show up stronger in the western and south eastern suburbs and North American and European cities in the northern and southern suburbs. The CBD and the central parts of the city show less single city or regional groupings but with stronger highly localized clusters of each.
 
 \begin{figure}[!htbp]
 \centering    
 \includegraphics[scale=0.20]{Images/SydneyOverall_maps.png} 
 \includegraphics[scale=0.20]{Images/SydneyOverallAbrev_maps.png}  
-\caption{Sydney is like Maps}    
+\caption{Predicted similar cities using GM neural network for Sydney evaluation locations. All 1665 cities plotted using Figure \ref{fig:colorscheme} color scheme (left) and top 42 predicted cities (right)}    
  \label{fig:sydmaps}  
 \end{figure} 
 
@@ -582,7 +399,7 @@ Corpus Christi, United States of America&-&- & 97 & 0.66\\ \hline
 \centering    
 \includegraphics[scale=0.20]{Images/MelbourneOverall_sat.png} 
 \includegraphics[scale=0.20]{Images/MelbourneOverallAbrev_sat.png} 
-\caption{Melbourne is like Satellite}    
+\caption{Predicted similar cities using GS neural network for Melbourne evaluation locations. All 1688 cities plotted using Figure \ref{fig:colorscheme} color scheme (left) and top 48 predicted cities (right)}    
  \label{fig:melsat}  
 \end{figure} 
 
@@ -592,7 +409,7 @@ Corpus Christi, United States of America&-&- & 97 & 0.66\\ \hline
 \centering    
 \includegraphics[scale=0.20]{Images/SydneyOverall_sat.png} 
 \includegraphics[scale=0.20]{Images/SydneyOverallAbrev_sat.png} 
-\caption{Sydney is like Satellite}    
+\caption{Predicted similar cities using GS neural network for Sydney evaluation locations. All 1688 cities plotted using Figure \ref{fig:colorscheme} color scheme (left) and top 48 predicted cities (right)}    
  \label{fig:sydsat}  
 \end{figure} 
 
@@ -602,7 +419,7 @@ Corpus Christi, United States of America&-&- & 97 & 0.66\\ \hline
 \centering    
 \includegraphics[scale=0.20]{Images/MelbourneOverall_street.png} 
 \includegraphics[scale=0.20]{Images/MelbourneOverallAbrev_street.png} 
-\caption{Melbourne is like Street View}    
+\caption{Predicted similar cities using GSV-BSV neural network for Melbourne evaluation locations. All 1074 cities plotted using Figure \ref{fig:colorscheme} color scheme (left) and top 29 predicted cities (right)}    
  \label{fig:melstreet}  
 \end{figure} 
 
@@ -612,7 +429,7 @@ Corpus Christi, United States of America&-&- & 97 & 0.66\\ \hline
 \centering    
 \includegraphics[scale=0.20]{Images/SydneyOverall_street.png} 
 \includegraphics[scale=0.20]{Images/SydneyOverallAbrev_street.png}  
-\caption{Sydney is like Street View}    
+\caption{Predicted similar cities using GSV-BSV neural network for Sydney evaluation locations. All 1074 cities plotted using Figure \ref{fig:colorscheme} color scheme (left) and top 29 predicted cities (right)}    
  \label{fig:sydstreet}  
 \end{figure} 
 
@@ -621,10 +438,58 @@ Corpus Christi, United States of America&-&- & 97 & 0.66\\ \hline
 
 
 \section{Discussion}\label{sec:discussion}
+It is a popular claim for cities to say they have a Paris-end. However, this study conclusively disproves that either Melbourne or Sydney have a Paris-end.
 
 A fundamental methodology to analyse urban areas. Understanding the goals of the typology and the data source, leading to 
 
 Parameters lead to what sorts of results.
+
+
+\begin{figure}[!htbp]
+\centering    
+\includegraphics[scale=0.40]{Images/Melbourne_Paris,France-GM.png} 
+\includegraphics[scale=0.40]{Images/Sydney_Paris,France-GM.png} 
+\caption{Distribution of Paris predictions in Melbourne and Sydney using GM.}    
+ \label{fig:gm_melsyd_paris}  
+\end{figure} 
+
+ 
+
+\begin{figure}[!htbp]
+\centering    
+\includegraphics[scale=0.50]{Images/SydneyLikeParis/Sydney_maps_gallery.png} 
+\caption{Gallery of Paris predictions for Sydney using GM.}    
+ \label{fig:gm_syd_gallery}  
+\end{figure} 
+
+\begin{figure}[!htbp]
+\centering    
+\includegraphics[scale=0.50]{Images/MelbourneLikeParis/Melbourne_maps_gallery.png} 
+\caption{Gallery of Paris predictions for Melbourne using GM.}    
+ \label{fig:gm_mel_gallery}  
+\end{figure} 
+
+\begin{figure}[!htbp]
+\centering    
+\includegraphics[scale=0.40]{Images/Melbourne_Paris,France-GSV.png} 
+\includegraphics[scale=0.40]{Images/Sydney_Paris,France-GSV.png} 
+\caption{Distribution of Paris predictions in Melbourne and Sydney using GSV-BSV.}    
+ \label{fig:gsv_melsyd_paris}  
+\end{figure}
+
+\begin{figure}[!htbp]
+\centering    
+\includegraphics[scale=0.50]{Images/MelbourneLikeParis/Melbourne_streetview_gallery.png} 
+\caption{Gallery of Paris predictions for Melbourne using GSV-BSV.}    
+ \label{fig:gsv_mel_gallery}  
+\end{figure} 
+
+\begin{figure}[!htbp]
+\centering    
+\includegraphics[scale=0.50]{Images/SydneyLikeParis/Sydney_streetview_gallery.png} 
+\caption{Gallery of Paris predictions for Sydney using GSV-BSV.}    
+ \label{fig:gsv_syd_gallery}  
+\end{figure} 
 
 \section{Conclusion}\label{sec:conclusion}
 

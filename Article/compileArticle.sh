@@ -21,6 +21,13 @@ cp -u /home/kerryn/git/MonashUserPage/files/ParisEnd/analysis_paris_end/World_ma
 
 cp -u "/home/kerryn/git/2017-07-MelbourneLikeParis-StreetView/analysis_minus_sydmel_maps/Melbourne_Brisbane, Australia.png" Images/Melbourne_Brisbane,Australia-GM.png
 
+cp -u "/home/kerryn/git/2017-07-MelbourneLikeParis-StreetView/analysis_minus_sydmel_maps/Sydney_Paris, France.png" Images/Sydney_Paris,France-GM.png
+cp -u "/home/kerryn/git/2017-07-MelbourneLikeParis-StreetView/analysis_minus_sydmel_maps/Melbourne_Paris, France.png" Images/Melbourne_Paris,France-GM.png
+
+
+cp -u "/home/kerryn/git/2017-07-MelbourneLikeParis-StreetView/analysis_minus_sydmel_street_view/Sydney_Paris, France.png" Images/Sydney_Paris,France-GSV.png
+cp -u "/home/kerryn/git/2017-07-MelbourneLikeParis-StreetView/analysis_minus_sydmel_street_view/Melbourne_Paris, France.png" Images/Melbourne_Paris,France-GSV.png
+
 
 bibtex ParisEnd.aux
 makeglossaries  ParisEnd
