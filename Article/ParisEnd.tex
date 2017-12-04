@@ -174,15 +174,16 @@ The second type of imagery, Google Satellite (GS) imagery used was obtained usin
 
 The third imagery type was street view imagery obtained through a combination of Google Street View (GSV) \citep{GoogleMaps2017b} and Baidu Maps Street View (BSV) \citep{Baidu2017}. 1000 images were sampled for 1074 cities (for a total of 1,074,000 images) at a 256x256 resolution with a pitch of 0, a field of view of 90 degrees and a random heading. Images inside tunnels, indoor locations, or dark locations were manually removed and more images sampled to bring each city's total up to 1000 again.
 
-No street view imagery of China is available through GSV, so BSV was used to supplement.  In order to minimise the differences between the two data sources as well as to minimise strong country-specific items (i.e. text on road signs) influencing the neural network training, further image processing was performed to segment each image before using the images in training and evaluation. The Python module \textit{pymeanshift} \citep{Pymeanshift2017} was used to segment each image, using a spatial radius of 6, range radius of 4.5, and minimum density of 50. Figure \ref{fig:gsvbsv} shows an example of an original GSV image (taken from Sydney, Australia) and its segmented version as well as an original BSV image (taken from Beijing, China) and its segmented version.
+No street view imagery of China is available through GSV, so BSV was used to supplement.  In order to minimise the differences between the two data sources as well as to minimise strong country-specific items (i.e. text on road signs) influencing the neural network training, further image processing was performed to segment each image before using the images in training and evaluation. The Python module \textit{pymeanshift} \citep{Pymeanshift2017} was used to segment each image, using a spatial radius of 6, range radius of 4.5, and minimum density of 50. Figure \ref{fig:gsvbsv} shows an example of an original GSV image (of Sydney, Australia) and its segmented version as well as an original BSV image (of Beijing, China) and its segmented version.
 
 \begin{figure}[!htbp]
-    \centering    
-\includegraphics[scale=0.30]{Images/SydStreetView/{9990_-33.806205549999845_150.939042099999940}.jpg} 
-\includegraphics[scale=0.30]{Images/SydSegStreetView/{9990_-33.806205549999845_150.939042099999940}.jpg} 
+ %   \centering    
+ \includegraphics[scale=0.30]{Images/SydStreetView/{9990_-33.806205549999845_150.939042099999940}.jpg} 
+ \includegraphics[scale=0.30]{Images/SydSegStreetView/{9990_-33.806205549999845_150.939042099999940}.jpg} 
     \includegraphics[scale=0.30]{Images/ChinaBSV/{Beijing,China_0_39.785332,116.345079}.jpg} 
-    \includegraphics[scale=0.30]{Images/ChinaBSVSeg/{Beijing,China_0_39.78533,116.345079}.jpg} 
-\caption{Sample GSV image (from Sydney, Australia) \citep{GoogleMaps2017b} and the processed segmented version. Sample BSV image (from Beijing, China) \citep{Baidu2017} and the processed segmented version.}    
+   \includegraphics[scale=0.30]{Images/ChinaBSVSeg/{Beijing,China_0_39.78533,116.345079}.jpg} 
+ \\ \tiny  a) ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ b) ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  c) ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ d)
+\caption{Sample GSV image from Sydney, Australia (a) \citep{GoogleMaps2017b} and the processed segmented version (b). Sample BSV image from Beijing, China (c) \citep{Baidu2017} and the processed segmented version (d).}    
  \label{fig:gsvbsv}  
 \end{figure} 
 
@@ -360,7 +361,7 @@ Corpus Christi, United States of America&-&- & 97 & 0.66\\ \hline
 
 
 
-The predicted output for the three neural networks was plotted on maps of Melbourne and Sydney. To allow a visual identification of geographically similar predictions, the color scheme for the plotted points was determined by the latitude and longitude of the predicted city. This color scheme is shown in Figure \ref{fig:colorscheme}. Using this latitude/longitude color scheme, plots were made for both Melbourne and Sydney for all three neural networks.
+The predicted output for the three neural networks were plotted on maps of Melbourne and Sydney. To allow a visual identification of geographically similar predictions, the color scheme for the plotted points was determined by the latitude and longitude of the predicted city. This color scheme is shown in Figure \ref{fig:colorscheme}. Using this latitude/longitude color scheme, plots were made for both Melbourne and Sydney for all three neural networks.
 
 \begin{figure}[!htbp]
 \centering    
@@ -370,11 +371,9 @@ The predicted output for the three neural networks was plotted on maps of Melbou
 \end{figure} 
 
 
-Figure \ref{fig:melmaps} shows all cities plotted against the Melbourne evaluation locations as well as the top 42 predicted locations for the GM neural network. The other Australian cities show a strong grouping in the inner and outer suburbs while the CBD region shows no single strong grouping of regions or specific cities. In Melbourne's far outer suburbs and rural areas shows a wide mix of North and South American, South African, European, and Mid-Eastern cities with small localized clusters of each.
+Figure \ref{fig:melmaps} shows all cities plotted against the Melbourne evaluation locations as well as the top 42 predicted locations for the GM neural network. The other Australian cities show a strong grouping in the inner and outer suburbs while the CBD region shows no single strong grouping of regions or specific cities. In Melbourne's far outer suburbs and rural areas shows a wide mix of North and South American, South African, European, and Mid-Eastern cities with small localized clusters of each. In the central business district (CBD), a few locations are predicted as Paris, France (see detail of CBD in Figure \ref{fig:melmapscbd} and \ref{fig:gm_melsyd_paris}), mostly associated with the Docklands or parklands.
 
-
-
-
+  
 \begin{figure}[!htbp]
 \centering    
 \includegraphics[scale=0.20]{Images/MelbourneOverall_maps.png} 
@@ -383,7 +382,14 @@ Figure \ref{fig:melmaps} shows all cities plotted against the Melbourne evaluati
  \label{fig:melmaps}  
 \end{figure} 
 
-Figure \ref{fig:sydmaps} shows all cities plotted against the Sydney evaluation locations as well as the top 42 predicted locations for the GM neural network. Australian cities show up stronger in the western and south eastern suburbs and North American and European cities in the northern and southern suburbs. The CBD and the central parts of the city show less single city or regional groupings but with stronger highly localized clusters of each.
+\begin{figure}[!htbp]
+\centering     
+\includegraphics[scale=0.40]{Images/MelbourneCBD_maps_detail3.png} 
+\caption{Predicted similar cities (showing three letter country code of city location) using GM neural network for Melbourne evaluation locations. Detail of Melbourne CBD, with predictions of Paris highlighted in red.}    
+ \label{fig:melmapscbd}  
+\end{figure} 
+
+Figure \ref{fig:sydmaps} shows all cities plotted against the Sydney evaluation locations as well as the top 42 predicted locations for the GM neural network. Australian cities show up stronger in the western and south eastern suburbs and North American and European cities in the northern and southern suburbs. The CBD and the central parts of the city show less single city or regional groupings but with stronger highly localized clusters of each. Some cities commonly represented in the CBD include Hong Kong, London, Toulon, and Kaohsiung (many cities with waterfronts). Paris, France is predicted in a number of scattered locations across Sydney (see Figure \ref{fig:gm_melsyd_paris}).
 
 \begin{figure}[!htbp]
 \centering    
@@ -392,6 +398,18 @@ Figure \ref{fig:sydmaps} shows all cities plotted against the Sydney evaluation 
 \caption{Predicted similar cities using GM neural network for Sydney evaluation locations. All 1665 cities plotted using Figure \ref{fig:colorscheme} color scheme (left) and top 42 predicted cities (right)}    
  \label{fig:sydmaps}  
 \end{figure} 
+
+\begin{figure}[!htbp]
+\centering    
+\includegraphics[scale=0.40]{Images/Melbourne_Paris,France-GM.png} 
+\includegraphics[scale=0.40]{Images/Sydney_Paris,France-GM.png} 
+\caption{Distribution of Paris predictions in Melbourne and Sydney using GM.}    
+ \label{fig:gm_melsyd_paris}  
+\end{figure} 
+
+Figure \ref{fig:melsat} shows all cities plotted against the Melbourne evaluation locations as well as the top 48 predicted locations for the GS neural network. The other Australian cities show a strong grouping in the inner and outer suburbs while the CBD region shows no single strong grouping of regions or specific cities but with a range of predictions such as Miami, United States and Mendoza, Argentina. In Melbourne's far outer suburbs and rural areas shows a wide mix of North and South American (USA, Brazil, and Argentina), South African, European (Italy and Spain), and Mid-Eastern (Iran and Turkey) cities with small localized clusters of each. No predictions of Paris, France have been made by the GS neural network for any evaluation location.
+
+
 
 
 
@@ -405,6 +423,10 @@ Figure \ref{fig:sydmaps} shows all cities plotted against the Sydney evaluation 
 
 
 
+Figure \ref{fig:sydsat} shows all cities plotted against the Sydney evaluation locations as well as the top 48 predicted locations for the GS neural network. The overall predictions are dominated by cities in Brazil and other South American locations in the north and west and Ukraine in the south. Other Australian cities are only predicted in a few locations around the city. In the CBD, predictions continue to be dominated by Brazilian cities with some more scattered predictions of Japanese, Haiti, and Mexican cities. No predictions of Paris, France have been made by the GS neural network for any evaluation location in Sydney.
+
+
+
 \begin{figure}[!htbp]
 \centering    
 \includegraphics[scale=0.20]{Images/SydneyOverall_sat.png} 
@@ -415,6 +437,8 @@ Figure \ref{fig:sydmaps} shows all cities plotted against the Sydney evaluation 
 
 
 
+Figure \ref{fig:melstreet} shows all cities plotted against the Melbourne evaluation locations as well as the top 29 predicted locations for the GSV-BSV neural network. The overall predictions are dominated by other Australian cities scattered widely throughout the entire greater Melbourne area. The remaining predicted results show no strong groupings of any predicted countries or cities but some of the common predictions include cities from South Africa, New Zealand, the United States, and European countries. The CBD again shows a wide scattering of predictions with no single city or country dominating. Only 13 predictions (out of 20971 evaluated locations) where made of Paris, France by the GSV-BSV neural network (Figure \ref{fig:gsv_melsyd_paris}).
+
 \begin{figure}[!htbp]
 \centering    
 \includegraphics[scale=0.20]{Images/MelbourneOverall_street.png} 
@@ -423,7 +447,16 @@ Figure \ref{fig:sydmaps} shows all cities plotted against the Sydney evaluation 
  \label{fig:melstreet}  
 \end{figure} 
 
+\begin{figure}[!htbp]
+\centering    
+\includegraphics[scale=0.40]{Images/Melbourne_Paris,France-GSV.png} 
+\includegraphics[scale=0.40]{Images/Sydney_Paris,France-GSV.png} 
+\caption{Distribution of Paris predictions in Melbourne and Sydney using GSV-BSV.}    
+ \label{fig:gsv_melsyd_paris}  
+\end{figure}
 
+
+Figure \ref{fig:sydstreet} shows all cities plotted against the Sydney evaluation locations as well as the top 29 predicted locations for the GSV-BSV neural network. The results are very similar to those in the Melbourne evaluation. Again, the overall predictions are dominated by other Australian cities scattered widely throughout the entire greater Sydney area. The remaining predicted results show no strong groupings of any predicted countries or cities but some of the common predictions include cities from the United States, New Zealand, South African, and a number of European countries. The CBD shows a similar scattering of predictions with no single city or country dominating (apart from other Australian cities). Only 6 predictions (out of 14644 evaluated locations) were made of Paris, France by the GSV-BSV neural network (Figure \ref{fig:gsv_melsyd_paris}).
 
 \begin{figure}[!htbp]
 \centering    
@@ -434,26 +467,34 @@ Figure \ref{fig:sydmaps} shows all cities plotted against the Sydney evaluation 
 \end{figure} 
 
 
-
+%\begin{figure}[!htbp]
+%\centering    
+%\includegraphics[scale=0.20]{Images/Melbourne_satellite_abr.png} 
+%\includegraphics[scale=0.20]{Images/Sydney_satellite_abr.png} 
+%\includegraphics[scale=0.20]{Images/Melbourne_maps_abr.png} 
+%\includegraphics[scale=0.20]{Images/Sydney_maps_abr.png} 
+%\includegraphics[scale=0.20]{Images/Melbourne_street_abr.png} 
+%\includegraphics[scale=0.20]{Images/Sydney_street_abr.png} 
+%\caption{Predicted similar country of predicted locations using GS, GM, and GSV-BSV neural networks for Melbourne and Sydney evaluation locations.}    
+% \label{fig:gislabels}  
+%\end{figure} 
 
 
 \section{Discussion}\label{sec:discussion}
-It is a popular claim for cities to say they have a Paris-end. However, this study conclusively disproves that either Melbourne or Sydney have a Paris-end.
+Paris, France is a widely recognizable international iconic city \citep{Anholt2006}, leading to many cities to claim that they have a `Paris-end' of town \citep{Williams2010}, or are a Paris on the \textless insert name of local river \textgreater \citep{Wilden2013}. Visual elements of Paris are widely recognizable \citep{Doersch2012} but can Melbourne or Sydney truly claim to have a `Paris-end' or is Melbourne `Paris on the Yarra' or Sydney `Paris on the Parramatta'? In this study, we use three neural networks, trained using three different visual data sources to test whether either Melbourne or Sydney can really make these claims. 
 
-A fundamental methodology to analyse urban areas. Understanding the goals of the typology and the data source, leading to 
+In addition to potentially making some local tourist boards unhappy, we also present a fundamental methodology to objectively analyse urban areas using big data imagery. We find that each of these data sources uncovers a unique set of urban typologies and that understanding the aims of each analysis requires and understanding of what parameters each data set will emphasise.
 
-Parameters lead to what sorts of results.
+In the first issue, as the results section above show, we can conclusively disprove that either Melbourne and Sydney have a strong case to claim that they have large commonalities with Paris. Using the three different trained neural networks, Paris barely even registers as a prediction in evaluations of either Melbourne or Sydney locations. 
 
+However, in looking at the predictions that do predict a Paris match, there are a number of characteristics about Paris that stand out. A gallery of all of the images for Melbourne and Sydney that the GM neural network found were similar to Paris (Figures \ref{fig:gm_mel_gallery} and \ref{fig:gm_syd_gallery}) shows many common elements. Many of these map images show large parklands (in green) embedded in the cities. Orange lines of public transport (rail and tram) are prominent in the majority of these images as well as large water bodies (in blue). Large arterial and trunk roads run nearby smaller (often curving) local roads, however these local roads tend to still be larger and do not reach the small intricate layouts of some Asian cities.
 
-\begin{figure}[!htbp]
-\centering    
-\includegraphics[scale=0.40]{Images/Melbourne_Paris,France-GM.png} 
-\includegraphics[scale=0.40]{Images/Sydney_Paris,France-GM.png} 
-\caption{Distribution of Paris predictions in Melbourne and Sydney using GM.}    
- \label{fig:gm_melsyd_paris}  
-\end{figure} 
-
- 
+ \begin{figure}[!htbp]
+ \centering    
+ \includegraphics[scale=0.50]{Images/MelbourneLikeParis/Melbourne_maps_gallery.png} 
+ \caption{Gallery of Paris predictions for Melbourne using GM.}    
+  \label{fig:gm_mel_gallery}  
+ \end{figure} 
 
 \begin{figure}[!htbp]
 \centering    
@@ -462,20 +503,11 @@ Parameters lead to what sorts of results.
  \label{fig:gm_syd_gallery}  
 \end{figure} 
 
-\begin{figure}[!htbp]
-\centering    
-\includegraphics[scale=0.50]{Images/MelbourneLikeParis/Melbourne_maps_gallery.png} 
-\caption{Gallery of Paris predictions for Melbourne using GM.}    
- \label{fig:gm_mel_gallery}  
-\end{figure} 
+As the GSV-BSV neural network only picked Paris for 0.062\% of the evaluated locations for Melbourne and 0.40\% for Sydney, it can be stated that from a visual street-level view, there is almost nothing about either Melbourne or Sydney that is visually similar to Paris. In the very few predicted locations that were predicted to be Paris (Figures \ref{fig:gsv_mel_gallery} and  \ref{fig:gsv_syd_gallery}), it can only be inferred that perhaps street trees are an important part of what makes Paris look like Paris.
 
-\begin{figure}[!htbp]
-\centering    
-\includegraphics[scale=0.40]{Images/Melbourne_Paris,France-GSV.png} 
-\includegraphics[scale=0.40]{Images/Sydney_Paris,France-GSV.png} 
-\caption{Distribution of Paris predictions in Melbourne and Sydney using GSV-BSV.}    
- \label{fig:gsv_melsyd_paris}  
-\end{figure}
+
+
+
 
 \begin{figure}[!htbp]
 \centering    
@@ -490,6 +522,33 @@ Parameters lead to what sorts of results.
 \caption{Gallery of Paris predictions for Sydney using GSV-BSV.}    
  \label{fig:gsv_syd_gallery}  
 \end{figure} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+A fundamental methodology to analyse urban areas. Understanding the goals of the typology and the data source, leading to 
+
+Parameters lead to what sorts of results.
+
+
+
+
+
+
+
+
+
 
 \section{Conclusion}\label{sec:conclusion}
 

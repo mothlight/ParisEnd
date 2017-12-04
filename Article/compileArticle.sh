@@ -29,6 +29,17 @@ cp -u "/home/kerryn/git/2017-07-MelbourneLikeParis-StreetView/analysis_minus_syd
 cp -u "/home/kerryn/git/2017-07-MelbourneLikeParis-StreetView/analysis_minus_sydmel_street_view/Melbourne_Paris, France.png" Images/Melbourne_Paris,France-GSV.png
 
 
+cp -u "/home/kerryn/git/2017-07-MelbourneLikeParis-StreetView/analysis_minus_sydmel_satellite/Melbourne_satellite_abr.png" Images/Melbourne_satellite_abr.png
+cp -u "/home/kerryn/git/2017-07-MelbourneLikeParis-StreetView/analysis_minus_sydmel_satellite/Sydney_satellite_abr.png" Images/Sydney_satellite_abr.png
+cp -u "/home/kerryn/git/2017-07-MelbourneLikeParis-StreetView/analysis_minus_sydmel_maps/Melbourne_maps_abr.png" Images/Melbourne_maps_abr.png
+cp -u "/home/kerryn/git/2017-07-MelbourneLikeParis-StreetView/analysis_minus_sydmel_maps/Sydney_maps_abr.png" Images/Sydney_maps_abr.png
+cp -u "/home/kerryn/git/2017-07-MelbourneLikeParis-StreetView/analysis_minus_sydmel_street_view/Melbourne_street_abr.png" Images/Melbourne_street_abr.png
+cp -u "/home/kerryn/git/2017-07-MelbourneLikeParis-StreetView/analysis_minus_sydmel_street_view/Sydney_street_abr.png" Images/Sydney_street_abr.png
+
+cp -u "/home/kerryn/git/2017-07-MelbourneLikeParis-StreetView/analysis_minus_sydmel_maps/MelbourneCBD_maps_detail.png" Images/MelbourneCBD_maps_detail.png
+cp -u "/home/kerryn/git/2017-07-MelbourneLikeParis-StreetView/analysis_minus_sydmel_maps/MelbourneCBD_maps_detail2.png" Images/MelbourneCBD_maps_detail2.png
+
+
 bibtex ParisEnd.aux
 makeglossaries  ParisEnd
 makeindex ParisEnd.nlo -s nomencl.ist -o ParisEnd.nls

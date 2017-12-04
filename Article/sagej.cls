@@ -362,10 +362,10 @@ centering]{geometry}
  
 \def\startpage{\pageref{FirstPage}}
 \def\endpage{\pageref{LastPage}}
-\def\volumeyear{0000}
+\def\volumeyear{2018}
 \def\volumenumber{XX}
 \def\issuenumber{X}
-\def\journalname{Journal Title}
+\def\journalname{Environment and Planning B: Urban Analytics and City Science}
 
 \def\runninghead#1{\markboth{{#1}}{}}
 
