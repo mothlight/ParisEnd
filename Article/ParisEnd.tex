@@ -481,11 +481,11 @@ Figure \ref{fig:sydstreet} shows all cities plotted against the Sydney evaluatio
 
 
 \section{Discussion}\label{sec:discussion}
-Paris, France is a widely recognizable international iconic city \citep{Anholt2006}, leading to many cities to claim that they have a `Paris-end' of town \citep{Williams2010}, or are a Paris on the \textless insert name of local river \textgreater \citep{Wilden2013}. Visual elements of Paris are widely recognizable \citep{Doersch2012} but can Melbourne or Sydney truly claim to have a `Paris-end' or is Melbourne `Paris on the Yarra' or Sydney `Paris on the Parramatta'? In this study, we use three neural networks, trained using three different visual data sources to test whether either Melbourne or Sydney can really make these claims. 
+Paris, France is a widely recognizable international iconic city \citep{Anholt2006}, leading to many cities to claim that they have a `Paris-end' of town \citep{Williams2010}, or are a Paris on the \textless insert name of local river \textgreater \citep{Wilden2013}. Melbourne and Sydney are no exception to this rule. Visual elements of Paris are widely recognizable \citep{Doersch2012} but can Melbourne or Sydney truly claim to have a `Paris-end'? Is Melbourne `Paris on the Yarra' or Sydney `Paris on the Parramatta'? In this study, we use three neural networks, trained using three different visual data sources to test whether either Melbourne or Sydney can really make these claims. 
 
 In addition to potentially making some local tourist boards unhappy, we also present a fundamental methodology to objectively analyse urban areas using big data imagery. We find that each of these data sources uncovers a unique set of urban typologies and that understanding the aims of each analysis requires and understanding of what parameters each data set will emphasise.
 
-In the first issue, as the results section above show, we can conclusively disprove that either Melbourne and Sydney have a strong case to claim that they have large commonalities with Paris. Using the three different trained neural networks, Paris barely even registers as a prediction in evaluations of either Melbourne or Sydney locations. 
+With the first question raised by this study, as the results section above show, we can conclusively disprove that either Melbourne and Sydney have a strong case to claim that they have large commonalities with Paris. Using the three different trained neural networks, Paris barely even registers as a prediction in evaluations of either Melbourne or Sydney locations. 
 
 However, in looking at the predictions that do predict a Paris match, there are a number of characteristics about Paris that stand out. A gallery of all of the images for Melbourne and Sydney that the GM neural network found were similar to Paris (Figures \ref{fig:gm_mel_gallery} and \ref{fig:gm_syd_gallery}) shows many common elements. Many of these map images show large parklands (in green) embedded in the cities. Orange lines of public transport (rail and tram) are prominent in the majority of these images as well as large water bodies (in blue). Large arterial and trunk roads run nearby smaller (often curving) local roads, however these local roads tend to still be larger and do not reach the small intricate layouts of some Asian cities.
 
@@ -503,11 +503,7 @@ However, in looking at the predictions that do predict a Paris match, there are 
  \label{fig:gm_syd_gallery}  
 \end{figure} 
 
-As the GSV-BSV neural network only picked Paris for 0.062\% of the evaluated locations for Melbourne and 0.40\% for Sydney, it can be stated that from a visual street-level view, there is almost nothing about either Melbourne or Sydney that is visually similar to Paris. In the very few predicted locations that were predicted to be Paris (Figures \ref{fig:gsv_mel_gallery} and  \ref{fig:gsv_syd_gallery}), it can only be inferred that perhaps street trees are an important part of what makes Paris look like Paris.
-
-
-
-
+As the GSV-BSV neural network only picked Paris for 0.062\% of the evaluated locations for Melbourne and 0.40\% for Sydney, it can be stated that from a visual street-level view, there is almost nothing about either Melbourne or Sydney that is visually similar to Paris at a street view level. In the very few predicted locations that were predicted to be Paris (Figures \ref{fig:gsv_mel_gallery} and  \ref{fig:gsv_syd_gallery}), it can only be inferred that perhaps street trees are an important part of what makes Paris look like Paris.
 
 \begin{figure}[!htbp]
 \centering    
@@ -525,10 +521,9 @@ As the GSV-BSV neural network only picked Paris for 0.062\% of the evaluated loc
 
 
 
+Finally, using the GS neural network, none of the evaluated locations for either Melbourne or Sydney were predicted to be Paris. From an overhead remote sensing point of view, there is nothing about either Melbourne or Sydney that will be confused with Paris by the GS trained neural network. 
 
-
-
-
+Despite these disappointing results (at least from the standpoint of some Australian cities aspiring to be mistaken for the `City of Light'), this analysis reveals a number of exciting possibilities for these neural networks and their uses. This fundamental methodology can be used to look at many different aspects of cities and understand what elements of their urban design leads them to work in different ways.
 
 
 
