@@ -240,7 +240,6 @@ The predictions through GM (Table \ref{tab:melbournesydneyGM}) are dominated by 
 \begin{table}[!htbp]
 \caption{Top 20 cities like Melbourne and Sydney through GM \label{tab:melbournesydneyGM}}     
 \begin{tabular}{| l | l |l| l | l|}
-\hline
  \hline    &  \multicolumn{2}{c|}{\textbf{Melbourne evaluation}} & \multicolumn{2}{c|}{\textbf{Sydney evaluation}}  \\  
 \textbf{Predicted city} & \textbf{Matches} & \textbf{\% matching}  & \textbf{Matches} & \textbf{\% matching}\\ \hline
 Brisbane, Australia & 4061 & 17.64 & 3591 & 14.60      \\ \hline
@@ -274,12 +273,11 @@ West Yorkshire, United Kingdom&-&- & 131 & 0.53\\ \hline
 \end{tabular}
 \end{table}
 
-The results for the predictions through GS (Table \ref{tab:melbournesydneyGS}) show wider divergences from both Australia and between Melbourne and Sydney. Both Melbourne and Sydney are strongly matched to Brazil. Melbourne is matched to Brazil in 39.5\% of the evaluation locations (and 43.6\% for Brazil and Argentina) while Sydney is matched to Brazil in 50.3 of the evaluation locations (and 54.4\% for Brazil and Argentina). Melbourne and Sydney show wider divergences from each other, only having 7 of the top 20 predicted cities in common. Melbourne shows a stronger connection to Wellington, NZ while Sydney is much more similar to Sevastopol, Ukraine.
+The results for the predictions through GS (Table \ref{tab:melbournesydneyGS}) show wider divergences from both Australia and between Melbourne and Sydney. Both Melbourne and Sydney are strongly matched to Brazil. Melbourne is matched to Brazil in 39.5\% of the evaluation locations (and 43.6\% for Brazil and Argentina) while Sydney is matched to Brazil in 50.3\% of the evaluation locations (and 54.4\% for Brazil and Argentina). Melbourne and Sydney show wider divergences from each other, only having 7 of the top 20 predicted cities in common. Melbourne shows a stronger connection to Wellington, NZ while Sydney is much more similar to Sevastopol, Ukraine.
 
 \begin{table}[!htbp]
 \caption{Top 20 cities like Melbourne and Sydney through GS \label{tab:melbournesydneyGS}}     
 \begin{tabular}{| l | l |l| l | l|}
-\hline
  \hline    &  \multicolumn{2}{c|}{\textbf{Melbourne evaluation}} & \multicolumn{2}{c|}{\textbf{Sydney evaluation}}  \\  
 \textbf{Predicted city} & \textbf{Matches} & \textbf{\% matching}  & \textbf{Matches} & \textbf{\% matching}\\ \hline
 Jundia\'{i}, Brazil & 6509 & 28.27 & 6478 & 26.34 \\ \hline
@@ -323,7 +321,6 @@ Finally, the predictions through GSV-BSV (Table \ref{tab:melbournesydneyGSV}) sh
 \begin{table}[!htbp]
 \caption{Top 20 cities like Melbourne and Sydney through GSV-BSV \label{tab:melbournesydneyGSV}}     
 \begin{tabular}{| l | l |l| l | l|}
-\hline
  \hline    &  \multicolumn{2}{c|}{\textbf{Melbourne evaluation}} & \multicolumn{2}{c|}{\textbf{Sydney evaluation}}  \\  
 \textbf{Predicted city} & \textbf{Matches} & \textbf{\% matching}  & \textbf{Matches} & \textbf{\% matching}\\ \hline
 Perth, Australia & 1424 & 6.79 & 497 & 3.39 \\ \hline
@@ -451,13 +448,13 @@ Figure \ref{fig:melstreet} shows all cities plotted against the Melbourne evalua
 \end{figure}
 
 
-Figure \ref{fig:sydstreet} shows all cities plotted against the Sydney evaluation locations as well as the top 29 predicted locations for the GSV-BSV neural network. The results are very similar to those in the Melbourne evaluation. Again, the overall predictions are dominated by other Australian cities scattered widely throughout the entire greater Sydney area. The remaining predicted results show no strong groupings of any predicted countries or cities but some of the common predictions include cities from the United States, New Zealand, South African, and a number of European countries. The CBD shows a similar scattering of predictions with no single city or country dominating (apart from other Australian cities). Only 6 predictions (out of 14644 evaluated locations) were made of Paris, France by the GSV-BSV neural network (Figure \ref{fig:gsv_melsyd_paris}).
+Figure \ref{fig:sydstreet} shows all cities plotted against the Sydney evaluation locations as well as the top 29 predicted locations for the GSV-BSV neural network. The results are very similar to those in the Melbourne evaluation. Again, the overall predictions are dominated by other Australian cities scattered widely throughout the entire greater Sydney area. The remaining predicted results show no strong groupings of any predicted countries or cities but some of the common predictions include cities from the United States, New Zealand, South African, and a number of European countries. The CBD shows a similar scattering of predictions with no single city or country dominating (apart from other Australian cities). Only 6 predictions (out of 14644 evaluated locations) were made of Paris, France by the GSV-BSV neural network (Figure \ref{fig:gsv_melsyd_paris}). The total number of predicted `Paris-like` locations across all three neural networks are presented in Table \ref{tab:melbournesydneyparis}.
 
 \begin{figure}[!htbp]
 \centering    
 \includegraphics[scale=0.20]{Images/SydneyOverall_street.png} 
 \includegraphics[scale=0.20]{Images/SydneyOverallAbrev_street.png}  
-\caption{Predicted similar cities using GSV-BSV neural network for Sydney evaluation locations. All 1074 cities plotted using Figure \ref{fig:colorscheme} color scheme (left) and top 29 predicted cities (right)}    
+\caption{Predicted similar cities using GSV-BSV neural network for Sydney evaluation locations. All 1074 cities plotted using Figure \ref{fig:colorscheme} color scheme (left). Top 29 only predicted cities (right)}    
  \label{fig:sydstreet}  
 \end{figure} 
 
@@ -473,6 +470,33 @@ Figure \ref{fig:sydstreet} shows all cities plotted against the Sydney evaluatio
 %\caption{Predicted similar country of predicted locations using GS, GM, and GSV-BSV neural networks for Melbourne and Sydney evaluation locations.}    
 % \label{fig:gislabels}  
 %\end{figure} 
+
+
+
+
+
+
+
+
+
+\begin{table}[!htbp]
+\caption{How much are Melbourne and Sydney like Paris? \label{tab:melbournesydneyparis}}     
+\begin{tabular}{| l | l |l| l | l|}
+ \hline    &  \multicolumn{2}{c|}{\textbf{Melbourne}} & \multicolumn{2}{c|}{\textbf{Sydney}}  \\  
+\textbf{Neural network} & \textbf{Matches} & \textbf{\% matching}  & \textbf{Matches} & \textbf{\% matching}\\ \hline
+GM & 70 & 0.3 & 99 & 0.4 \\ \hline
+GS & 1 & 0.00004 & 0 & 0 \\ \hline
+GSV-BSV & 13 & 0.06 & 6 & 0.04 \\ \hline
+
+\end{tabular}
+\end{table}
+
+
+
+
+
+
+
 
 
 \section{Discussion}\label{sec:discussion}
@@ -498,7 +522,7 @@ However, in looking at the few locations that are deemed to be `Paris-like', the
  \label{fig:gm_syd_gallery}  
 \end{figure} 
 
-As the GSV-BSV neural network only picked Paris for 0.062\% of the evaluated locations for Melbourne and 0.40\% for Sydney, it can be stated that from a visual street-level view, there is almost nothing about either Melbourne or Sydney that is visually similar to Paris at this level of imagery. In the galleries of `Paris-like' images for Melbourne and Sydney (Figures \ref{fig:gsv_mel_gallery} and  \ref{fig:gsv_syd_gallery}), it can only be inferred that perhaps street trees are an important part of what makes Paris look like Paris.
+As the GSV-BSV neural network only picked Paris for 0.062\% of the evaluated locations for Melbourne and 0.040\% for Sydney, it can be stated that from a visual street-level view, there is almost nothing about either Melbourne or Sydney that is visually similar to Paris at this level of imagery. In the galleries of `Paris-like' images for Melbourne and Sydney (Figures \ref{fig:gsv_mel_gallery} and  \ref{fig:gsv_syd_gallery}), it can only be inferred that perhaps street trees are an important part of what makes Paris look like Paris.
 
 \begin{figure}[!htbp]
 \centering    
@@ -525,8 +549,7 @@ The GM neural network used in this study has also been used to cluster world cit
 As seen in the unsuccessful attempt to find `Paris-like' parts of Melbourne and Sydney, certain characteristics stand out as strongly influencing how each city fits into a specific typology and of other similar cities in those same typologies. Using the GM neural network approach, urban form can be evaluated. Characteristics which will influential in grouping cities with a particular typology will include amounts and types of public transportation, urban green space size and embeddedness, road network structure, water body inclusion and integration, amounts of informal unplanned open space, and density and topology influences on city structure. Some of the features included in the GM imagery, that made cities `Paris-like`, were a higher density of trains and trams, large broad sections of urban green space, and an integration of urban green space and waterways.
 
 
-From the point of view of an above city remote sensing (satellite imagery), natural characteristics will feature more predominantly in classifying locations within a particular typology. In Figure \ref{fig:satimages}a, satellite imagery of Melbourne shows a number of colour and terrain similarities with Adelaide, Australia, Campinas, Brazil, Jundia\'{i}, Brazil, Miami, USA, Provo, USA, and Wellington, NZ, the cities with the largest number of GS similarities between Melbourne (all also shown in Figure \ref{fig:satimages}).
-
+From the point of view of above city remote sensing (satellite imagery), natural characteristics will feature more predominantly in classifying locations within a particular typology. In Figure \ref{fig:satimages}a, satellite imagery of Melbourne shows a number of colour and terrain similarities with Adelaide, Australia, Campinas, Brazil, Jundia\'{i}, Brazil, Miami, USA, Provo, USA, and Wellington, NZ, the cities with the largest number of GS similarities between Melbourne (all also shown in Figure \ref{fig:satimages}) perhaps being more influential than characteristics of urban form with the GM neural network.
 
 
 
@@ -544,11 +567,14 @@ g) \includegraphics[trim = 50mm 50mm 50mm 50mm, clip, scale=0.18]{Images/GoogleS
  \label{fig:satimages}  
 \end{figure} 
 
-
+Finally, in examining the results from the GSV-BSV neural network evaluation, this micro-level of imagery would arguably capture the visual geography that most people would say `this is what makes Paris look like Paris'. Or in the case of this study, these visual elements are what makes Melbourne or Sydney look like Paris. But as \cite{Doersch2012} found in trying to answer the question of `What makes Paris look like Paris?', overall this answer is not based on a small number of famous iconic landmarks (i.e. the Eiffel Tower, the Louvre, etc.) but on a vast array of widespread smaller features. These features include elements such as cast-iron railings on balconies, grid-like balcony arrangements, distinctive street signs, streetlamps on pedestals, window balustrades, and Parisian doorways. Other factors that make the two Australian cities less Paris-like are the types of urban vegetation as well as amounts. For example, Paris has a much lower Green View Index (the amount of vegetation visible at a street level), 8.8\% compared to Sydney's 25.9\% \citep{Li2015}. The colour and quantity of street level vegetation will be highly influential in the neural network's predictions.
 
 
 
 \section{Conclusion}\label{sec:conclusion}
+
+In this study, we have conclusively answered the question, does Melbourne or Sydney have a `Paris-end' of town with a definitive no. Using millions of images of thousands of cities, our three trained neural networks concluded that at best, Sydney could be considered only 0.4\% `Paris-like` while Melbourne can only boast 0.3\%. But in answering this question, we have also demonstrated some new techniques in assessing urban typologies based on a number of different urban characteristics. Using three different sources of imagery (street maps, satellite imagery, and street view level imagery), our trained neural networks are able to identify commonalities between a wide number of cities. Using the GM neural network, urban features such as wide broad green spaces, a high level of public transport, the form and scale of the road networks, and topography and natural features become influential in grouping cities into clusters. Using the GS neural network, natural characteristics become to dominate the grouping of these city clusters. Finally, with the GSV-BSV neural network, micro-scaled visual geographical features (road widths, urban vegetation, building styles, etc.) become the dominant influence on how different world cities are clustered together. This clustering based on various elements of urban form can then allow further analysis in how the urban form influences outcomes with in these areas. Such areas of study can include health outcomes, transportation options, and many other topics. 
+
 
 %\begin{thebibliography}{}
 %\subsection*{References}\label{sec:ref}
