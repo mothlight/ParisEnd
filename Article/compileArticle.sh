@@ -13,11 +13,11 @@ cp -u ../analysis_minus_sydmel_satellite/SydneyOverallAbrev2.png Images/SydneyOv
 
 
 cp -u ../analysis_minus_sydmel_street_view/MelbourneOverall.png Images/MelbourneOverall_street.png
-cp -u ../analysis_minus_sydmel_street_view/MelbourneOverallAbrev.png Images/MelbourneOverallAbrev_street.png
+cp -u ../analysis_minus_sydmel_street_view/MelbourneOverallAbrev2.png Images/MelbourneOverallAbrev_street.png
 cp -u ../analysis_minus_sydmel_street_view/SydneyOverall.png Images/SydneyOverall_street.png
-cp -u ../analysis_minus_sydmel_street_view/SydneyOverallAbrev.png Images/SydneyOverallAbrev_street.png
+cp -u ../analysis_minus_sydmel_street_view/SydneyOverallAbrev2.png Images/SydneyOverallAbrev_street.png
 
-cp -u /home/kerryn/git/MonashUserPage/files/ParisEnd/analysis_paris_end/World_map_color_scheme.png Images/World_map_color_scheme.png
+cp -u /home/kerryn/git/MonashUserPage/files/ParisEnd/analysis_paris_end/World_map_color_scheme2.png Images/World_map_color_scheme.png
 
 cp -u "/home/kerryn/git/2017-07-MelbourneLikeParis-StreetView/analysis_minus_sydmel_maps/Melbourne_Brisbane, Australia.png" Images/Melbourne_Brisbane,Australia-GM.png
 
