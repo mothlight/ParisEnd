@@ -230,7 +230,21 @@ The confluence of recent advances in availability of geospatial information, com
 % Use first person. PLOS ONE authors please skip this step. 
 % Author Summary not valid for PLOS ONE submissions.   
 \section*{Author summary}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget porta erat. Morbi consectetur est vel gravida pretium. Suspendisse ut dui eu ante cursus gravida non sed sem. Nullam sapien tellus, commodo id velit id, eleifend volutpat quam. Phasellus mauris velit, dapibus finibus elementum vel, pulvinar non tellus. Nunc pellentesque pretium diam, quis maximus dolor faucibus id. Nunc convallis sodales ante, ut ullamcorper est egestas vitae. Nam sit amet enim ultrices, ultrices elit pulvinar, volutpat risus.
+TODO 
+
+We ask that all authors of research articles include a 150–200 word non-technical summary of the work as part of the manuscript to immediately follow the abstract. This text is subject to editorial change, should be written in the first-person voice, and should be distinct from the scientific abstract.
+
+Aim to highlight where your work fits within a broader context; present the significance or possible implications of your work simply and objectively; and avoid the use of acronyms and complex terminology wherever possible. The goal is to make your findings accessible to a wide audience that includes both scientists and non-scientists.
+
+Authors may benefit from consulting with a science writer or press officer to ensure they effectively communicate their findings to a general audience.
+Example Author Summaries
+ 
+
+Systems Analysis of Chaperone Networks in the Malarial Parasite Plasmodium falciparum
+
+Protein–Protein Interaction Hotspots Carved into Sequences
+
+Elucidating the Altered Transcriptional Programs in Breast Cancer using Independent Component Analysis
 
 \linenumbers
 
@@ -362,6 +376,8 @@ Images from Sydney and Melbourne, Australia were excluded from the training data
 
 %To accurately calibrate the 25 million parameters of the Inception V3 architecture for any computer vision task, it is preferable to use millions of training images with high-quality labels. Therefore, 1000 samples were randomly selected from each city area, resulting in a training dataset of 1.6 million images each for the GM and GS networks and 1.1 million images for the GSV-BSV network. These datasets were randomly split into training (75\%) and validation (25\%) sets. In order to obtain a balanced training data set of 750 images per city, sampling was performed sequentially per city.
 
+(TODO, convert this to an Inception V2 network. Also, figure out the effects of feeding in 320x320 into the network for the GM model.)
+
 Two versions of the Inception network were used in this study. The GM neural network was trained using the Inception V3 network while the GS and GSV-BSV neural networks used the Inception V2 network. 
 
 The Inception V3 network was calibrated using supervised learning with the generated dataset to identify the name of the city based on a supplied precinct-level image. Several pre-processing steps were performed before supplying the image to the neural network. In particular, images were randomly flipped and randomly cropped during pre-processing from 320x320x3 to Inception V3's native 299x299x3 resolution. No zooming is applied and the aspect ratio is kept fixed, while colour transformations are not required due to our pre-specified limited colour scheme. All images were normalised to [-1, 1] by subtracting a colour value of 128 from each pixel and multiplying by 1/128. To ensure good mixing, training images were randomly allocated to batches. Validation images were transformed to 299x299x3 using central cropping.
@@ -400,7 +416,7 @@ The resulting predictions from model inference of the evaluation data were analy
 
 
 
-The GM neural network predictions (Table \ref{tab:melbournesydneyGM}) are dominated by other Australian cities (Brisbane, Canberra, Sunshine Coast, Perth, Newcastle and Lake Macquarie, and Adelaide) as well as a number of cities from Israel, South Africa, and the United States. Australian cities make up nearly 33\% of the top 20 predictions for Melbourne and 32\% for Sydney. Melbourne and Sydney also show strong similarities with each other with the neural network considering them similar to the same 12 cities out of the top 20 predictions (accounting for 45\% and 48\% of the total predictions for Melbourne and Sydney respectively).
+The GM neural network predictions (Table \ref{tab:melbournesydneyGM}) are dominated by other Australian cities (Brisbane, Canberra, Sunshine Coast, Perth, Newcastle and Lake Macquarie, and Adelaide) as well as a number of cities from Israel, South Africa, and the United States. Australian cities make up nearly 33\% of the top 20 predictions for Melbourne and 32\% for Sydney. Melbourne and Sydney also show strong similarities with each other with the neural network considering them similar to the same 12 cities out of the top 20 predictions (accounting for 45\% and 48\% of the total predictions for Melbourne and Sydney respectively). (TODO, Jasper asks if this is just because they are Australian cities.)
 
 
 \begin{table}[!htbp]
@@ -441,7 +457,7 @@ West Yorkshire, United Kingdom&-&- & 131 & 0.53\\ \hline
 \end{adjustwidth}
 \end{table}
 
-The GS neural network predictions (Table \ref{tab:melbournesydneyGS}) show wider divergences from other Australia cities and between Melbourne and Sydney themselves. Both Melbourne and Sydney are often matched to Brazilian cities. Melbourne is matched to Brazil in 39.5\% of the evaluation locations (and 43.6\% for Brazil and Argentina) while Sydney is matched to Brazilian cities in 50.3\% of the evaluation locations (and 54.4\% for Brazil and Argentina). Melbourne and Sydney show wider divergences from each other, only having 7 of the top 20 predicted cities in common. In diverging predictions, 13.6\% of Melbourne is confused with Wellington, NZ while 13.7\% of Sydney is considered much more similar to Sevastopol, Ukraine.
+The GS neural network predictions (Table \ref{tab:melbournesydneyGS}) show wider divergences from other Australia cities and between Melbourne and Sydney themselves. Both Melbourne and Sydney are often matched to Brazilian cities. Melbourne is matched to Brazil in 39.5\% of the evaluation locations (and 43.6\% for Brazil and Argentina) while Sydney is matched to Brazilian cities in 50.3\% of the evaluation locations (and 54.4\% for Brazil and Argentina). Melbourne and Sydney show wider divergences from each other, only having 7 of the top 20 predicted cities in common. In diverging predictions, 13.6\% of Melbourne is confused with Wellington, NZ while 13.7\% of Sydney is considered much more similar to Sevastopol, Ukraine. (TODO, Jasper asks why?)
 
 \begin{table}[!htbp]
 \begin{adjustwidth}{-2.25in}{0in}
@@ -550,7 +566,7 @@ Fig \ref{fig:melmaps} shows the top predicted cities (those predicted at a rate 
 \begin{figure}[!htbp]
 \centering     
 \includegraphics[scale=0.40]{Images/MelbourneCBD_maps_detail3.png} 
-\caption{\bf Predicted similar cities (showing three letter country code of city location) using the GM neural network for Melbourne evaluation locations. Detail of Melbourne CBD, with predictions of Paris highlighted in red squares.}    
+\caption{\bf Predicted similar cities (showing three letter country code of city location) using the GM neural network for Melbourne evaluation locations. Detail of Melbourne CBD, with predictions of Paris highlighted in red squares. (TODO, is this figure readable enough?)}    
  \label{fig:melmapscbd}  
 \end{figure} 
 
@@ -592,9 +608,7 @@ GSV-BSV & 13 & 0.06 & 6 & 0.04 \\ \hline
 
 
 \section*{Discussion}\label{sec:discussion}
-
-
-In the first question raised by this study (is there a `Paris-end' of Melbourne or Sydney?), as the results section above show, we can conclusively state that neither Melbourne or Sydney have a strong case to claim that they are like Paris or have an extensive `Paris-end' of town. Using three different trained neural networks and three different sources of imagery, very few locations in Melbourne or Sydney are confused with Paris by the neural networks. 
+This study set out to answer the question is there a `Paris-end' of Melbourne or Sydney? As the results shows, we can conclusively state that neither Melbourne or Sydney have a strong case to claim that they are like Paris or have an extensive `Paris-end' of town. Using three different trained neural networks and three different sources of imagery, very few locations in Melbourne or Sydney are confused with Paris by the neural networks. 
 
 However, in looking at the few locations that are deemed to be `Paris-like', there are a number of common characteristics that stand out. A gallery of all of the images for Melbourne and Sydney that the GM neural network found were similar to Paris are presented in Fig \ref{fig:gm_mel_gallery} and \ref{fig:gm_syd_gallery}. There are a number of common elements in these galleries. Many of these map images show large parklands (in green) embedded in the cities. Orange lines of public transport (rail and tram) are prominent in the majority of these images as well as large water bodies (in blue). Large arterial and trunk roads run nearby smaller (often curving) local roads, however these local roads tend to still be larger and do not reach the small intricate layouts of some Asian cities.
 
@@ -841,9 +855,7 @@ The GM neural network used in this study has also been used to cluster world cit
 As seen in the unsuccessful attempt to find significant areas of `Paris-like' locations in Melbourne or Sydney, certain characteristics stand out as strongly influencing how each city fits into a specific typology and of other similar cities in those same typologies. Using the GM neural network approach, urban form can be evaluated. Characteristics that will be influential in grouping cities with a particular typology will include extents and types of public transportation, urban green space size and embeddedness, road network structure, water body inclusion and integration, amounts of informal unplanned open space, and density and topology influences on city structure. Some of the features included in the GM imagery that made cities `Paris-like' were a higher density of trains and trams, large broad sections of urban green space, and an integration of urban green space and waterways.
 
 
-From the point of view of above city remote sensing (satellite imagery), natural characteristics will feature more predominantly in classifying locations within a particular typology. In Fig \ref{fig:satimages}a, satellite imagery of Melbourne shows a number of colour and terrain similarities with Adelaide, Australia, Campinas, Brazil, Jundia\'{i}, Brazil, Miami, USA, Provo, USA, and Wellington, NZ (all also shown in Fig \ref{fig:satimages}), the cities with the largest number of GS similarities between Melbourne perhaps being more influential than characteristics of built urban form highlighted by the GM neural network.
-
-
+Using remote sensing (satellite imagery) of urban areas, natural characteristics will feature more predominantly in classifying locations within a particular typology. In Fig \ref{fig:satimages}a, satellite imagery of Melbourne shows a number of colour and terrain similarities with its top 6, namely Adelaide, Australia; Campinas, Brazil; Jundia\'{i}, Brazil; Miami, USA; Provo, USA; and Wellington, NZ (all shown in Fig \ref{fig:satimages}). Perhaps showing that natural characteristics are more influential to what the GS neural networks think make cities similar than the characteristics of built urban form highlighted by the GM neural network.
 
 
 \begin{figure}[!htbp]
