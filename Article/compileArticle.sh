@@ -42,6 +42,7 @@ cp -u "/home/kerryn/git/2017-07-MelbourneLikeParis-StreetView/analysis_minus_syd
 
 cp -u /home/kerryn/Documents/Work/Data/LatexTemplates/PlosOne/plos_latex_template.tex .
 cp -u /home/kerryn/Documents/Work/Data/LatexTemplates/PlosOne/plos2015.bst .
+cp -u /home/kerryn/Documents/Work/Data/LatexTemplates/PlosOne/PLOS-submission.eps .
 
 
 bibtex ParisEnd.aux
