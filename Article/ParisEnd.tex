@@ -106,6 +106,8 @@
 % array package and thick rules for tables
 \usepackage{array}
 
+\usepackage[colorinlistoftodos]{todonotes}
+
 % create "+" rule type for thick vertical lines
 \newcolumntype{+}{!{\vrule width 2pt}}
 
@@ -175,6 +177,8 @@
 \begin{document}
 \vspace*{0.2in}
 
+\listoftodos
+
 % Title must be 250 characters or less.
 \begin{flushleft}
 {\Large
@@ -242,20 +246,58 @@ This work was done to demonstrate the opportunities presented by the combination
 
 \section*{Introduction}\label{sec:introduction}
 
-\cite{Bruce1971}
-
-
 Cities are now home to the majority of the world's population with trends predicting continued growth in urbanisation \cite{UNDESA2015,WHO2016}. The cities on the 2015 United Nations list of cities with populations exceeding 300,000 residents \cite{UN2014} contain 2.2 billion people (or approximately 31\% of the world's population) in 2015. Global trends towards high urbanisation and rapid population growth and the challenges these trends create in urban areas around infrastructure, transport, and health can be seen in an example such as Australia. In 2013, 65\% of Australians lived in capital cities and it is estimated that this will increase to 72\% by 2053  \cite{ABS2008}. These projections are reflected in population growth estimates that will see the country's population likely increase from 24 million today to over 33 million by 2050 \cite{ABS2008}. This growth is expected to mostly take place within the four largest capital cities (Sydney, Melbourne, Brisbane, and Perth) with projections indicating that by 2053, both Sydney and Melbourne will have populations of almost 8 million \cite{CommonwealthofAustralia2010}. As a consequence of this population growth in urban areas, an array of planning, transportation, and population health challenges will emerge.
 
-The importance of integrating transport plans with decisions regarding land-use is being recognised by governments \cite{ATAP2016,SAustralia2015}. Land-use decisions significantly influence transport options and travel choice. Further, the high levels of low-density suburbanisation and high car dependency that characterise many cities (in Australia, New Zealand, the United States, and more) are remnants of a mid-twentieth century focus on home and car ownership \cite{Currie2007,Dodson2008}. As a consequence, the status and practical utility of cycling or walking for daily travel requirements is limited \cite{Heesch2014,Daley2011}. Low-density housing renders the cost of large-scale public transport prohibitive, producing a reliance on private vehicles and increasing exposure to risks associated with traffic speed, volume, emissions, and physical inactivity  \cite{Cepeda2016,MingWen2008,Norman2006}. Although some progress has been made in promoting active modes of transport, the percentage of Australians walking or cycling to work remains low and primarily concentrated in low-speed, inner-city areas where distances are minimal. Public health policy-makers and urban/transport planners have an opportunity to change this situation by embracing strategies that proactively support active transport modes as facilitated by urban designs witnessed in other countries around the world.
+The form a city takes, particularly how the land is allocated to different purposes, can have a large impact on how that city works for its inhabitants and the impacts on their health and happiness. For example, substantial published evidence indicates that land-use affects transport modal choice and behaviour  \cite{Giles-corti2016,Kleinert2016,Goenka2016}. In addition, improved population health outcomes related to chronic conditions such as respiratory disease, cardiovascular disease, and Type 2 diabetes are strongly linked with more active transport modal choices \cite{Zapata-Diomedi2017}. Therefore, the creation of cities and precincts that facilitate greater uptake of safe, active transport could produce manifold environmental, productivity, and population health benefits.
 
-For example, Copenhagen's significant long-term investment in cycling infrastructure, over 2 billion DKK (\texteuro 268 million) since 2004 \cite{Copenhagen2017b} for a city of approximately 550,000 residents, has seen its rates of cycling mode share expand to 45\% of all trips without consequent increases in road trauma \cite{Kaplan2014}. Similarly, Amsterdam's (and the Netherlands more generally) continued leadership in active transport promotion has demonstrated that cycling and walking can be re-claimed in areas and streets previously lost to car traffic, producing both health and economic benefit \cite{Andersen2000}. Substantial published evidence indicates that land-use affects transport modal choice and behaviour  \cite{Giles-corti2016,Kleinert2016,Goenka2016}. In addition, improved population health outcomes related to chronic conditions such as respiratory disease, cardiovascular disease, and Type 2 diabetes are strongly linked with more active transport modal choices  \cite{Zapata-Diomedi2017}. Therefore, the creation of cities and precincts that facilitate greater uptake of safe, active transport could produce manifold environmental, productivity, and population health benefits. 
+However, the high levels of low-density suburbanisation and high car dependency that characterise many cities (in Australia, New Zealand, the United States, and more) are remnants of a mid-twentieth century focus on home and car ownership \cite{Currie2007,Dodson2008}. As a consequence, the status and practical utility of cycling or walking for daily travel requirements is limited \cite{Heesch2014,Daley2011}. Low-density housing renders the cost of large-scale public transport prohibitive, producing a reliance on private vehicles and increasing exposure to risks associated with traffic speed, volume, emissions, and physical inactivity  \cite{Cepeda2016,MingWen2008,Norman2006}. Although some progress has been made in promoting active modes of transport, the percentage of Australians walking or cycling to work remains low and primarily concentrated in low-speed, inner-city areas where distances are minimal. Public health policy-makers and urban/transport planners have an opportunity to change this situation by embracing strategies that proactively support active transport modes as facilitated by urban designs witnessed in other countries around the world. However, understanding the association between urban design features, transport networks, and health or environmental outcomes remains difficult, especially when underlying data, locations, methods, and demographics upon which statistical models are built vary considerably. As a result, globally consistent comparisons between cities are difficult to achieve. 
 
-However, understanding the association between urban design features, transport networks, and health or environmental outcomes remains difficult, especially when underlying data, locations, methods, and demographics upon which statistical models are built vary considerably. As a result, globally consistent comparisons between cities are difficult to achieve. To overcome these limitations, we develop a new framework using an entirely new and highly efficient `bottom-up` approach. Utilising recent advances in computing power and artificial intelligence, as well as an increased availability of globally consistent urban imagery, we train three neural networks using millions of images of urban form (consisting of street view, satellite imagery, and street maps) from over 1500 world-wide cities. 
+Attempts to find quantitative methods, creating city typologies, to assess, describe the major characteristics of the city, and classify different types of urban form have been underway for a number of decades. First attempts used broad characteristics to classify different types of cities. \cite{Harris1943} uses a functional classification system using occupational and employment figures to determine a city's most important economic activity. (manufacturing, retail, diversified, wholesale, transportation, mining, education, and resorts.) \cite{Nelson1955} uses economic activity to classify American cities (such as manufacturing, retail, professional services, financial services, etc. ) to predominately in these categories or many cities (more than 1/3rd) cannot be put into a single category. In reviewing past techniques, \cite{Bruce1971} finds that historically these typologies have included wide ranging areas such as criminal behaviour and economic activity. Finding a balance between the number of categories, a reasonable number without losing important differences. Then \cite{Bruce1971} performs a cluster analysis based on the socio-economic profiles of the cities as well as a number of census based statistics about the cities.  
+
+In these analyses (land use, market behaviour, traffic flows) the contribution of urban design is difficult to examine.
+
+With the growing availability of databases of spatial data and increased computing power, network analysis of the road network structures emerged as a new method to analyse cities.
+
+
+\todo[inline]{
+Insert this into the text
+}
+We are applying a city-scaled typology based on lots of images. (The classifications are other cities.) So, an overall mix of characteristics.
+
+Self organized vs. planned cities
+
+Older cities are disorderly (Jacobs 1961)
+\cite{Porta2006a} structural sociology represents groups of people as a network, individuals as nodes and relationships as edges. Center location provides power (of independence, influence, control). So centrality. Betweenness, closeness, and degree. So, also in other complex networks. 1st property is distance and clustering. 2nd shared property related to centrality (distribution of node's degree). Degree is number of connections.
+Path length - average length of shortest paths
+types of centrality - efficiency, straightness, and information
+the network approach to cities and streets ('space syntax' of Hillier 1996)  can be captured in closeness centrality.
+method emphasises traffic flow and network connections but different types of connectivity can show self-organized vs planned
+
+\cite{Louf2014} finds four clusters based on block size and regularity or diversity of shapes
+
+\cite{Strano2012} finds that the growth of road networks through densification of existing centres and exploration of urban boundaries reflects a historical evolution of the urban area. In addition, the road structure can point to the governance systems underlying each urban area, with areas dominated by a grid structure and four-way crossings reflecting a strong system of top-down planning \cite{Courtat2011} while areas with more dead-ends and T-shaped crossing showing more organic growth \cite{Cardillo2006}.
+
+\cite{Strano2012} also find that the methods of subdividing land reflect the land uses. Large land blocks (formerly agriculture?) are either fragmented into smaller shapes either into medium-large blocks for manufacturing or smaller residential developments. Grid systems (with grids subdivided into smaller grids, i.e. neighbourhoods into streets divided into residential blocks) also evolve where regularity is unconstrained by existing villages or by topography. (Number of links and nodes will be captured in neural network analysis.)
+
+what are the mixes of homogenisation and heterogeneity?
+
+\todo[inline]{
+end insert
+}
+
+
+To overcome these limitations, we develop a new framework using an entirely new and highly efficient `bottom-up` approach. Utilising recent advances in computing power and artificial intelligence, as well as an increased availability of globally consistent urban imagery, we train three neural networks using millions of images of urban form (consisting of street view, satellite imagery, and street maps) from over 1500 world-wide cities. 
 
 Paris, France is a widely recognizable international iconic city \cite{Anholt2006}, leading to many cities to claim that they have a `Paris-end' of town \cite{Williams2010}, or are a Paris on the [insert name of local river] \cite{Wilden2013} (i.e. Paris on the Yarra). Melbourne and Sydney are no exception to this rule. Visual elements of Paris are widely recognizable \cite{Doersch2012}, but can Melbourne or Sydney truly claim to have a `Paris-end'? Is Melbourne `Paris on the Yarra' or Sydney `Paris on the Parramatta'? Using the trained neural networks, we evaluate a systematic sampling of imagery from Melbourne and Sydney to find the closest connections between these areas and their international comparators, testing whether either Melbourne or Sydney can really claim to be `Paris-like'.
 
 However, while potentially making some local tourist boards unhappy, we also present a fundamental methodology to objectively analyse urban areas using big data imagery. We find that each of these data sources uncovers a unique set of urban typology characteristics and that successfully using this analysis technique for urban typological purposes requires an understanding of what characteristics will be emphasised by the varying imagery data sets.
+
+
+
+\todo[inline]{
+Should I look at how similar cities are grouped according to age of the city, founding dates?
+}
+
 
 \section*{Methods}\label{sec:methods}
 \subsection*{Neural network}\label{sec:methods1}
@@ -395,7 +437,7 @@ Finally, using the three trained models, inference was performed using the evalu
 
 \section*{Results}\label{sec:results}
 
-Validation, using 25\% of the training data, was performed on each neural network after the training step. The model for GM reached a validation accuracy of 85.4\% (top 5: 7.7\%). The model for GS reached a validation accuracy of 99.4\% (top 5: 0.03\%). The model for GSV-BSV reached a validation accuracy of 43.1\% (top 5: 30.2\%).
+Validation, using 25\% of the training data, was performed on each neural network after the training step. The model for GM reached a validation accuracy of 73.2\% (top 5: 85.0\%). The model for GS reached a validation accuracy of 99.4\% (top 5: 99.97\%). The model for GSV-BSV reached a validation accuracy of 43.1\% (top 5: 69.8\%).
 
 The resulting predictions from model inference of the evaluation data were analysed in various ways. First, the top 20 predicted cities for the evaluation points for each imagery data set were calculated (see Tables \ref{tab:melbournesydneyGM}, \ref{tab:melbournesydneyGS}, and \ref{tab:melbournesydneyGSV} for GM, GS, and GSV-BSV respectively).
 
@@ -411,34 +453,35 @@ The GM neural network predictions (Table \ref{tab:melbournesydneyGM}) are domina
 \begin{tabular}{ l l l l l}
  \hline    &  \multicolumn{2}{c}{\textbf{Melbourne evaluation}} & \multicolumn{2}{c}{\textbf{Sydney evaluation}}  \\  
 \textbf{Predicted city} & \textbf{Matches} & \textbf{\% matching}  & \textbf{Matches} & \textbf{\% matching}\\ \hline
-Brisbane, Australia & 4061 & 17.64 & 3591 & 14.60      \\ 
-Canberra, Australia & 1699 & 7.38  & 1972 & 8.02     \\ 
-Beer Sheva, Israel & 1110 & 4.82  & 1989 & 8.09   \\ 
-Sunshine Coast, Australia & 793 & 3.44  & 364 & 1.48 \\ 
-Valpara\'{i}so, Chile & 751 & 3.26  & 434 & 1.76 \\ 
-Haifa, Israel & 563 & 2.44  & 1066 & 4.33 \\
-McAllen, United States of America & 442 & 1.92  &-&- \\ 
-Auckland, New Zealand & 330 & 1.43  & 208 & 0.85 \\ 
-Adelaide, Australia & 308 & 1.34  & 326 & 1.33 \\ 
-Perth, Australia & 287 & 1.25  & 132 & 0.54 \\ 
-Johannesburg, South Africa & 244 & 1.06  &-&- \\ 
-Newcastle and Lake Macquarie, Australia & 245 & 1.06  & 1318 & 5.36   \\ 
-Washington, D.C., United States of America & 198 & 0.86  &-&- \\ 
-Toronto, Canada & 140 & 0.61  & 151 & 0.61 \\ 
-Port Elizabeth, South Africa & 138 & 0.6  &-&- \\
-Effon Alaiye, Nigeria & 133 & 0.58  &-&- \\ 
-Gold Coast, Australia & 132 & 0.57  & 163 & 0.66 \\ 
-Pretoria, South Africa & 131 & 0.57  &-&- \\ 
-Louisville, United States of America & 127 & 0.55  &-&- \\ 
-Tel Aviv-Jaffa, Israel & 126 & 0.55  &-&- \\ 
-Kiev, Ukraine &-&- & 351 & 1.43\\ 
-Tasikmalaya, Indonesia&-&- & 344 & 1.40\\
-Caruaru, Brazil &-&- & 241 & 0.98\\ 
-London, United Kingdom &-&- & 175 & 0.71\\ 
-Jerusalem, Israel&-&- & 143 & 0.58\\ 
-London, Canada &-&-& 132 & 0.54\\ 
-Shantou, China&-&- & 130 & 0.53\\ 
-West Yorkshire, United Kingdom&-&- & 131 & 0.53\\ \hline
+
+Brisbane, Australia & 4062 & 17.64 & 2922 & 11.88      \\ 
+Beer Sheva, Israel & 1671 & 7.26 & 3479 & 14.14      \\ 
+Canberra, Australia & 1074 & 4.66 & 1770 & 7.2      \\
+Sunshine Coast, Australia & 960 & 4.17 & 456 & 1.85      \\
+McAllen, United States of America & 794 & 3.45 & 140 & 0.57      \\
+Valpara\'{i}so, Chile & 431 & 1.87 & 383 & 1.56      \\
+Haifa, Israel & 372 & 1.62 & 723 & 2.94      \\
+Gold Coast, Australia & 361 & 1.57 & 265 & 1.08      \\
+Newcastle and Lake Macquarie, Australia & 347 & 1.51 & 1214 & 4.94      \\
+Toronto, Canada & 325 & 1.41 & 209 & 0.85      \\
+Kitwe, Zambia & 303 & 1.32 & - & -      \\
+Pretoria, South Africa & 303 & 1.32 & - & -      \\
+Auckland, New Zealand & 285 & 1.24 & 293 & 1.19      \\
+Johannesburg, South Africa & 239 & 1.04 & - & -      \\
+Perth, Australia & 216 & 0.94 & 111 & 0.45      \\
+Philadelphia, United States of America & 185 & 0.8 & - & -      \\
+Washington, D.C., United States of America & 174 & 0.76 & - & -      \\
+Port Elizabeth, South Africa & 162 & 0.7 & - & -      \\
+Virginia Beach, United States of America & 143 & 0.62 & 235 & 0.96      \\
+Jerusalem, Israel & 142 & 0.62 & 393 & 1.6      \\
+Tasikmalaya, Indonesia & - & - & 238 & 0.97      \\		
+London, United Kingdom & - & - & 199 & 0.81      \\
+Adelaide, Australia & - & - & 152 & 0.62      \\
+Denton-Lewisville, United States of America & - & - & 143 & 0.58      \\						
+Hong Kong, China, Hong Kong SAR & - & - & 121 & 0.49      \\		
+Osaka, Japan & - & - & 113 & 0.46      \\
+
+\hline
 \end{tabular}
 \end{adjustwidth}
 \end{table}
@@ -681,7 +724,9 @@ But in answering this question, we have also demonstrated some new techniques fo
 
 %Using the GM neural network, urban features such as wide broad green spaces, a high level of public transport, the form and scale of the road networks, and topography and natural features become influential in grouping cities into clusters. Using the GS neural network, natural characteristics become to dominate the grouping of these city clusters. Finally, with the GSV-BSV neural network, micro-scaled visual geographical features (road widths, urban vegetation, building styles, etc.) become the dominant influence on how different world cities are clustered together. This clustering based on various elements of urban form can then allow further analysis in how the urban form influences outcomes with in these areas. Such areas of study can include health outcomes, transportation options, and many other topics. 
 
-
+\todo[inline]{
+Add acknowledgement to THUD for HAL.
+}
 
 \nolinenumbers
 
@@ -704,268 +749,6 @@ But in answering this question, we have also demonstrated some new techniques fo
 % \bibliography{library}
 
 \include{ParisEnd_ext_bib}
-
-%\bibitem{Bruce1971}
-%Bruce GD, Witt RE.
-%\newblock {Developing Empirically Derived City Typologies : An Application of
-%  Cluster Analysis}.
-%\newblock The Sociological Quarterly. 1971;12:238--246.
-%
-%\bibitem{UNDESA2015}
-%UNDESA. {World Urbanization Prospects: The 2014 Revision}; 2015.
-%\newblock https://esa.un.org/unpd/wup/.
-%
-%\bibitem{WHO2016}
-%WHO. {World Health Organization | Urban Population Growth}; 2016.
-%\newblock
-%  http://www.who.int/gho/urban{\_}health/situation{\_}trends/urban{\_}population{\_}growth{\_}text/en/.
-%
-%\bibitem{UN2014}
-%{United Nations}. {Department of Economic and Social Affairs, Population
-%  Division, World Urbanization Prospects: The 2014 Revision, CD-ROM Edition};
-%  2014.
-%
-%\bibitem{ABS2008}
-%ABS. {3222.0 - Population Projections, Australia, 2012 (base) to 2101.
-%  Australian Bureau of Statistics.}; 2013.
-%\newblock http://www.abs.gov.au/Ausstats/abs@.nsf/mf/3222.0.
-%
-%\bibitem{CommonwealthofAustralia2010}
-%{Commonwealth of Australia}. {Australia to 2050: future challenges}; 2010.
-%\newblock http://www.treasury.gov.au/igr/igr2010.
-%\newblock Available from: \url{http://www.treasury.gov.au/igr/igr2010}.
-%
-%\bibitem{ATAP2016}
-%{Commonwealth of Australia}. {Australian Transport Assessment and Planning
-%  Guidelines: F0.2 Integrated Transport and Land Use Planning. Australian
-%  Transport Assessment and Planning (ATAP) Steering Committee.}; 2016.
-%
-%\bibitem{SAustralia2015}
-%{Government of South Australia}. {Building a Stronger South Australia: The
-%  Integrated Transport and Land Use Plan, July 2015}; 2015.
-%
-%\bibitem{Currie2007}
-%Currie G, Senbergs Z.
-%\newblock {Exploring forced car ownership in metropolitan Melbourne}.
-%\newblock 30th Australasian Transport Research Forum. 2007;.
-%
-%\bibitem{Dodson2008}
-%Dodson J, Sipe N.
-%\newblock {Shocking the suburbs: Urban location, homeownership and oil
-%  vulnerability in the Australian City}.
-%\newblock Housing Studies. 2008;23(3):377--401.
-%\newblock doi:{10.1080/02673030802015619}.
-%
-%\bibitem{Heesch2014}
-%Heesch KC, Giles-Corti B, Turrell G.
-%\newblock {Cycling for transport and recreation: Associations with
-%  socio-economic position, environmental perceptions, and psychological
-%  disposition}.
-%\newblock Preventive Medicine. 2014;63:29--35.
-%
-%\bibitem{Daley2011}
-%Daley M, Rissel C.
-%\newblock {Perspectives and images of cycling as a barrier or facilitator of
-%  cycling}.
-%\newblock Transport Policy. 2011;18(1):211--216.
-%\newblock doi:{10.1016/j.tranpol.2010.08.004}.
-%
-%\bibitem{Cepeda2016}
-%Cepeda M, Schoufour J, Freak-poli R, Koolhaas CM, Dhana K, Bramer WM, et~al.
-%\newblock {Levels of ambient air pollution according to mode of transport: a
-%  systematic review}.
-%\newblock Lancet Public Health. 2016;2(1):e23--e34.
-%\newblock doi:{10.1016/S2468-2667(16)30021-4}.
-%
-%\bibitem{MingWen2008}
-%{Ming Wen} L, Rissel C.
-%\newblock {Inverse associations between cycling to work, public transport, and
-%  overweight and obesity: Findings from a population based study in Australia}.
-%\newblock Preventive Medicine. 2008;46(1):29--32.
-%\newblock doi:{10.1016/j.ypmed.2007.08.009}.
-%
-%\bibitem{Norman2006}
-%Norman J, MacLean HL, Kennedy CA.
-%\newblock {Comparing High and Low Residential Density : Life-Cycle Analysis of
-%  Energy Use and Greenhouse Gas Emissions}.
-%\newblock Journal of Urban Planning and Development. 2006;(March):10--21.
-%
-%\bibitem{Copenhagen2017b}
-%{City of Copenhagen}. {Copenhagen City of Cyclists: The Bicycle Account 2016};
-%  2017.
-%
-%\bibitem{Kaplan2014}
-%Kaplan S, Vavatsoulas K, Prato CG.
-%\newblock {Aggravating and mitigating factors associated with cyclist injury
-%  severity in Denmark}.
-%\newblock Journal of Safety Research. 2014;50:75--82.
-%\newblock doi:{10.1016/j.jsr.2014.03.012}.
-%
-%\bibitem{Andersen2000}
-%Andersen LB, Schnohr P, Schroll M, Hein HO.
-%\newblock {All-cause mortality associated with physical activity during leisure
-%  time, work, sports, and cycling to work}.
-%\newblock Arch Intern Med. 2000;160(11):1621--1628.
-%\newblock doi:{10.1001/archinte.160.11.1621}.
-%
-%\bibitem{Giles-corti2016}
-%Giles-corti B, Vernez-Moudon A, Reis R, Turrell G, Dannenberg AL, Badland H,
-%  et~al.
-%\newblock {Urban design, transport, and health 1 City planning and population
-%  health: a global challenge}.
-%\newblock The Lancet. 2016;6736(16):1--13.
-%\newblock doi:{10.1016/S0140-6736(16)30066-6}.
-%
-%\bibitem{Kleinert2016}
-%Kleinert S, Horton R.
-%\newblock {Urban design: an important future force for health and wellbeing}.
-%\newblock The Lancet. 2016;6736(16):1--11.
-%
-%\bibitem{Goenka2016}
-%Goenka S, Andersen LB.
-%\newblock {Urban design and transport to promote healthy lives}.
-%\newblock The Lancet. 2016;6736(16):8--10.
-%\newblock doi:{10.1016/S0140-6736(16)31580-X}.
-%
-%\bibitem{Zapata-Diomedi2017}
-%Zapata-Diomedi B, Knibbs LD, Ware RS, Heesch KC, Tainio M, Woodcock J, et~al.
-%\newblock {A shift from motorised travel to active transport: What are the
-%  potential health gains for an Australian city?}
-%\newblock PLoS ONE. 2017;12(10):1--21.
-%\newblock doi:{10.1371/journal.pone.0184799}.
-%
-%\bibitem{Anholt2006}
-%Anholt S.
-%\newblock {The Anholt-GMI City Brands Index: How the world sees the world's
-%  cities}.
-%\newblock Place Branding. 2006;2(1):18--31.
-%
-%\bibitem{Williams2010}
-%Williams R.
-%\newblock {'Tower plans cast shadow over Collins Street's 'Paris end''}.
-%\newblock The Age. 2010;May 10:Online.
-%
-%\bibitem{Wilden2013}
-%Wilden N.
-%\newblock {'France-Soir: A bite of Paris on the Yarra'}.
-%\newblock The Australian. 2013;December 2:Online.
-%
-%\bibitem{Doersch2012}
-%Doersch C, Singh S, Gupta A, Sivic J, Efros A.
-%\newblock {What Makes Paris Look like Paris?}
-%\newblock ACM Transactions on Graphics, Association for Computing Machinery.
-%  2012;31(4).
-%
-%\bibitem{Bishop1995}
-%Bishop CM.
-%\newblock {Neural Networks for Pattern Recognition}.
-%\newblock Oxford: Clarendon Press; 1995.
-%
-%\bibitem{Samarasinghe2016}
-%Samarasinghe S.
-%\newblock {Neural Networks for Applied Sciences and Engineering: From
-%  Fundamentals to Complex Pattern Recognition}.
-%\newblock CRC Press; 2016.
-%
-%\bibitem{Graupe2013}
-%Graupe D.
-%\newblock {Advanced Series in Circuits and Systems: Volume 7 Principles of
-%  Artificial Neural Networks}.
-%\newblock 3rd ed. University of Illinois, Chicago, USA; 2013.
-%
-%\bibitem{Schmidhuber2015}
-%Schmidhuber J.
-%\newblock {Deep Learning in neural networks: An overview}.
-%\newblock Neural Networks. 2015;61:85--117.
-%\newblock doi:{10.1016/j.neunet.2014.09.003}.
-%
-%\bibitem{Srivastava2014}
-%Srivastava N, Hinton G, Krizhevsky A, Sutskever I, Salakhutdinov R.
-%\newblock {Dropout: A Simple Way to Prevent Neural Networks from Overfitting}.
-%\newblock Journal of Machine Learning Research. 2014;15:1929--1958.
-%\newblock doi:{10.1214/12-AOS1000}.
-%
-%\bibitem{Szegedy2015}
-%Szegedy C, Liu W, Jia Y, Sermanet P, Reed S, Anguelov D, et~al.
-%\newblock {Going deeper with convolutions}.
-%\newblock Proceedings of the IEEE Computer Society Conference on Computer
-%  Vision and Pattern Recognition. 2015;07-12-June:1--9.
-%\newblock doi:{10.1109/CVPR.2015.7298594}.
-%
-%\bibitem{Russakovsky2015}
-%Russakovsky O, Deng J, Su H, Krause J, Satheesh S, Ma S, et~al.
-%\newblock {ImageNet Large Scale Visual Recognition Challenge}.
-%\newblock International Journal of Computer Vision. 2015;115(3):211--252.
-%\newblock doi:{10.1007/s11263-015-0816-y}.
-%
-%\bibitem{Szegedy2015a}
-%Szegedy C, Vanhoucke V, Ioffe S, Shlens J, Wojna Z.
-%\newblock {Rethinking the Inception Architecture for Computer Vision}.
-%\newblock In: The IEEE Conference on Computer Vision and Pattern Recognition
-%  (CVPR); 2016.
-%
-%\bibitem{Barthelemy2016}
-%Barthelemy M.
-%\newblock {The Structure and Dynamics of Cities: Urban Data Analysis and
-%  Theoretical Modeling}.
-%\newblock Cambridge University Press; 2016.
-%
-%\bibitem{Sinnott1984}
-%Sinnott R.
-%\newblock {Virtues of the Haversine}.
-%\newblock Sky {\&} Telescope. 1984;68:159.
-%
-%\bibitem{Wessel1996}
-%Wessel P, Smith WHF.
-%\newblock {A global, self-consistent, hierarchical, high-resolution shoreline
-%  database}.
-%\newblock Journal of Geophysical Research. 1996;101:8741--8743.
-%
-%\bibitem{QGIS2009}
-%{QGIS Development Team}. {QGIS Geographic Information System. Open Source
-%  Geospatial Foundation. URL http://qgis.osgeo.org}; 2009.
-%
-%\bibitem{Python2016}
-%{Python Software Foundation}. {Python Language Reference, version 3.4.}; 2016.
-%
-%\bibitem{GoogleStatic2017}
-%{Google Maps}. {Google Static Maps API, Available from
-%  https://developers.google.com/maps/documentation/static-maps}; 2017.
-%\newblock (accessed 15 June 2017).
-%
-%\bibitem{GoogleMaps2017b}
-%{Google Maps}. {Google Street View API, Available from
-%  https://developers.google.com/maps/documentation/streetview/}; 2017.
-%\newblock (accessed 15 June 2017).
-%
-%\bibitem{Baidu2017}
-%Baidu. {Baidu Street View API, Available from http://api.map.baidu.com/}; 2017.
-%\newblock (accessed 15 June 2017).
-%
-%\bibitem{Pymeanshift2017}
-%Pymeanshift. {Python Module for Mean Shift Image Segmentation, Available at
-%  https://github.com/fjean/pymeanshift}; 2017.
-%\newblock (accessed 15 June 2017).
-%
-%\bibitem{Yu2015}
-%Yu D, Eversole A, Seltzer ML, Yao K, Huang Z, Guenter B, et~al.
-%\newblock {An Introduction to Computational Networks and the Computational
-%  Network Toolkit. Microsoft Technical Report MSR-TR-2014--112}; 2015.
-%
-%\bibitem{Li2015}
-%Li X, Zhang C, Li W, Ricard R, Meng Q, Zhang W.
-%\newblock {Assessing street-level urban greenery using Google Street View and a
-%  modified green view index}.
-%\newblock Urban Forestry and Urban Greening. 2015;14(3):675--685.
-%\newblock doi:{10.1016/j.ufug.2015.06.006}.
-%
-%\bibitem{Ioffe2015}
-%Ioffe S, Szegedy C.
-%\newblock {Batch Normalization: Accelerating Deep Network Training by Reducing
-%  Internal Covariate Shift}.
-%\newblock In: Proceedings of the 32nd International Conference on Machine
-%  Learning; 2015.
-
 
 \end{thebibliography}
 
@@ -1021,7 +804,7 @@ But in answering this question, we have also demonstrated some new techniques fo
 \paragraph*{S6 Fig.}
 \begin{figure}[!htbp]
 \centering   
-\includegraphics[scale=0.16]{Images/PlosOne/Fig6.png}  
+\includegraphics[scale=0.33]{Images/PlosOne/Fig6.png}  
 \caption{\bf Predicted similar cities using the GM neural network. Top predicted cities plotted using Fig \ref{fig:colorscheme} color scheme for Melbourne evaluation locations (top) and Sydney (bottom). Predicted Paris locations marked with black stars.}    
  \label{fig:melmaps}  
 \end{figure} 
@@ -1053,7 +836,7 @@ But in answering this question, we have also demonstrated some new techniques fo
 \paragraph*{S10 Fig.}
 \begin{figure}[!htbp]
 \centering   
-\includegraphics[scale=0.14]{Images/PlosOne/Fig10.png}   
+\includegraphics[scale=0.19]{Images/PlosOne/Fig10.png}   
 \caption{\bf Gallery of `Paris-like` locations in Melbourne using the GM neural network.}    
  \label{fig:gm_mel_gallery} 
 \end{figure} 
@@ -1061,7 +844,7 @@ But in answering this question, we have also demonstrated some new techniques fo
 \paragraph*{S11 Fig.}
 \begin{figure}[!htbp]
 \centering   
-\includegraphics[scale=0.12]{Images/PlosOne/Fig11.png}   
+\includegraphics[scale=0.19]{Images/PlosOne/Fig11.png}   
 \caption{\bf Gallery of `Paris-like` locations in Sydney using the GM neural network.}    
  \label{fig:gm_syd_gallery}  
 \end{figure} 
