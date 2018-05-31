@@ -36,6 +36,7 @@ T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 \usepackage{eurosym}
 \usepackage{booktabs}
 
+\usepackage{todonotes}
 
 
 \begin{document}
@@ -76,12 +77,15 @@ New techniques to define city typologies emerged in the 1980s and 90s with the g
 
 Other recent remote-sensing based methods depart from the pure network analysis methods to derive urban typologies. Night-time light data has been used to categorise cities into stages of urbanisation and levels of economic activities \cite{Zhang2013}. Urban metrics (road geometry, building dimensions and heights, and vegetation heights) have also been used to classify cities into typologies of differing periods of historical design and urban planning (i.e. 19th Century, 1950s, 1970s, etc.) \cite{Hermosilla2014}.
 
+\todo[inline]{Suggestion of more detail about deep learning. Like Zhou et al 2014)}
+
 Still, most methods described above require some amount of subjective classification of local input data; the quality and availability of which can vary widely across collection or political districts. To overcome these limitations, utilising recent advances in computing power, artificial intelligence, and urban imagery, we therefore demonstrate an entirely new `bottom-up' approach. We train three neural networks to recognise specific cities using millions of street view, satellite, and digital street map images, and perform a case study using two Australian cities, Melbourne and Sydney. Paris, France is an iconic international city \cite{Anholt2006} with widely recognisable visual elements \cite{Doersch2012}, leading many cities (including Melbourne and Sydney) to claim that they have a `Paris-end' of town \cite{Williams2010}, or are a `Paris on the [insert name of local river]' \cite{Wilden2013} (e.g. `Paris on the Yarra'). This study examines whether Melbourne or Sydney truly claim to have a `Paris-end' and demonstrates a new fundamental methodology to objectively analyse urban areas using big data imagery.
 
 \section{Methods}\label{sec:methods}
 \subsection{Neural network}\label{sec:methods1}
 
 The methods applied in this study are based on artificial intelligence, in particular deep neural networks \cite{Bishop1995,Samarasinghe2016,Graupe2013}. Neural network architectures that have proven to be particularly successful at image recognition tasks are convolutional neural networks \cite{Schmidhuber2015}. The model for image recognition used in this study is based on the Inception V2 architecture \cite{Szegedy2015,Ioffe2015}. 
+\todo[inline]{Why V2 and not other architectures?}
 
 
 \subsection{Imagery sampling}\label{sec:methods2}
@@ -94,25 +98,23 @@ The concept employed in this study was to train a model to correctly recognise i
 r = \sqrt{ \frac{28.27}{\pi} \bigg( \frac{p}{300,000}  \bigg)^{0.85} }
 \end{equation}
 
-Having identified individual cities, a two-stage sampling approach was applied. Firstly, a sampling area extending 1.5 km from the identified city centroid \cite{UN2014} was set as a baseline. As sample cities' populations increased in size, the sampling area increased by a power of 0.85 to the proportional increase in population size \cite{Barthelemy2016}. Standardising the sampling area in this manner avoided socio-political discrepancies relating to a city's `true' boundary and captured differences in population density and shape between small (e.g., Wellington, New Zealand; Izmit, Turkey) and global mega-cities (e.g., Tokyo, Japan;  Delhi, India). Location sampling areas were adjusted for the earth's curvature \cite{Sinnott1984}. Large water-bodies (e.g., oceans but not coastlines) were removed from the sampling area, as they were not indicative of urban form . 
+\todo[inline]{Added some more justifications about this method.}
+Having identified individual cities, a two-stage sampling approach was applied. As no standardised urban boundaries are available for all the cities evaluated in this study, a methodology had to be developed to define these. Firstly, a sampling area extending 1.5 km from the identified city centroid \cite{UN2014} was set as a baseline. As sample cities' populations increased in size, the sampling area increased by a power of 0.85 to the proportional increase in population size \cite{Barthelemy2016}. Standardising the sampling area in this manner avoided socio-political discrepancies relating to a city's `true' boundary and captured differences in population density and shape between small (e.g., Wellington, New Zealand; Izmit, Turkey) and global mega-cities (e.g., Tokyo, Japan;  Delhi, India). Location sampling areas were adjusted for the earth's curvature \cite{Sinnott1984}. Large water-bodies (e.g., oceans but not coastlines) were removed from the sampling area, as they were not indicative of urban form . 
 
-These procedures result in a population and water body-adjusted circular area centred on the city's central coordinates. For example, Fig \ref{fig:hongkong} shows the resulting sampling locations for Hong Kong.
+These procedures result in a population and water body-adjusted circular area centred on the city's central coordinates, capturing the widest extent of each city while minimising the amount of non-urban locations. For example, Fig \ref{fig:parissample} shows the resulting sampling locations used in collecting Google Street View imagery for Paris. 
 
-
-
+\todo[inline]{Suggestion to show Paris sampling locations}
 \begin{figure}[!htbp] 
 \centering    
-\includegraphics[scale=0.5]{Images/PlosOne/Fig1.png} 
-\caption{\bf Randomly generated locations to sample urban form in Hong Kong.} 
-\label{fig:hongkong}  
+\includegraphics[scale=0.60]{Images/Paris-StreetView-SampleLocations_crop.png} 
+\caption{\bf Randomly generated locations to sample urban form using Google Street View in Paris.} 
+\label{fig:parissample}  
 \end{figure}
-
-
 
 \label{methodsimagery}
 \subsection{Imagery sources}
 
-Three neural networks (see Table \ref{tab:neuralnetworks}) were trained using street maps, satellite imagery, and street view imagery from each city. Images were downloaded from each of the following sources, using the appropriate APIs. Imagery from Sydney and Melbourne were excluded as they were included in the evaluation dataset. 
+Three neural networks (see Table \ref{tab:neuralnetworks}) were trained using street maps, satellite imagery, and street view imagery from each city. Images were downloaded from each of the following sources, using the appropriate APIs and were randomly sampled for each city and each network. Imagery from Sydney and Melbourne were excluded as they were included in the evaluation dataset. 
 
 
 \begin{table}[!htbp]
@@ -150,10 +152,8 @@ The second neural network (referred to as GS), used Google Maps Satellite imager
  \label{fig:satbeiade}  
 \end{figure} 
 
-
-
-
-The third neural network (referred to as GSV-BSV) used street view imagery obtained through a combination of Google Street View (GSV) \cite{GoogleMaps2017b} and Baidu Maps Street View (BSV) \cite{Baidu2017}. 1000 images each were sampled for the 1074 cities for which imagery was available (a total of 1,074,000 images) at a 256x256 resolution, a pitch of 0, a field of view of 90 degrees, and a random heading from 0 to 359 degrees. Images inside tunnels, indoor locations, dark locations, or otherwise unusable images were removed and replaced by re-sampling.
+\todo[inline]{Justified random headings}
+The third neural network (referred to as GSV-BSV) used street view imagery obtained through a combination of Google Street View (GSV) \cite{GoogleMaps2017b} and Baidu Maps Street View (BSV) \cite{Baidu2017}. 1000 images each were sampled for the 1074 cities for which imagery was available (a total of 1,074,000 images) at a 256x256 resolution, a pitch of 0, a field of view of 90 degrees, and a random heading from 0 to 359 degrees. Random headings were used give the imagery the widest range of samples of the urban areas and ensure that the heading itself didn't influence the training (i.e. grid street systems always orientated in the same direction resulting in cities only sampling up and down the centre of streets). Images inside tunnels, indoor locations, dark locations, or otherwise unusable images were removed and replaced by re-sampling.
 
 No street view imagery of China was available through GSV, so BSV was used instead.  In order to minimise the differences between the two data sources and to minimise strong country-specific items (e.g. text on road signs) influencing neural network training, further image processing was performed to segment each image before use in training and evaluation. The Python module \textit{pymeanshift} \cite{Pymeanshift2017} was used to segment each image\endnote{Using a spatial radius of 6, range radius of 4.5, and minimum density of 50.}. Fig \ref{fig:gsvbsv} shows an example of an original GSV image (Sydney, Australia) and its segmented version as well as an original BSV image (Beijing, China) and its segmented version.
 
@@ -175,7 +175,16 @@ No street view imagery of China was available through GSV, so BSV was used inste
 
 
 
-Images from Sydney and Melbourne, Australia were excluded from the training data and were instead used for evaluation. This evaluation data was sampled at a 400m grid resolution across the greater metropolitan areas, with 23,027 possible locations for Melbourne and 24,596 for Sydney using identical methods described above for the training data. Availability of imagery for GSV at these locations was 59.5\% and 91.1\% respectively. The sampled Melbourne area contained a much higher percentage of rural areas without roads (the primary location for GSV imagery) than the sampled Sydney area.
+Images from Sydney and Melbourne, Australia were excluded from the training data and were instead used for evaluation. This evaluation data was sampled at a 400m grid resolution across the greater metropolitan areas, with 23,027 possible locations for Melbourne and 24,596 for Sydney (see Figure \ref{fig:melsydevallocations}) using the same API methods described above for the training data. Availability of imagery for GSV at these locations was 59.5\% and 91.1\% respectively. The sampled Melbourne area contained a much higher percentage of rural areas without roads (the primary location for GSV imagery) than the sampled Sydney area.
+
+
+\begin{figure}[!htbp]
+\centering 
+\includegraphics[scale=0.4]{Images/MelbourneSamples2_crop.png}   
+\includegraphics[scale=0.4]{Images/SydneySamples2_crop.png}    
+\caption{\bf Evaluation locations for Melbourne (left) and Sydney (right). \todo[inline]{Added sampling locations for Melbourne/Sydney}}    
+ \label{fig:melsydevallocations}  
+\end{figure} 
 
 
 \subsection{Neural network training}\label{sec:methods4}    
@@ -193,7 +202,8 @@ Using the three trained models, inferences were performed using the evaluation d
 
 \section{Results}\label{sec:results}
 
-Using 25\% of the training data, validation was performed on each model. The model for GM, GS, and GSV-BSV reached a validation accuracy of 73.2\% (top 5: 85.0\%), 99.4\% (top 5: 99.97\%), and 43.1\% (top 5: 69.8\%), respectively.
+Using 25\% of the training data, validation was performed on each model. The model for GM, GS, and GSV-BSV reached an accuracy of 73.2\% (top 5: 85.0\%), 99.4\% (top 5: 99.97\%), and 43.1\% (top 5: 69.8\%), respectively. These accuracies were calculated at the end of each epoch during the training step, testing the neural network's skill in correctly identifying the correct city out of the \textasciitilde 1700 cities (excluding Melbourne and Sydney).
+\todo[inline]{Wanted more detail about training accuracy.}
 
 The resulting predictions from model inference of the evaluation data were analysed in various ways. First, the top 20 predicted cities for the evaluation points for each imagery data set were calculated (see Tables \ref{tab:melbournesydneyGM}, \ref{tab:melbournesydneyGS}, and \ref{tab:melbournesydneyGSV} for GM, GS, and GSV-BSV).
 
@@ -353,6 +363,15 @@ Fig \ref{fig:melmaps} shows the top predicted cities ($>$ 0.3\%) plotted against
 
 
 \begin{figure}[!htbp]
+\centering   
+\includegraphics[scale=0.15]{Images/2018-05/maps/MelbourneOverallAbrev2.png} 
+\includegraphics[scale=0.15]{Images/2018-05/maps/SydneyOverallAbrev2.png}  
+\caption{\todo[inline]{New figures for filtered results.}  \bf Predicted similar cities using the GM neural network filtering out probabilities lower than 50\%. Top predicted cities plotted using Fig \ref{fig:colorscheme} colour scheme for Melbourne evaluation locations (top) and Sydney (bottom). Predicted Paris locations marked with black stars.}    
+ \label{fig:melmaps2}  
+\end{figure} 
+
+
+\begin{figure}[!htbp]
 \centering     
 \includegraphics[scale=0.40]{Images/PlosOne/Fig7.png} 
 \caption{\bf Predicted similar cities (showing three letter country code of city location) using the GM neural network for Melbourne evaluation locations. Detail of Melbourne CBD, with predictions of Paris highlighted in red squares.}    
@@ -371,6 +390,13 @@ Fig \ref{fig:melsat} shows the top predicted cities ($>$ 0.3\%) plotted against 
  \label{fig:melsat}  
 \end{figure} 
 
+\begin{figure}[!htbp]
+\centering   
+\includegraphics[scale=0.15]{Images/2018-05/satellite/MelbourneOverallAbrev2.png} 
+\includegraphics[scale=0.15]{Images/2018-05/satellite/SydneyOverallAbrev2.png}  
+\caption{\todo[inline]{New figures for filtered results.}  \bf Predicted similar cities using the GS neural network filtering out probabilities lower than 50\%. Top predicted cities plotted using Fig \ref{fig:colorscheme} colour scheme for Melbourne evaluation locations (top) and Sydney (bottom). Predicted Paris locations marked with black stars.}    
+ \label{fig:melsat2}  
+\end{figure} 
 
 Fig \ref{fig:melstreet} shows the top predicted cities ($>$ 0.3\%) plotted against the Melbourne evaluation locations for the GSV-BSV neural network. `Paris-like' locations are highlighted in 13 locations. The overall predictions are dominated by other Australian cities scattered widely throughout the entire greater Melbourne area. The remaining evaluation locations show no strong groupings of any predicted countries or cities. Common predictions include cities from South Africa, New Zealand, the United States, and European countries. The CBD again shows a wide scattering of predictions with no dominant single city or country.
 
@@ -384,6 +410,13 @@ Fig \ref{fig:melstreet} shows the top predicted cities ($>$ 0.3\%) plotted again
 \end{figure}
 
 
+\begin{figure}[!htbp]
+\centering   
+\includegraphics[scale=0.15]{Images/2018-05/street_view/MelbourneOverallAbrev2.png} 
+\includegraphics[scale=0.15]{Images/2018-05/street_view/SydneyOverallAbrev2.png}  
+\caption{\todo[inline]{New figures for filtered results.}  \bf Predicted similar cities using the GSV-BSV neural network filtering out probabilities lower than 50\%. Top predicted cities plotted using Fig \ref{fig:colorscheme} colour scheme for Melbourne evaluation locations (top) and Sydney (bottom). Predicted Paris locations marked with black stars.}    
+ \label{fig:melstreet2}  
+\end{figure} 
 
 \subsection{Sydney evaluation} 
 
@@ -428,7 +461,10 @@ In looking at the few locations that are deemed to be `Paris-like', there are a 
 Using the GS neural network, none of the evaluated locations for Sydney and only one location for Melbourne were predicted to be `Paris-like'. From an overhead remote sensing point of view, there is therefore nothing about either Melbourne or Sydney that shares similar visual characteristics with Paris, or at least there are many other cities that are more similar to Paris than Melbourne and Sydney. The GS network is more strongly influenced by larger natural and topographical features (features visible through satellite imagery) than the GM network. Outside of the immediate city centres, both Melbourne and Sydney are highly vegetated, with large percentages of the built-form concealed under tree canopies and having to conform to topography. The colours of the vegetation and soils as well as how the urban form is mixed into the canopies, hillsides, waterways and oceans are highly influential. Melbourne is built around a bay and around a north-south spine of hills while Sydney is built around the open ocean and ocean waterways as well as hilly terrain throughout the metro area. Some potential limitations in the dataset can be seen in Fig \ref{fig:melsat}. A strong north-south gradient through the plot of the Melbourne predictions suggest that the neural network detected some artefacts of the satellite imagery gathering process, such as different acquisition times of the imagery, that were not apparent to human observation. 
 
 
-Finally, as the GSV-BSV neural network only picked Paris for 0.06\% of the evaluated locations for Melbourne and 0.04\% for Sydney, we can be confident that from a visual street-level view, there is almost nothing about either Melbourne or Sydney that is visually similar to Paris using this type of imagery. With the GSV-BSV network (galleries of `Paris-like' images for Melbourne and Sydney are shown in Fig \ref{fig:gsv_mel_gallery} and \ref{fig:gsv_syd_gallery}), smaller details of the cities will influence predictions. At this level of imagery, many of the natural features influential in the GS network (e.g., types and colours of vegetation or soil) will be important but smaller details will also weigh in, such as building architecture, the width (or absence) of nature strips or sidewalks, and an overall density of streetscape features. Other influential characteristics are features that are in the urban areas but are not part of the permanent built form. For example, white vans feature in a number of images in the galleries of Paris-like predictions. At this level of imagery, the neural network will be potentially influenced as much by how the urban form is being used than the form itself. This shows the importance of taking steps in some circumstances to construct abstract features from the source images (e.g. road networks/green space for GM or image segmentation for GSV-BSV). Even with these measures, some caution should be taken with this type of imagery. The rather low accuracy rate for GSV-BSV (43.1\%, top 5: 69.8\%) indicates that larger training datasets or perhaps fewer classification classes are needed with this type of complex imagery.
+Finally, as the GSV-BSV neural network only picked Paris for 0.06\% of the evaluated locations for Melbourne and 0.04\% for Sydney, we can be confident that from a visual street-level view, there is almost nothing about either Melbourne or Sydney that is visually similar to Paris using this type of imagery. Of the images for Melbourne, only 2 (out of 13) were picked with a probability of over 50\% (and 0 out of 6 for Sydney). With the GSV-BSV network (galleries of `Paris-like' images for Melbourne and Sydney are shown in Fig \ref{fig:gsv_mel_gallery} and \ref{fig:gsv_syd_gallery}), smaller details of the cities will influence predictions. At this level of imagery, many of the natural features influential in the GS network (e.g., types and colours of vegetation or soil) will be important but smaller details will also weigh in, such as building architecture, the width (or absence) of nature strips or sidewalks, and an overall density of streetscape features. Other influential characteristics are features that are in the urban areas but are not part of the permanent built form. For example, white vans feature in a number of images in the galleries of Paris-like predictions. At this level of imagery, the neural network will be potentially influenced as much by how the urban form is being used than the form itself. This shows the importance of taking steps in some circumstances to construct abstract features from the source images (e.g. road networks/green space for GM or image segmentation for GSV-BSV). Even with these measures, some caution should be taken with this type of imagery. The rather low accuracy rate for GSV-BSV (43.1\%, top 5: 69.8\%) indicates that larger training datasets or perhaps fewer classification classes are needed with this type of complex imagery.
+
+
+
 
 
 \begin{figure}[!htbp]
@@ -459,6 +495,15 @@ Using remote sensing (satellite imagery) of urban areas, natural features and th
 
 Finally, in examining the results from the GSV-BSV neural network, this micro-scaled level of imagery would arguably capture the visual geography of the streetscape, what most people would say `this is what makes Paris look like Paris'. But as Doersch et al. \cite{Doersch2012} found in trying to answer the same question, overall this answer is not based on a small number of famous iconic landmarks (i.e. the Eiffel Tower, the Louvre, etc.), but on an array of widespread, smaller features. These features include elements such as cast-iron railings on balconies, grid-like balcony arrangements, distinctive street signs, streetlamps on pedestals, window balustrades, Parisian doorways,  six story Haussmann apartment buildings, and vegetation differences \cite{Li2015}. Of all these micro-scaled visual elements, neither Melbourne nor Sydney contain enough to truly have a `Paris-like' district.
 
+\todo[inline]{Added 3 paragraphs to discuss street view and future steps.}
+Also, as found in this study, the characteristics that make up a city on a visual street view level are a complex mix. This not only includes bigger structural details, buildings, roads, cars, vegetation, and street furniture, but also smaller less apparent details such as colours, weather conditions, road markings, and thousands of other small details. The complexity of this imagery and the subsequent low accuracy of the neural networks in identifying individual cities using it indicates that further steps are needed to use this type of imagery successfully. These steps can include training using a smaller pool of cities, a smaller set of classifications to allow focus on more subtle differences.
+
+This project was intended to demonstrate the ability of this new methodology to compare and cluster entire cites based on the summation of smaller localised details of urban form. As such, the imagery sampling collected imagery from the entire wider city and not restricted to the perhaps more distinctive city centres. The results reflect that focus shows one of the strengths of this technique, allowing comparisons between entire cities and allow linkages to datasets (health, transportation, etc.) that exist at city levels.
+
+Future work is planned to vary these techniques and further evolve the insights gained. Inner-city comparisons will sample imagery from within cities and help answer questions such as does (wider) Paris look like (the iconic districts of) Paris. Or removing all the other Australian cities from the training data will allow comparisons to be made on a strictly international basis. Cross-comparisons can be done assess similarities between individual cities under different contexts (e.g. which other cities are included in the pool of comparison cities). 
+
+\todo[inline]{Suggestion to note limitations and implications for urban planning and geography}
+
 \section{Conclusion}\label{sec:conclusion}
 
 We have conclusively answered the question, does Melbourne or Sydney have a `Paris-end' of town with a definitive `no'. Our three trained neural networks concluded that at best, Sydney could be considered only 0.2\% `Paris-like' while Melbourne can only boast 0.1\%.   
@@ -483,7 +528,7 @@ K.N. designed and performed the experiment, analysed the results, and wrote the 
   \bibliography{library}
 
 \begin{biogs}
-TODO add biographies
+\todo[inline]{add biographies.}
 \end{biogs}
 
 
