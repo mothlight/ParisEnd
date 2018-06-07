@@ -1,0 +1,102 @@
+\documentclass[Crown,sageh,times]{sagej}
+\usepackage{moreverb,url}
+%\usepackage[bookmarksopen,bookmarksnumbered,citecolor=black,urlcolor=black]{hyperref}
+\newcommand\BibTeX{{\rmfamily B\kern-.05em \textsc{i\kern-.025em b}\kern-.08em
+T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\def\volumeyear{2017}
+
+\RequirePackage[citecolor=0 0 0,colorlinks=false]{hyperref}
+\hypersetup{
+     breaklinks=true,
+     bookmarksopen=true,
+     bookmarksnumbered=true,
+     linkcolor=black,
+     urlcolor=black,
+     citecolor=black,
+     colorlinks=true}
+
+
+%%% The amssymb package provides various useful mathematical symbols
+%\usepackage{amssymb}
+%%% The amsthm package provides extended theorem environments
+% \usepackage{amsthm}
+% \usepackage{amsmath}
+% \usepackage{color}
+% \usepackage{amsmath}
+%\usepackage{siunitx}
+%\usepackage{framed} % Framing content
+%\usepackage{multicol} % Multiple columns environment
+%\usepackage{nomencl} % Nomenclature package
+%\makenomenclature
+%%\setlength{\nomitemsep}{-\parskip} % Baseline skip between items
+%\setlength{\nomitemsep}{0.01cm}
+%\renewcommand*\nompreamble{\begin{multicols}{2}}
+%\renewcommand*\nompostamble{\end{multicols}}
+%\newcommand{\degreeC}{\ensuremath{^\circ}C }
+\usepackage{eurosym}
+\usepackage{booktabs}
+
+\usepackage{todonotes}
+
+
+\begin{document}
+
+\runninghead{The `Paris-end' of town? Urban typology through machine learning.}
+\title{The `Paris-end' of town? Urban typology through machine learning.}
+
+\author{Kerry A. Nice\affilnum{1}, Jason Thompson\affilnum{1}, Jasper S. Wijnands\affilnum{1}, Gideon D.P.A. Aschwanden\affilnum{1}, and Mark Stevenson\affilnum{1}}
+
+\affiliation{\affilnum{1}Transport, Health, and Urban Design Hub, Faculty of Architecture, Building, and Planning, University of Melbourne, Victoria 3010, Australia}
+
+
+\corrauth{Kerry A. Nice, Transport, Health, and Urban Design Hub, Faculty of Architecture, Building, and Planning, University of Melbourne, Victoria 3010, Australia}
+
+\email{kerry.nice@unimelb.edu.au}
+\keywords{machine learning, urban typology, urban design, transport, health}
+
+\begin{abstract}
+
+The confluence of recent advances in availability of geospatial information, computing power, and artificial intelligence offers new opportunities to understand how and where our cities differ or are alike. Departing from a traditional `top-down' analysis of urban design features, this project analyses millions of images of urban form (consisting of street view, satellite imagery, and street maps) to find shared characteristics. A (novel) neural network-based framework is trained with imagery from the largest 1692 cities in the world and the resulting models are used to compare within-city locations from Melbourne and Sydney to determine the closest connections between these areas and their international comparators. This work demonstrates a new, consistent, and objective method to begin to understand the relationship between cities and their health, transport, and environmental consequences of their design. The results show specific advantages and disadvantages using each type of imagery. Neural networks trained with map imagery will be highly influenced by the mix of roads, public transport, and green and blue space as well as the structure of these elements. The colours of natural and built features stand out as dominant characteristics in satellite imagery. The use of street view imagery will emphasise the features of a human scaled visual geography of streetscapes. Finally, and perhaps most importantly, this research also answers the age-old question, ``Is there really a `Paris-end' to your city?''.
+\end{abstract}
+
+\maketitle
+
+\section{Acknowledgements}
+This project was made possible thanks to computer hardware purchased by the Transportation, Health, and Urban Design (THUD) Hub at the University of Melbourne. M.S. was supported by a National Health and Medical Research Council (Australia) Fellowship.
+\section{Author contributions statement}
+
+K.N. designed and performed the experiment, analysed the results, and wrote the manuscript. J.T. conceived the experiment and contributed to the manuscript. J.S. designed the neural networks and contributed to the manuscript. G.A. contributed to the manuscript. M.S. reviewed the experiment and results. All authors reviewed the manuscript. 
+
+
+
+\begin{biogs}
+\textbf{Dr Kerry A. Nice, BA (English/Film), M.Env \& Sus, PhD (Urban Climate))}
+0000-0001-6102-1292
+
+Building on a background in software engineering and urban climates, Dr. Kerry Nice's work uses modelling and artificial intelligence to study urban environments. His PhD at Monash University focused on the creation and use of an urban micro-climate model (VTUF-3D) to assess the positive human thermal comfort impacts in urban areas of increased urban vegetation and water sensitive design (WSUD) infrastructure. Kerry's research currently focuses on the investigation of urban factors impacting the accessibility of active transport, assessing the impacts of urban vegetation on transport, health, and micro-climates, and using artificial intelligence, especially deep learning using neural networks, to assess the influence of urban characteristics on urban environments and ultimately on the people who live there.
+
+\textbf{Dr Jason Thompson, BSc (Hons), M.Psych (Clinical), PhD (Medicine)}
+0000-0002-3146-1198
+
+Dr Jason Thompson’s work is focused on the translation of research into practice across the areas of transportation, heavy-vehicle safety, public health, post-injury rehabilitation, and health system design. Dr Thompson has expertise in methods of computational social science for the modelling of urban, social, organisational, safety, rehabilitation, and active transport systems and has pioneered the use of agent-based models in areas of traditional health systems and transportation research. In 2017, Dr Thompson was awarded an Australian Research Council Discovery Early Career Research Fellowship (DECRA). This project is focused on the effect that introduction of autonomous vehicles will have on Australia’s \$5billion personal injury insurance scheme market.
+
+\textbf{Dr Jasper Wijnands, PhD (Mathematics)}
+0000-0002-5832-4134
+
+Dr Jasper Wijnands has a background in applied mathematics, with extensive experience in quantitative analyses and mathematical methods throughout his education, research and consultancy career. His research has led to publications in various domains, including transport, climate science and the financial services sector. His PhD in mathematics (University of Melbourne) focussed on machine learning algorithms and other mathematical techniques to improve the accuracy of tropical cyclone forecasts in Australia and the South Pacific Ocean. Jasper’s research currently focusses on artificial intelligence, especially deep learning using neural networks, in relation to transport, health and urban design. Prior to this, Jasper was a manager and consultant in EY’s Advisory practices (financial risk management) in Melbourne, New York, Zurich and Amsterdam.
+
+\textbf{Dr. Gideon Aschwanden, MSc, PhD}
+0000-0003-0315-7778
+
+Gideon Aschwanden Lecturer of Urban Analytics at the University of Melbourne with a focus on big data and neural networks to evaluate the urban fabric for health, transportation and economic opportunities. He teaches in urban design, urban planning and property and leads research projects on open data, quantitative policy evaluation and blockchain development. Prior to this, he taught and researched at Princeton University on digital fabrication methods and building systems as part of the CHAOS lab (Cooling and Heating Architecturally Optimized Systems) in the Andlinger Centre for Energy and the Environment. He gained his MSc in Architecture and PhD in Science from the ETH Zurich and a founding member of the Future Cities Laboratory in Singapore.   
+
+\textbf{Professor Mark Stevenson, M. Public Health, PhD (Distinction)}
+0000-0003-3166-5876
+
+Professor Mark Stevenson is an epidemiologist and Professor of Urban Transport and Public Health at the University of Melbourne. His appointment is across the Melbourne Schools of Design, Engineering and Population and Global Health. He is a National Health and Medical Research Council (Australia) Research Fellow, an Honorary Professor in the Peking University Health Science Centre, China and an advisor for injury to the Director General of the World Health Organisation. Prof Stevenson has a PhD (Distinction) from The University of Western Australia and a Master’s degree in Public Health from Curtin University and became a Fellow of the Australasian College of Road Safety in 2008. He has published over 220 peer-reviewed articles, books, book chapters and technical reports and procured more than \$31 million in competitive research funding including funding from the NHMRC, ARC and the US National Institutes of Health. Prof Stevenson is the director of the Transport, Health and Urban Design research hub comprising a cross-disciplinary research team exploring how the effects of urban form and transportation influence the health of residents in cities.
+
+\end{biogs}
+
+
+\end{document}
+
