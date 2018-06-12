@@ -1,9 +1,13 @@
 \documentclass[Crown,sageh,times]{sagej}
+%\usepackage{adjustbox}
+\usepackage{lscape}
+%\usepackage{subfig}
+\usepackage{subcaption}
 \usepackage{moreverb,url}
 %\usepackage[bookmarksopen,bookmarksnumbered,citecolor=black,urlcolor=black]{hyperref}
 \newcommand\BibTeX{{\rmfamily B\kern-.05em \textsc{i\kern-.025em b}\kern-.08em
 T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
-\def\volumeyear{2017}
+\def\volumeyear{2018}
 
 \RequirePackage[citecolor=0 0 0,colorlinks=false]{hyperref}
 \hypersetup{
@@ -41,17 +45,19 @@ T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 
 \begin{document}
 
-\runninghead{Nice et al.}
+\runninghead{The `Paris-end' of town? Urban typology through machine learning.}
 \title{The `Paris-end' of town? Urban typology through machine learning.}
 
-\author{Kerry A. Nice\affilnum{1}, Jason Thompson\affilnum{1}, Jasper S. Wijnands\affilnum{1}, Gideon D.P.A. Aschwanden\affilnum{1}, and Mark Stevenson\affilnum{1}}
+%\author{Kerry A. Nice\affilnum{1}, Jason Thompson\affilnum{1}, Jasper S. Wijnands\affilnum{1}, Gideon D.P.A. Aschwanden\affilnum{1}, and Mark Stevenson\affilnum{1}}
 
-\affiliation{\affilnum{1}Transport, Health, and Urban Design Hub, Faculty of Architecture, Building, and Planning, University of Melbourne, Victoria 3010, Australia}
+%\affiliation{\affilnum{1}Transport, Health, and Urban Design Hub, Faculty of Architecture, Building, and Planning, University of Melbourne, Victoria 3010, Australia}
 
 
-\corrauth{Kerry A. Nice, Transport, Health, and Urban Design Hub, Faculty of Architecture, Building, and Planning, University of Melbourne, Victoria 3010, Australia}
+%\corrauth{Kerry A. Nice, Transport, Health, and Urban Design Hub, Faculty of Architecture, Building, and Planning, University of Melbourne, Victoria 3010, Australia}
 
-\email{kerry.nice@unimelb.edu.au}
+%\email{kerry.nice@unimelb.edu.au}
+
+
 
 
 \begin{abstract}
@@ -77,7 +83,10 @@ New techniques to define city typologies emerged in the 1980s and 90s with the g
 
 Other recent remote-sensing based methods depart from the pure network analysis methods to derive urban typologies. Night-time light data has been used to categorise cities into stages of urbanisation and levels of economic activities \citep{Zhang2013}. Urban metrics (road geometry, building dimensions and heights, and vegetation heights) have also been used to classify cities into typologies of differing periods of historical design and urban planning (i.e. 19th Century, 1950s, 1970s, etc.) \citep{Hermosilla2014}.
 
-New approaches have been created, building on recent advances in computing power, artificial intelligence, and urban imagery, to discover what cities look like and how they are used. Large numbers of geo-tagged photos of urban imagery have been used to detect patterns of urban usage and public perception of a number of functional and social attributes about the areas, to find city identities in the images \citep{Liu2016,Zhou2014a}. Place Pulse, a database of urban imagery using crowd-sourced classifications (including safety, beautiful, and boring) has been built to quantify perceptions of urban areas \citep{Dubey2016,Naik2014} and inequality \citep{Salesses2013}. \citet{Doersch2012} used a large number of geo-localised street level images to discover common visual features in a number of cities.
+Building on recent advances in computing power, artificial intelligence, and urban imagery, new approaches have been created to discover unique visual characteristics of cities and how they are used. For example, large numbers of geo-tagged photos have been used to detect patterns of urban usage and public perception of a number of areas' functional and social attributes \citep{Liu2016,Zhou2014a}. Place Pulse, a database of urban imagery using crowd-sourced classifications (including safety, beautiful, and liveliness) has been built to quantify perceptions of urban areas \citep{Dubey2016,Naik2014} and inequality \citep{Salesses2013}. 
+\citet{Doersch2012} used a large number of geo-localised street level images to discover common visual features across a number of cities.
+
+%New approaches have been created, building on recent advances in computing power, artificial intelligence, and urban imagery, to discover what cities look like and how they are used. Large numbers of geo-tagged photos of urban imagery have been used to detect patterns of urban usage and public perception of a number of functional and social attributes about the areas, to find city identities in the images \citep{Liu2016,Zhou2014a}. Place Pulse, a database of urban imagery using crowd-sourced classifications (including safety, beautiful, and boring) has been built to quantify perceptions of urban areas \citep{Dubey2016,Naik2014} and inequality \citep{Salesses2013}. \citet{Doersch2012} used a large number of geo-localised street level images to discover common visual features in a number of cities.
 
 Still, most methods described above require some amount of subjective classification of local input data; the quality and availability of which can vary widely across collection or political districts. To overcome these limitations, we demonstrate a new `bottom-up' approach. We train three neural networks to recognise specific cities using millions of street view, satellite, and digital street map images, and perform a case study using two Australian cities, Melbourne and Sydney. Paris, France is an iconic international city \citep{Anholt2006} with widely recognisable visual elements \citep{Doersch2012}, leading many cities (including Melbourne and Sydney) to claim that they have a `Paris-end' of town \citep{Williams2010}, or are a `Paris on the [insert name of local river]' \citep{Wilden2013} (e.g. `Paris on the Yarra'). This study examines whether Melbourne or Sydney truly claim to have a `Paris-end' and demonstrates a new fundamental methodology to objectively analyse urban areas using big data imagery.
 
@@ -106,7 +115,7 @@ These procedures result in a population and water body-adjusted circular area ce
 
 \begin{figure}[!htbp] 
 \centering    
-\includegraphics[scale=0.60]{Images/Paris-StreetView-SampleLocations_crop.png} 
+\includegraphics[scale=0.40]{Images/Paris-StreetView-SampleLocations_crop.png} 
 \caption{\bf Randomly generated locations to sample urban form using Google Street View in Paris.} 
 \label{fig:parissample}  
 \end{figure}
@@ -134,28 +143,30 @@ The first neural network (referred to as GM) used Google Maps images as training
 
 \begin{figure}[!htbp]
     \centering    
-\includegraphics[scale=1]{Images/PlosOne/Fig2.png}  
-\caption{\bf Four sample GM neural network training data images for Paris, France \citep{GoogleStatic2017}.}    
+\includegraphics[scale=0.5]{Images/Figure2Maps_2.png}  
+\caption{\bf Two sample GM neural network training data images for Paris, France (A, B) \citep{GoogleStatic2017}. Sample GS neural network training data images for Adelaide, Australia (C) and Beijing, China (D) \citep{GoogleStatic2017}. Sample GSV neural network training data image from Sydney, Australia (E) \citep{GoogleMaps2017b} and the processed segmented version (F). Sample BSV neural network training data image from Beijing, China (G) \citep{Baidu2017} and the processed segmented version (H).}    
  \label{fig:maps}  
 \end{figure} 
 
 
-The second neural network (referred to as GS), used Google Maps satellite imagery obtained through the Google Static Maps API \citep{GoogleStatic2017}. Image type was set to `satellite' using a zoom level of 16 and image size of 256x256. Suitable imagery was not available for two cities, bringing the number of cities to 1688 (also excluding Melbourne and Sydney) and a total data set of 1,688,000 images. Figure~\ref{fig:satbeiade} shows four sample images, two each of Adelaide, Australia and Beijing, China. 
+
+
+The second neural network (referred to as GS), used Google Maps satellite imagery obtained through the Google Static Maps API \citep{GoogleStatic2017}. Image type was set to `satellite' using a zoom level of 16 and image size of 256x256. Suitable imagery was not available for two cities, bringing the number of cities to 1688 (also excluding Melbourne and Sydney) and a total data set of 1,688,000 images. Figure~\ref{fig:maps} shows two sample images, one each of Adelaide, Australia and Beijing, China. 
 
 
 
 
-\begin{figure}[!htbp]
-\centering 
-\includegraphics[scale=1]{Images/PlosOne/Fig3.png}     
-\caption{\bf Sample GS neural network training data images for Adelaide, Australia and Beijing, China \citep{GoogleStatic2017}.}    
- \label{fig:satbeiade}  
-\end{figure} 
+%\begin{figure}[!htbp]
+%\centering 
+%\includegraphics[scale=1]{Images/PlosOne/Fig3.png}     
+%\caption{\bf Sample GS neural network training data images for Adelaide, Australia and Beijing, China \citep{GoogleStatic2017}.}    
+% \label{fig:satbeiade}  
+%\end{figure} 
 
 
 The third neural network (referred to as GSV-BSV) used street view imagery obtained through a combination of Google Street View (GSV) \citep{GoogleMaps2017b} and Baidu Maps Street View (BSV) \citep{Baidu2017}. 1000 images each were sampled for the 1074 cities for which imagery was available (a total of 1,074,000 images) at a 256x256 resolution, a pitch of 0, a field of view of 90 degrees, and a random heading from 0 to 359 degrees. Random headings were used give the imagery the widest range of samples of the urban areas and ensure that the heading itself didn't influence the training (i.e. grid street systems always orientated in the same direction resulting in cities only sampling up and down the centre of streets). Images inside tunnels, indoor locations, dark locations, or otherwise unusable images were removed and replaced by re-sampling.
 
-No street view imagery of China was available through GSV, so BSV was used instead.  In order to minimise the differences between the two data sources and to minimise strong country-specific items (e.g. text on road signs) influencing neural network training, further image processing was performed to segment each image before use in training and evaluation. The Python module \textit{pymeanshift} \citep{Pymeanshift2017} was used to segment each image\endnote{Using a spatial radius of 6, range radius of 4.5, and minimum density of 50.}. Figure~\ref{fig:gsvbsv} shows an example of an original GSV image (Sydney, Australia) and its segmented version as well as an original BSV image (Beijing, China) and its segmented version.
+No street view imagery of China was available through GSV, so BSV was used instead.  In order to minimise the differences between the two data sources and to minimise strong country-specific items (e.g. text on road signs) influencing neural network training, further image processing was performed to segment each image before use in training and evaluation. The Python module \textit{pymeanshift} \citep{Pymeanshift2017} was used to segment each image\endnote{Using a spatial radius of 6, range radius of 4.5, and minimum density of 50.}. Figure~\ref{fig:maps} shows an example of an original GSV image (Sydney, Australia) and its segmented version as well as an original BSV image (Beijing, China) and its segmented version.
 
 %Melbourne maps 22996
 %Sydney maps 24589
@@ -166,25 +177,17 @@ No street view imagery of China was available through GSV, so BSV was used inste
 
 
 
-\begin{figure}[!htbp]
-\includegraphics[scale=0.3]{Images/PlosOne/Fig4.png} 
-\caption{\bf Sample GSV neural network training data image from Sydney, Australia \citep{GoogleMaps2017b} (A) and the processed segmented version (B). Sample BSV neural network training data image from Beijing, China \citep{Baidu2017} (C) and the processed segmented version (D).}    
- \label{fig:gsvbsv}  
-\end{figure} 
+%\begin{figure}[!htbp]
+%\includegraphics[scale=0.3]{Images/PlosOne/Fig4.png} 
+%\caption{\bf Sample GSV neural network training data image from Sydney, Australia \citep{GoogleMaps2017b} (A) and the processed segmented version (B). Sample BSV neural network training data image from Beijing, China \citep{Baidu2017} (C) and the processed segmented version (D).}    
+% \label{fig:gsvbsv}  
+%\end{figure} 
+
+
+Images from Sydney and Melbourne, Australia were excluded from the training data and were instead used for evaluation. This evaluation data was sampled at a 400m grid resolution across the greater metropolitan areas, with 23,027 possible locations for Melbourne and 24,596 for Sydney (see Supplement Figure 1) using the same API methods described above for the training data. Availability of imagery for GSV at these locations was 59.5\% and 91.1\% respectively. The sampled Melbourne area contained a much higher percentage of rural areas without roads (the primary location for GSV imagery) than the sampled Sydney area.
 
 
 
-
-Images from Sydney and Melbourne, Australia were excluded from the training data and were instead used for evaluation. This evaluation data was sampled at a 400m grid resolution across the greater metropolitan areas, with 23,027 possible locations for Melbourne and 24,596 for Sydney (see Figure \ref{fig:melsydevallocations}) using the same API methods described above for the training data. Availability of imagery for GSV at these locations was 59.5\% and 91.1\% respectively. The sampled Melbourne area contained a much higher percentage of rural areas without roads (the primary location for GSV imagery) than the sampled Sydney area.
-
-
-\begin{figure}[!htbp]
-\centering 
-\includegraphics[scale=0.4]{Images/MelbourneEvaluationLocations.png}   
-\includegraphics[scale=0.4]{Images/SydneyEvaluationLocations.png}    
-\caption{\bf Evaluation locations for Melbourne (left) and Sydney (right).}    
- \label{fig:melsydevallocations}  
-\end{figure} 
 
 
 \subsection{Neural network training}\label{sec:methods4}    
@@ -205,255 +208,18 @@ Using the three trained models, inferences were performed using the evaluation d
 Using 25\% of the training data, validation was performed on each model. The models for GM, GS, and GSV-BSV reached a final accuracy of 73.2\% (top 5: 85.0\%), 99.4\% (top 5: 99.97\%), and 43.1\% (top 5: 69.8\%), respectively. These accuracies were calculated at the end of each epoch during the training step, testing the neural network's skill in correctly identifying the correct city out of the nearly 1700 cities (excluding Melbourne and Sydney).
 
 
-The resulting predictions from model inference of the evaluation data were analysed in various ways. First, the top 20 predicted cities for the evaluation points for each imagery data set were calculated (see Tables \ref{tab:melbournesydneyGM}, \ref{tab:melbournesydneyGS}, and \ref{tab:melbournesydneyGSV} for GM, GS, and GSV-BSV).
+The resulting predictions from model inference of the evaluation data were analysed in various ways. First, the top 20 predicted cities for the evaluation points for each imagery data set were calculated (see Table \ref{tab:melbournesydneyGM} for GM, GS, and GSV-BSV).
 
 \subsection{Top 20 predicted cities} 
 
 The GM (map view) neural network predictions (Table \ref{tab:melbournesydneyGM}) are dominated by other Australian cities (Brisbane, Canberra, Sunshine Coast, Gold Coast, Newcastle and Lake Macquarie, Perth, and Adelaide) as well as a number of cities from Israel, South Africa, and the United States. Alternative Australian cities make up nearly 20\% of the top 20 predictions for Melbourne and 17\% for Sydney. Melbourne and Sydney also show strong similarities with each other with the neural network considering them similar to the same 12 cities out of the top 20 predictions.
 
 
-
-%\begin{table}[!htbp]
-%%\begin{adjustwidth}{-2.25in}{0in}
-%\caption{\bf Top 20 cities like Melbourne and Sydney through GM \label{tab:melbournesydneyGM}}     
-%\begin{tabular}{ l l l l l}
-% \hline    &  \multicolumn{2}{c}{\textbf{Melbourne evaluation}} & \multicolumn{2}{c}{\textbf{Sydney evaluation}}  \\  
-%\textbf{Predicted city} & \textbf{Matches} & \textbf{\% matching}  & \textbf{Matches} & \textbf{\% matching}\\ \hline
-%
-%Brisbane, Australia & 4062 & 17.6 & 2922 & 11.9      \\ 
-%Beer Sheva, Israel & 1671 & 7.3 & 3479 & 14.1      \\ 
-%Canberra, Australia & 1074 & 4.7 & 1770 & 7.2      \\
-%Sunshine Coast, Australia & 960 & 4.2 & 456 & 1.9      \\
-%McAllen, United States of America & 794 & 3.5 & 140 & 0.6      \\
-%Valpara\'{i}so, Chile & 431 & 1.9 & 383 & 1.6      \\
-%Haifa, Israel & 372 & 1.6 & 723 & 2.9      \\
-%Gold Coast, Australia & 361 & 1.6 & 265 & 1.1      \\
-%Newcastle and Lake Macquarie, Australia & 347 & 1.5 & 1214 & 4.9      \\
-%Toronto, Canada & 325 & 1.4 & 209 & 0.9      \\
-%Kitwe, Zambia & 303 & 1.3 & - & -      \\
-%Pretoria, South Africa & 303 & 1.3 & - & -      \\
-%Auckland, New Zealand & 285 & 1.2 & 293 & 1.2      \\
-%Johannesburg, South Africa & 239 & 1.0 & - & -      \\
-%Perth, Australia & 216 & 0.9 & 111 & 0.5      \\
-%Philadelphia, United States of America & 185 & 0.8 & - & -      \\
-%Washington, D.C., United States of America & 174 & 0.8 & - & -      \\
-%Port Elizabeth, South Africa & 162 & 0.7 & - & -      \\
-%Virginia Beach, United States of America & 143 & 0.6 & 235 & 1.0      \\
-%Jerusalem, Israel & 142 & 0.6 & 393 & 1.6      \\
-%Tasikmalaya, Indonesia & - & - & 238 & 1.0      \\		
-%London, United Kingdom & - & - & 199 & 0.8      \\
-%Adelaide, Australia & - & - & 152 & 0.6      \\
-%Denton-Lewisville, United States of America & - & - & 143 & 0.6      \\						
-%Hong Kong, China, Hong Kong SAR & - & - & 121 & 0.5      \\		
-%Osaka, Japan & - & - & 113 & 0.5      \\
-%
-%\hline
-%\end{tabular}
-%%\end{adjustwidth}
-%\end{table}
-
-
-
-
-
-
-\begin{table}[!htbp]
-%\begin{adjustwidth}{-2.25in}{0in}
-\caption{\bf Top 20 cities like Melbourne and Sydney through GM \label{tab:melbournesydneyGM}}     
-\begin{tabular}{ l l l l l}
- \hline    &  \multicolumn{2}{c}{\textbf{Melbourne evaluation}} & \multicolumn{2}{c}{\textbf{Sydney evaluation}}  \\  
-\textbf{Predicted city} & \textbf{Matches} & \textbf{\% matching}  & \textbf{Matches} & \textbf{\% matching}\\ \hline
-
-Brisbane, Australia&2990&13.0&1943&	7.9\\
-Beer Sheva, Israel&	1224&5.3&2695&	11.0\\
-Canberra, Australia&608	&2.6&1410&	5.7\\
-Sunshine Coast, Australia&520	&2.3&170&	0.7\\
-McAllen, United States of America&	476&	2.1&	80&	0.3\\
-Valpara\'{i}so, Chile&	223&	1.0&166&	0.7\\
-Haifa, Israel&	185&	0.8&398	&1.6\\	
-Gold Coast, Australia&	184&	0.8&118&	0.5\\
-Pretoria, South Africa&	147&	0.6& - & -      \\
-Newcastle and Lake Macquarie, Australia&142	&0.6&649&	2.6\\
-Toronto, Canada&	137	&0.6&97&	0.4\\
-Auckland, New Zealand&	118&	0.5&142&	0.6\\
-Perth, Australia&	110&	0.5& - & -      \\
-Johannesburg, South Africa&	91&	0.4& - & -      \\
-Philadelphia, United States of America&	81&	0.4& - & -      \\
-Jerusalem, Israel&	73&	0.2&201&	0.8\\
-Port Elizabeth, South Africa&	72&	0.3& - & -      \\
-Washington, D.C., United States of America&	54&	0.2& - & -      \\
-Southend-On-Sea, United Kingdom&	53&	0.2& - & -      \\
-Virginia Beach, United States of America&-&-&	108&	0.4\\
-London, United Kingdom&-&-&	70&	0.3\\
-Barcelona, Spain&-&-&	68&	0.3\\
-Adelaide, Australia&-&-&	62&	0.3\\
-Tasikmalaya, Indonesia&-&-&	62&	0.3\\
-Douala, Cameroon&-&-&	54&	0.2\\
-Hardwar, India&-&-&	48&	0.2\\
-\hline
-\end{tabular}
-%\end{adjustwidth}
-\end{table}
-
 The GS (satellite view) neural network predictions (Table \ref{tab:melbournesydneyGS}) shows wider divergences from other Australian cities and between Melbourne and Sydney themselves, with both often matched to Brazilian cities. Melbourne is matched to Brazil in 11\% of the evaluation locations while Sydney is matched to Brazilian cities in 15\%. Melbourne and Sydney show wider divergences from each other using the GS network in comparison to the GM network, only having 8 of the top 20 predicted cities in common. In diverging predictions, 4.1\% of Melbourne is confused with Wellington, New Zealand while 4.7\% of Sydney is considered similar to Sevastopol, Ukraine. 
 
-%\begin{table}[!htbp]
-%%\begin{adjustwidth}{-2.25in}{0in}
-%\caption{\bf Top 20 cities like Melbourne and Sydney through GS \label{tab:melbournesydneyGS}}     
-%\begin{tabular}{ l  l l l  l}
-% \hline    &  \multicolumn{2}{c}{\textbf{Melbourne evaluation}} & \multicolumn{2}{c}{\textbf{Sydney evaluation}}  \\  
-%\textbf{Predicted city} & \textbf{Matches} & \textbf{\% matching}  & \textbf{Matches} & \textbf{\% matching}\\ \hline
-%Jundia\'{i}, Brazil & 6509 & 28.3 & 6478 & 26.3 \\ 
-%Wellington, NZ & 3124 & 13.6 & 161 & 0.7 \\ 
-%Adelaide, Australia & 1624 & 7.1 &-&- \\ 
-%Campinas, Brazil & 1408 & 6.1 & 4088 & 16.6 \\ 
-%Miami, United States of America & 1095 & 4.8 &-&- \\ 
-%Provo-Orem, United States of America & 1022 & 4.4 &-&- \\ 
-%Macap\'{a}, Brazil & 614 & 2.7 &-&- \\ 
-%Rosario, Argentina & 542 & 2.4 & 1006 & 4.1 \\ 
-%Gold Coast, Australia & 463 & 2.0 &-&- \\ 
-%Catania, Italy & 410 & 1.8 &-&- \\ 
-%Juiz De Fora, Brazil & 411 & 1.8 & 1481 & 6.0 \\ 
-%Buenos Aires, Argentina & 392 & 1.7 &-&- \\ 
-%Canberra, Australia & 372 & 1.6 & 170 & 0.7 \\ 
-%Palma, Spain & 323 & 1.4 &-&- \\ 
-%Newcastle and Lake Macquarie, Australia & 274 & 1.2 & 152 & 0.6 \\ 
-%Sunshine Coast, Australia & 228 & 1.0 &-&- \\ 
-%Surakarta, Indonesia & 214 & 0.9 &-&- \\ 
-%Johannesburg, South Africa & 212 & 0.9 &-&- \\ 
-%Palm Bay-Melbourne, United States of America & 176 & 0.8 &-&- \\ 
-%Bel\'{e}m, Brazil & 169 & 0.7 &-&- \\ 
-%Sevastopol, Ukraine &-&- & 3360 & 13.7\\ 
-%Belgaum, India &-&- & 1177 & 4.8\\ 
-%Memphis, United States of America &-&- & 604 & 2.5\\ 
-%Baaqoobah, Iraq &-&- & 442 & 1.8\\ 
-%Nagasaki, Japan &-&- & 359 & 1.5\\ 
-%Qazvin, Iran &-&- & 303 & 1.2\\ 
-%Guayaquil, Ecuador &-&- & 216 & 0.9\\ 
-%Malaga, Spain &-&- & 201 & 0.8\\ 
-%Campos dos Goytacazes, Brazil &-&- & 197 & 0.8\\ 
-%Guangyuan, China &-&- & 147 & 0.6\\ 
-%New Orleans, United States of America &-&- & 147 & 0.6\\ 
-%Chiinu, Republic of Moldova &-&- & 146 & 0.6\\ 
-%Baixada Santista, Brazil &-&- & 135 & 0.6\\ \hline
-%\end{tabular}
-%%\end{adjustwidth}
-%\end{table}
 
-\begin{table}[!htbp]
-%\begin{adjustwidth}{-2.25in}{0in}
-\caption{\bf Top 20 cities like Melbourne and Sydney through GS \label{tab:melbournesydneyGS}}     
-\begin{tabular}{ l  l l l  l}
- \hline    &  \multicolumn{2}{c}{\textbf{Melbourne evaluation}} & \multicolumn{2}{c}{\textbf{Sydney evaluation}}  \\  
-\textbf{Predicted city} & \textbf{Matches} & \textbf{\% matching}  & \textbf{Matches} & \textbf{\% matching}\\ \hline
-Jundia\'{i}, Brazil&1795&7.8&	2613&	10.6\\
-Wellington, NZ&	947&	4.1&	22&	0.09\\
-Campinas, Brazil&	551&	2.4&	976&	4.0\\
-Miami, United States of America&	498&	2.2&-&- \\
-Adelaide, Australia&	386&	1.7&-&- \\
-Provo-Orem, United States of America&	294&	1.3&-&- \\
-Macap\'{a}, Brazil&	148&	0.6&-&- \\
-Gold Coast, Australia&	106&	0.5&-&- \\
-Rosario, Argentina&	99&	0.4&	273&	1.1\\
-Qitaihe, China&	90&	0.4&-&- \\
-Johannesburg, South Africa&	81&	0.4&	13&	0.05\\
-Buenos Aires, Argentina&	77&	0.3&-&- \\
-Canberra, Australia&	55&	0.2&-&- \\
-Mendoza, Argentina&	52&	0.2&-&- \\
-Juiz De Fora, Brazil&	50&	0.2&	202&	0.8\\
-Pulandian, China&	49&	0.2&-&- \\
-Newcastle and Lake Macquarie, Australia&	45&	0.2&	47&	0.2\\
-Palma, Spain&	36&	0.2&	20&	0.08\\
-Cape Town, South Africa&	34&	0.2&-&- \\
-Sevastopol, Ukraine&-&-&	1148&	4.7\\
-Memphis, United States of America&-&-&	151&	0.6\\
-Baaqoobah, Iraq&-&-&	99&	0.4\\
-Belgaum, India&-&-&	43&	0.2\\
-Qazvin, Iran&-&- &	41&	0.2\\
-Nagasaki, Japan&-&-	&35&	0.1\\
-New Orleans, United States of America&-&-&	32&	0.1\\
-Malaga, Spain&-&-&	24&	0.1\\
-Guayaquil, Ecuador&-&-&	17&	0.07\\
-Khabarovsk, Russian Federation&-&-&	14&	0.06\\
-Chiinu, Republic of Moldova&-&-&	13&	0.05\\
+The GSV-BSV (street view) neural network predictions (Table \ref{tab:melbournesydneyGM}) show strong similarities between Melbourne and Sydney. In the Melbourne evaluation, just under 18\% (7 of the top 9 picks) are other Australian cities, while Sydney matched other Australian cities in 20.5\% of the evaluation locations (and were 7 of the top 7 picks) and spread somewhat evenly through these other cities. In addition, 15 of the top 20 predicted cities were shared between Melbourne and Sydney.
 
-\hline
-\end{tabular}
-%\end{adjustwidth}
-\end{table}
-
-The GSV-BSV (street view) neural network predictions (Table \ref{tab:melbournesydneyGSV}) show strong similarities between Melbourne and Sydney. In the Melbourne evaluation, just under 18\% (7 of the top 9 picks) are other Australian cities, while Sydney matched other Australian cities in 20.5\% of the evaluation locations (and were 7 of the top 7 picks) and spread somewhat evenly through these other cities. In addition, 15 of the top 20 predicted cities were shared between Melbourne and Sydney.
-
-
-%\begin{table}[!htbp]
-%%\begin{adjustwidth}{-2.25in}{0in}
-%\caption{\bf Top 20 cities like Melbourne and Sydney through GSV-BSV \label{tab:melbournesydneyGSV}}     
-%\begin{tabular}{ l  l l l  l}
-% \hline    &  \multicolumn{2}{c}{\textbf{Melbourne evaluation}} & \multicolumn{2}{c}{\textbf{Sydney evaluation}}  \\  
-%\textbf{Predicted city} & \textbf{Matches} & \textbf{\% matching}  & \textbf{Matches} & \textbf{\% matching}\\ \hline
-%Perth, Australia & 1424 & 6.8 & 497 & 3.4 \\ 
-%Adelaide, Australia & 1349 & 6.4 & 346 & 2.4 \\ 
-%Sunshine Coast, Australia & 1344 & 6.4 & 1139 & 7.8 \\ 
-%Auckland, New Zealand & 930 & 4.4 & 242 & 1.7 \\ 
-%Canberra, Australia & 714 & 3.4 & 770 & 5.3 \\ 
-%Newcastle and Lake Macquarie, Australia & 669 & 3.2 & 789 & 5.4 \\ 
-%Gold Coast, Australia & 470 & 2.2 & 702 & 4.8 \\ 
-%Brisbane, Australia & 384 & 1.8 & 828 & 5.7 \\ 
-%Curitiba, Brazil & 379 & 1.8 & 131 & 0.9 \\ 
-%Stockton, United States of America & 366 & 1.8 & 184 & 1.3 \\ 
-%Christchurch, New Zealand & 339 & 1.6 &-&- \\ 
-%Concord, United States of America & 330 & 1.6 & 131 & 0.9 \\ 
-%Cape Town, South Africa & 285 & 1.4 & 132 & 0.9 \\ 
-%Bonita Springs-Naples, United States of America & 274 & 1.3 & 141 & 1.0 \\ 
-%Teeside , United Kingdom & 262 & 1.3 &-&- \\ 
-%East London, South Africa & 253 & 1.2 & 150 & 1.0 \\ 
-%West Yorkshire, United Kingdom & 248 & 1.2 &-&- \\ 
-%Los Angeles, United States of America & 203 & 1.0 &-&- \\ 
-%San Diego, United States of America & 197 & 0.9 & 300 & 2.0 \\ 
-%Vereeniging, South Africa & 188 & 0.9 & 145 & 1.0 \\ 
-%Jacksonville, Florida, United States of America  &-&- & 156 & 1.1\\ 
-%Virginia Beach, United States of America  &-&- & 152 & 1.0\\ 
-%McAllen, United States of America&-&- & 123 & 0.8\\ 
-%Corpus Christi, United States of America&-&- & 97 & 0.7\\ \hline
-%\end{tabular}
-%%\end{adjustwidth}
-%\end{table}
-
-
-\begin{table}[!htbp]
-%\begin{adjustwidth}{-2.25in}{0in}
-\caption{\bf Top 20 cities like Melbourne and Sydney through GSV-BSV \label{tab:melbournesydneyGSV}}     
-\begin{tabular}{ l  l l l  l}
- \hline    &  \multicolumn{2}{c}{\textbf{Melbourne evaluation}} & \multicolumn{2}{c}{\textbf{Sydney evaluation}}  \\  
-\textbf{Predicted city} & \textbf{Matches} & \textbf{\% matching}  & \textbf{Matches} & \textbf{\% matching}\\ \hline
-Sunshine Coast, Australia&	837&	4.0&	738&	5.0\\
-Perth, Australia&	835&	4.0&	230	&1.6\\
-Adelaide, Australia&	829&	4.0&	174&	1.2\\
-Auckland, New Zealand&	565&	2.7	&122	&0.8\\
-Canberra, Australia&	407&	1.9&	459&	3.1\\
-Newcastle and Lake Macquarie, Australia	&365&	1.7&	455&	3.1\\
-Gold Coast, Australia&	277&	1.3&	476	&3.3\\
-Christchurch, New Zealand&	179&	0.9&	-&	-\\
-Brisbane, Australia&	158&	0.8&	466	&3.2\\
-Bonita Springs-Naples, United States of America&	149&	0.7&	73&	0.5\\
-Stockton, United States of America&	145&	0.7&	75&	0.5\\
-Curitiba, Brazil&	143&	0.7&	54&	0.4\\
-Cape Town, South Africa&	138&	0.7&	52&	0.4\\
-Concord, United States of America&	121&	0.6&	44&	0.3\\
-East London, South Africa&	100&	0.5&	62&	0.4\\
-West Yorkshire, United Kingdom&	95&	0.5&	-&	-\\
-Teeside, United Kingdom&	91&	0.4&	-&	-\\
-Los Angeles, United States of America&	78&	0.4&	-&	-\\
-Montevideo, Uruguay&	71&	0.3&	-&	-\\
-San Diego, United States of America&	-&	-&	138&	0.9\\
-Jacksonville, Florida, United States of America&	-&	-&	62&	0.4\\
-Vereeniging, South Africa&	-	&-&	58	&0.4\\
-Virginia Beach, United States of America&	-&	-	&55&	0.4\\
-McAllen, United States of America&	-	&-	&51&	0.4\\
-\hline
-\end{tabular}
-%\end{adjustwidth}
-\end{table}
 
 
 To explore the identified differences, cities predicted for an evaluation location were plotted on maps of Melbourne and Sydney, with the colour scheme for the plots determined by the latitude and longitude of the predicted city. This colour scheme is shown in Figure~\ref{fig:colorscheme}.  As such, in the following figures, predicted cities in Australia will show up in shades of yellow, the rest of the Southern Hemisphere in greens, Asia in reds, North America and Europe in blues, and the Middle East in blue/greys.
@@ -469,9 +235,269 @@ To explore the identified differences, cities predicted for an evaluation locati
 
 
 
+
+
+
+
+
+
+
+
+
+
+\begin{landscape}
+\begin{table}[!htbp]
+\caption{\bf{Top 20 cities like Melbourne and Sydney}}  
+\label{tab:melbournesydneyGM}    
+\begin{subtable}{.34\linewidth}
+\caption{GM}
+\scalebox{0.9}{
+\begin{tabular}{ l  l l }
+ \hline    
+\textbf{Predicted city} &  \textbf{Mel \%}  &  \textbf{Syd \%}\\ \hline
+Brisbane, AUS&13.0&	7.9\\
+Beer Sheva, ISR&	5.3&	11.0\\
+Canberra, AUS	&2.6&	5.7\\
+Sunshine Coast, AUS	&2.3&	0.7\\
+McAllen, USA&		2.1&		0.3\\
+Valpara\'{i}so, CHL&		1.0&	0.7\\
+Haifa, ISR&		0.8&1.6\\	
+Gold Coast, AUS&		0.8&	0.5\\
+Pretoria, ZAF&		0.6&  -      \\
+Newcastle, AUS&	0.6&	2.6\\
+Toronto, CAN	&0.6&	0.4\\
+Auckland, NZL&		0.5&	0.6\\
+Perth, AUS&		0.5&  -      \\
+Johannesburg, ZAF&		0.4&  -      \\
+Philadelphia, USA&		0.4&  -      \\
+Jerusalem, ISR&		0.2&	0.8\\
+Port Elizabeth, ZAF&		0.3&  -      \\
+Washington, D.C., USA&		0.2& -      \\
+Southend-On-Sea, GBR&		0.2&  -      \\
+Virginia Beach, USA&-&		0.4\\
+London, GBR&-&		0.3\\
+Barcelona, ESP&-&		0.3\\
+Adelaide, AUS&-&		0.3\\
+Tasikmalaya, IDN&-&		0.3\\
+Douala, CMR&-&		0.2\\
+Hardwar, IND&-&		0.2\\
+\end{tabular}
+}
+\end{subtable}%
+\begin{subtable}{.34\linewidth}
+\caption{GS}
+\label{tab:melbournesydneyGS} 
+\scalebox{0.9}{
+\begin{tabular}{ l   l  l}
+ \hline  
+\textbf{Predicted city}  & \textbf{Mel \%}  &  \textbf{Syd \%}\\ \hline
+Jundia\'{i}, BRA&7.8&	10.6\\
+Wellington, NZ&	4.1&		0.09\\
+Campinas, BRA&		2.4&		4.0\\
+Miami, USA&		2.2&- \\
+Adelaide, AUS&		1.7&- \\
+Provo-Orem, USA&		1.3&- \\
+Macap\'{a}, BRA&		0.6&- \\
+Gold Coast, AUS&		0.5&- \\
+Rosario, ARG&		0.4&		1.1\\
+Qitaihe, CHN&		0.4&- \\
+Johannesburg, ZAF&		0.4&		0.05\\
+Buenos Aires, ARG&		0.3&- \\
+Canberra, AUS&		0.2&- \\
+Mendoza, ARG&		0.2&- \\
+Juiz De Fora, BRA&		0.2&		0.8\\
+Pulandian, CHN&		0.2&- \\
+Newcastle, AUS&		0.2&		0.2\\
+Palma, ESP&		0.2&		0.08\\
+Cape Town, ZAF&		0.2&- \\
+Sevastopol, UKR&-&		4.7\\
+Memphis, USA&-&		0.6\\
+Baaqoobah, IRQ&-&		0.4\\
+Belgaum, IND&-&		0.2\\
+Qazvin, IRN&-&		0.2\\
+Nagasaki, JPN&-	&	0.1\\
+New Orleans, USA&-&		0.1\\
+Malaga, ESP&-&		0.1\\
+Guayaquil, ECU&-&		0.07\\
+Khabarovsk, RUS&-&		0.06\\
+Chiinu, MDA&-&		0.05\\
+\end{tabular}
+}
+\end{subtable}%
+\begin{subtable}{.34\linewidth}
+\caption{GSV-BSV}
+\scalebox{0.9}{
+\begin{tabular}{ l  l   l}
+ \hline      
+\textbf{Predicted city} &  \textbf{Mel \%}  &  \textbf{Syd \%}\\ \hline
+Sunshine Coast, AUS&		4.0&		5.0\\
+Perth, AUS&		4.0&	1.6\\
+Adelaide, AUS&		4.0&		1.2\\
+Auckland, NZL&		2.7	&0.8\\
+Canberra, AUS&		1.9&		3.1\\
+Newcastle, AUS	&	1.7&		3.1\\
+Gold Coast, AUS&		1.3&	3.3\\
+Christchurch, NZL&		0.9&		-\\
+Brisbane, AUS&		0.8&	3.2\\
+Bonita Springs, USA&		0.7&		0.5\\
+Stockton, USA&		0.7&		0.5\\
+Curitiba, BRA&		0.7&		0.4\\
+Cape Town, ZAF&		0.7&		0.4\\
+Concord, USA&		0.6&		0.3\\
+East London, ZAF&		0.5&		0.4\\
+West Yorkshire, GBR&		0.5&		-\\
+Teeside, GBR&		0.4&		-\\
+Los Angeles, USA&		0.4&		-\\
+Montevideo, URY&		0.3&		-\\
+San Diego, USA&		-&		0.9\\
+Jacksonville, USA&	-&			0.4\\
+Vereeniging, ZAF&	-&	0.4\\
+Virginia Beach, USA&		-	&	0.4\\
+McAllen, USA&	-	&	0.4\\
+\end{tabular}
+}
+\end{subtable}%
+\end{table}
+\end{landscape}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%\begin{table}[!htbp]
+%\caption{\bf Top 20 cities like Melbourne and Sydney through GM } 
+%\label{tab:melbournesydneyGM}    
+%\begin{tabular}{ l l l l l}
+% \hline    &  \multicolumn{2}{c}{\textbf{Melbourne}} & \multicolumn{2}{c}{\textbf{Sydney}}  \\  
+%\textbf{Predicted city} & \textbf{Matches} & \textbf{\%}  & \textbf{Matches} & \textbf{\%}\\ \hline
+%Brisbane, AUS&2990&13.0&1943&	7.9\\
+%Beer Sheva, ISR&	1224&5.3&2695&	11.0\\
+%Canberra, AUS&608	&2.6&1410&	5.7\\
+%Sunshine Coast, AUS&520	&2.3&170&	0.7\\
+%McAllen, USA&	476&	2.1&	80&	0.3\\
+%Valpara\'{i}so, CHL&	223&	1.0&166&	0.7\\
+%Haifa, ISR&	185&	0.8&398	&1.6\\	
+%Gold Coast, AUS&	184&	0.8&118&	0.5\\
+%Pretoria, ZAF&	147&	0.6& - & -      \\
+%Newcastle, AUS&142	&0.6&649&	2.6\\
+%Toronto, CAN&	137	&0.6&97&	0.4\\
+%Auckland, NZL&	118&	0.5&142&	0.6\\
+%Perth, AUS&	110&	0.5& - & -      \\
+%Johannesburg, ZAF&	91&	0.4& - & -      \\
+%Philadelphia, USA&	81&	0.4& - & -      \\
+%Jerusalem, ISR&	73&	0.2&201&	0.8\\
+%Port Elizabeth, ZAF&	72&	0.3& - & -      \\
+%Washington, D.C., USA&	54&	0.2& - & -      \\
+%Southend-On-Sea, GBR&	53&	0.2& - & -      \\
+%Virginia Beach, USA&-&-&	108&	0.4\\
+%London, GBR&-&-&	70&	0.3\\
+%Barcelona, ESP&-&-&	68&	0.3\\
+%Adelaide, AUS&-&-&	62&	0.3\\
+%Tasikmalaya, IDN&-&-&	62&	0.3\\
+%Douala, CMR&-&-&	54&	0.2\\
+%Hardwar, IND&-&-&	48&	0.2\\
+%\hline
+%\end{tabular}
+%\end{table}
+
+
+%\begin{table}[!htbp]
+%\caption{\bf Top 20 cities like Melbourne and Sydney through GS }    
+%\label{tab:melbournesydneyGS} 
+%\begin{tabular}{ l  l l l  l}
+% \hline    &  \multicolumn{2}{c}{\textbf{Melbourne}} & \multicolumn{2}{c}{\textbf{Sydney}}  \\  
+%\textbf{Predicted city} & \textbf{Matches} & \textbf{\%}  & \textbf{Matches} & \textbf{\%}\\ \hline
+%Jundia\'{i}, BRA&1795&7.8&	2613&	10.6\\
+%Wellington, NZ&	947&	4.1&	22&	0.09\\
+%Campinas, BRA&	551&	2.4&	976&	4.0\\
+%Miami, USA&	498&	2.2&-&- \\
+%Adelaide, AUS&	386&	1.7&-&- \\
+%Provo-Orem, USA&	294&	1.3&-&- \\
+%Macap\'{a}, BRA&	148&	0.6&-&- \\
+%Gold Coast, AUS&	106&	0.5&-&- \\
+%Rosario, ARG&	99&	0.4&	273&	1.1\\
+%Qitaihe, CHN&	90&	0.4&-&- \\
+%Johannesburg, ZAF&	81&	0.4&	13&	0.05\\
+%Buenos Aires, ARG&	77&	0.3&-&- \\
+%Canberra, AUS&	55&	0.2&-&- \\
+%Mendoza, ARG&	52&	0.2&-&- \\
+%Juiz De Fora, BRA&	50&	0.2&	202&	0.8\\
+%Pulandian, CHN&	49&	0.2&-&- \\
+%Newcastle, AUS&	45&	0.2&	47&	0.2\\
+%Palma, ESP&	36&	0.2&	20&	0.08\\
+%Cape Town, ZAF&	34&	0.2&-&- \\
+%Sevastopol, UKR&-&-&	1148&	4.7\\
+%Memphis, USA&-&-&	151&	0.6\\
+%Baaqoobah, IRQ&-&-&	99&	0.4\\
+%Belgaum, IND&-&-&	43&	0.2\\
+%Qazvin, IRN&-&- &	41&	0.2\\
+%Nagasaki, JPN&-&-	&35&	0.1\\
+%New Orleans, USA&-&-&	32&	0.1\\
+%Malaga, ESP&-&-&	24&	0.1\\
+%Guayaquil, ECU&-&-&	17&	0.07\\
+%Khabarovsk, RUS&-&-&	14&	0.06\\
+%Chiinu, MDA&-&-&	13&	0.05\\
+%
+%\hline
+%\end{tabular}
+%\end{table}
+
+
+
+
+
+
+%\begin{table}[!htbp]
+%\label{tab:melbournesydneyGSV}
+%\caption{\bf{Top 20 cities like Melbourne and Sydney through GSV-BSV}}   
+%\begin{tabular}{ l  l l l  l}
+% \hline    &  \multicolumn{2}{c}{\textbf{Melbourne}} & \multicolumn{2}{c}{\textbf{Sydney}}  \\  
+%\textbf{Predicted city} & \textbf{Matches} & \textbf{\%}  & \textbf{Matches} & \textbf{\%}\\ \hline
+%Sunshine Coast, AUS&	837&	4.0&	738&	5.0\\
+%Perth, AUS&	835&	4.0&	230	&1.6\\
+%Adelaide, AUS&	829&	4.0&	174&	1.2\\
+%Auckland, NZL&	565&	2.7	&122	&0.8\\
+%Canberra, AUS&	407&	1.9&	459&	3.1\\
+%Newcastle, AUS	&365&	1.7&	455&	3.1\\
+%Gold Coast, AUS&	277&	1.3&	476	&3.3\\
+%Christchurch, NZL&	179&	0.9&	-&	-\\
+%Brisbane, AUS&	158&	0.8&	466	&3.2\\
+%Bonita Springs, USA&	149&	0.7&	73&	0.5\\
+%Stockton, USA&	145&	0.7&	75&	0.5\\
+%Curitiba, BRA&	143&	0.7&	54&	0.4\\
+%Cape Town, ZAF&	138&	0.7&	52&	0.4\\
+%Concord, USA&	121&	0.6&	44&	0.3\\
+%East London, ZAF&	100&	0.5&	62&	0.4\\
+%West Yorkshire, GBR&	95&	0.5&	-&	-\\
+%Teeside, GBR&	91&	0.4&	-&	-\\
+%Los Angeles, USA&	78&	0.4&	-&	-\\
+%Montevideo, Uruguay&	71&	0.3&	-&	-\\
+%San Diego, USA&	-&	-&	138&	0.9\\
+%Jacksonville, USA&	-&	-&	62&	0.4\\
+%Vereeniging, ZAF&	-	&-&	58	&0.4\\
+%Virginia Beach, USA&	-&	-	&55&	0.4\\
+%McAllen, USA&	-	&-	&51&	0.4\\
+%\hline
+%\end{tabular}
+%\end{table}
+
+
+
 \subsection{Melbourne evaluation} 
 
-Figure~\ref{fig:melmaps} shows the top predicted cities ($>$ 0.1\%) plotted against the Melbourne evaluation locations for the GM neural network. Further, `Paris-like' evaluation locations within Melbourne and Sydney are highlighted with black stars (22 in total, but 5 with probabilities greater than 50\%). As can be seen, Australian cities (in yellow) show strong groupings in the inner and outer suburbs while the central business district (CBD) region shows no single strong grouping of regions or specific cities. In Melbourne's far outer suburbs and rural areas, a wide mix of North and South American, South African, European, and Mid-Eastern cities (in greens blues and greys) with small localised clusters of each can be seen. In the CBD, a few locations are predicted as Paris (see detail of the CBD in Figure~\ref{fig:melmapscbd}), and are mostly associated with Docklands or parklands.
+Figure~\ref{fig:melmaps} shows the top predicted cities ($>$ 0.1\%) plotted against the Melbourne evaluation locations for the GM neural network. Further, `Paris-like' evaluation locations within Melbourne and Sydney are highlighted with black stars (22 in total, but 5 with probabilities greater than 50\%). As can be seen, Australian cities (in yellow) show strong groupings in the inner and outer suburbs while the central business district (CBD) region shows no single strong grouping of regions or specific cities. In Melbourne's far outer suburbs and rural areas, a wide mix of North and South American, South African, European, and Mid-Eastern cities (in greens blues and greys) with small localised clusters of each can be seen. In the CBD, a few locations are predicted as Paris (see detail of the CBD in Supplement Figure 2), and are mostly associated with Docklands or parklands.
 
 
 %\begin{figure}[!htbp]
@@ -485,19 +511,17 @@ Figure~\ref{fig:melmaps} shows the top predicted cities ($>$ 0.1\%) plotted agai
 
 \begin{figure}[!htbp]
 \centering   
-\includegraphics[scale=0.15]{Images/2018-05/maps/MelbourneOverallAbrev2.png} 
-\includegraphics[scale=0.15]{Images/2018-05/maps/SydneyOverallAbrev2.png}  
+%\includegraphics[scale=0.15]{Images/2018-05/maps/MelbourneOverallAbrev2.png} 
+%\includegraphics[scale=0.15]{Images/2018-05/maps/SydneyOverallAbrev2.png}  
+\includegraphics[scale=0.10]{Images/Figure4GM.png}  
+
+
 \caption{  \bf Predicted similar cities using the GM neural network (filtering out probabilities lower than 50\%). Top predicted cities plotted using Figure~\ref{fig:colorscheme} colour scheme for Melbourne evaluation locations (top) and Sydney (bottom). Predicted Paris locations marked with black stars.}    
  \label{fig:melmaps}  
 \end{figure} 
 
 
-\begin{figure}[!htbp]
-\centering     
-\includegraphics[scale=0.35]{Images/PlosOne/Fig7.png} 
-\caption{\bf Predicted similar cities (showing three letter country code of city location) using the GM neural network for Melbourne evaluation locations. Detail of Melbourne CBD, with predictions of Paris highlighted in red squares.}    
- \label{fig:melmapscbd}  
-\end{figure} 
+
 
 
 Figure~\ref{fig:melsat} shows the top predicted cities ($>$ 0.1\%) plotted against the Melbourne evaluation locations for the GS neural network with `Paris-like' locations again highlighted with a black star (1 location, but 0 locations above 50\% probability). Other Australian cities (yellows) show a strong grouping in the inner and outer suburbs while the CBD region shows no single strong grouping of regions or specific cities but with a range of predictions including Miami, United States (blues) and Mendoza, Argentina (greens). In Melbourne's far outer suburbs and rural areas, a wide mix is seen of North and South American (USA, Brazil, and Argentina), South African, European (Italy and Spain), and Mid-Eastern (Iran and Turkey) cities with small localised clusters of each. Only a single predictions of Paris, France was made by the GS neural network for any evaluation location in Melbourne (but not above a 50\% probability).
@@ -513,8 +537,9 @@ Figure~\ref{fig:melsat} shows the top predicted cities ($>$ 0.1\%) plotted again
 
 \begin{figure}[!htbp]
 \centering   
-\includegraphics[scale=0.15]{Images/2018-05/satellite/MelbourneOverallAbrev2.png} 
-\includegraphics[scale=0.15]{Images/2018-05/satellite/SydneyOverallAbrev2.png}  
+%\includegraphics[scale=0.15]{Images/2018-05/satellite/MelbourneOverallAbrev2.png} 
+%\includegraphics[scale=0.15]{Images/2018-05/satellite/SydneyOverallAbrev2.png}  
+\includegraphics[scale=0.10]{Images/Figure5GS.png}  
 \caption{ \bf Predicted similar cities using the GS neural network (filtering out probabilities lower than 50\%). Top predicted cities plotted using Figure~\ref{fig:colorscheme} colour scheme for Melbourne evaluation locations (top) and Sydney (bottom). Predicted Paris locations marked with black stars.}    
  \label{fig:melsat}  
 \end{figure} 
@@ -533,8 +558,9 @@ Figure~\ref{fig:melstreet} shows the top predicted cities ($>$ 0.1\%) plotted ag
 
 \begin{figure}[!htbp]
 \centering   
-\includegraphics[scale=0.15]{Images/2018-05/street_view/MelbourneOverallAbrev2.png} 
-\includegraphics[scale=0.15]{Images/2018-05/street_view/SydneyOverallAbrev2.png}  
+%\includegraphics[scale=0.15]{Images/2018-05/street_view/MelbourneOverallAbrev2.png} 
+%\includegraphics[scale=0.15]{Images/2018-05/street_view/SydneyOverallAbrev2.png}  
+\includegraphics[scale=0.10]{Images/Figure6GSV.png} 
 \caption{ \bf Predicted similar cities using the GSV-BSV neural network (filtering out probabilities lower than 50\%). Top predicted cities plotted using Figure~\ref{fig:colorscheme} colour scheme for Melbourne evaluation locations (top) and Sydney (bottom). Predicted Paris locations marked with black stars.}    
  \label{fig:melstreet}  
 \end{figure} 
@@ -572,7 +598,7 @@ In looking at the few locations that are deemed to be `Paris-like', there are a 
 
 \begin{figure}[!htbp]
 \centering   
-\includegraphics[scale=0.19]{Images/PlosOne/Fig10.png}   
+\includegraphics[scale=0.10]{Images/Figure7MelMaps.png}   
 \caption{\bf Gallery of `Paris-like` locations in Melbourne using the GM neural network.}    
  \label{fig:gm_mel_gallery} 
 \end{figure} 
@@ -580,29 +606,38 @@ In looking at the few locations that are deemed to be `Paris-like', there are a 
 
 \begin{figure}[!htbp]
 \centering   
-\includegraphics[scale=0.19]{Images/PlosOne/Fig11.png}   
+\includegraphics[scale=0.11]{Images/Figure8SydMaps.png}   
 \caption{\bf Gallery of `Paris-like` locations in Sydney using the GM neural network.}    
  \label{fig:gm_syd_gallery}  
 \end{figure} 
 
 Using the GS neural network, none of the evaluated locations for Sydney and only one location for Melbourne were predicted to be `Paris-like'. From an overhead remote sensing point of view, there is therefore nothing about either Melbourne or Sydney that shares similar visual characteristics with Paris, or at least there are many other cities that are more similar to Paris than Melbourne and Sydney. The GS network is more strongly influenced by larger natural and topographical features (features visible through satellite imagery) than the GM network. Outside of the immediate city centres, both Melbourne and Sydney are highly vegetated, with large percentages of the built-form concealed under tree canopies and having to conform to topography. The colours of the vegetation and soils as well as how the urban form is mixed into the canopies, hillsides, waterways and oceans are highly influential. Melbourne is built around a bay and around a north-south spine of hills while Sydney is built around the open ocean and ocean waterways as well as hilly terrain throughout the metro area. Some potential limitations in the dataset can be seen in Figure~\ref{fig:melsat}. A strong north-south gradient through the plot of the Melbourne predictions suggest that the neural network detected some artefacts of the satellite imagery gathering process, such as different acquisition times of the imagery, that were not apparent to human observation. 
 
-Finally, as the GSV-BSV neural network only picked Paris (at over a 50\% probability) for 0.01\% of the evaluated locations for Melbourne and 0\% for Sydney, we can be confident that from a visual street-level view, there is almost nothing about either Melbourne or Sydney that is visually similar to Paris using this type of imagery. Of the images for Melbourne, only 2 (out of 13) were picked with a probability of over 50\% (and 0 out of 6 for Sydney). With the GSV-BSV network (galleries of `Paris-like' images for Melbourne and Sydney are shown in Figure~\ref{fig:gsv_mel_gallery} and \ref{fig:gsv_syd_gallery}), smaller details of the cities will influence predictions. At this level of imagery, many of the natural features influential in the GS network (e.g., types and colours of vegetation or soil) will be important but smaller details will also weigh in, such as building architecture, the width (or absence) of nature strips or sidewalks, and an overall density of streetscape features. Other influential characteristics are features that are in the urban areas but are not part of the permanent built form. For example, white vans feature in a number of images in the galleries of Paris-like predictions. At this level of imagery, the neural network will be potentially influenced as much by how the urban form is being used as the form itself. This shows the importance of taking steps in some circumstances to construct abstract features from the source images (e.g. road networks/green space for GM or image segmentation for GSV-BSV). Even with these measures, some caution should be taken with this type of imagery. The rather low accuracy rate for GSV-BSV (43.1\%, top 5: 69.8\%) indicates that larger training datasets or perhaps fewer classification classes are needed with this type of complex imagery.
+Finally, as the GSV-BSV neural network only picked Paris (at over a 50\% probability) for 0.01\% of the evaluated locations for Melbourne and 0\% for Sydney, we can be confident that from a visual street-level view, there is almost nothing about either Melbourne or Sydney that is visually similar to Paris using this type of imagery. Of the images for Melbourne, only 2 (out of 13) were picked with a probability of over 50\% (and 0 out of 6 for Sydney). With the GSV-BSV network (galleries of `Paris-like' images for Melbourne and Sydney are shown in Figure~\ref{fig:gsv_mel_gallery}), smaller details of the cities will influence predictions. At this level of imagery, many of the natural features influential in the GS network (e.g., types and colours of vegetation or soil) will be important but smaller details will also weigh in, such as building architecture, the width (or absence) of nature strips or sidewalks, and an overall density of streetscape features. Other influential characteristics are features that are in the urban areas but are not part of the permanent built form. For example, white vans feature in a number of images in the galleries of Paris-like predictions. At this level of imagery, the neural network will be potentially influenced as much by how the urban form is being used as the form itself. This shows the importance of taking steps in some circumstances to construct abstract features from the source images (e.g. road networks/green space for GM or image segmentation for GSV-BSV). Even with these measures, some caution should be taken with this type of imagery. The rather low accuracy rate for GSV-BSV (43.1\%, top 5: 69.8\%) indicates that larger training datasets or perhaps fewer classification classes are needed with this type of complex imagery.
+
+%\begin{figure}[!htbp]
+%\centering    
+%\includegraphics[scale=0.15]{Images/Figure9MelStreet.png}  
+%\caption{\bf Gallery of `Paris-like` locations in Melbourne using the GSV-BSV neural network.}    
+% \label{fig:gsv_mel_gallery}  
+%\end{figure} 
+%
+%
+%\begin{figure}[!htbp]
+%\centering    
+%\includegraphics[scale=0.15]{Images/Figure9SydStreet.png}  
+%\caption{\bf Gallery of `Paris-like` locations in Sydney using the GSV-BSV neural network.}    
+% \label{fig:gsv_syd_gallery}  
+%\end{figure} 
+
 
 \begin{figure}[!htbp]
 \centering    
-\includegraphics[scale=0.35]{Images/PlosOne/Fig12.png}  
-\caption{\bf Gallery of `Paris-like` locations in Melbourne using the GSV-BSV neural network.}    
+\includegraphics[scale=0.20]{Images/Figure9MelSydStreet_2.png}  
+\caption{\bf Gallery of `Paris-like` locations in Melbourne (A, B) and Sydney (C) using the GSV-BSV neural network.}    
  \label{fig:gsv_mel_gallery}  
 \end{figure} 
 
-
-\begin{figure}[!htbp]
-\centering    
-\includegraphics[scale=0.35]{Images/PlosOne/Fig13.png}  
-\caption{\bf Gallery of `Paris-like` locations in Sydney using the GSV-BSV neural network.}    
- \label{fig:gsv_syd_gallery}  
-\end{figure} 
 
 Using the GM neural network approach, urban form can be evaluated. Map characteristics that are influential in grouping cities with a particular typology include extents and types of public transportation, urban green space, road network structure, water body inclusion and integration, amounts of informal unplanned open space, and density and topology influences on city structure. Some of the features included in the GM imagery that made cities `Paris-like' were a higher density of trains and trams, large broad sections of urban green space, and an integration of urban green space and waterways. Of course, while Paris was selected as the comparison city of choice, the technique makes it possible to typify the characteristics of any global city where similar imagery is available.
 
@@ -610,7 +645,7 @@ Using satellite imagery, natural features and the colour characteristics of roof
 
 \begin{figure}[!htbp]
 \centering    
-\includegraphics[scale=0.35]{Images/PlosOne/Fig14.png} 
+\includegraphics[scale=0.05]{Images/Figure10SatImgs1_3.png} 
  \caption{\bf Satellite imagery of Melbourne, Australia (A), Adelaide, Australia (B), Campinas, Brazil (C), Jundia\'{i}, Brazil (D), Miami, USA (E), Provo, USA (F), and Wellington, NZ (G) \citep{GoogleStatic2017}.}    
  \label{fig:satimages}  
 \end{figure} 
@@ -629,15 +664,12 @@ We have conclusively answered the question, does Melbourne or Sydney have a `Par
 
 Despite these potentially disappointing results, this analysis reveals a number of exciting possibilities for using neural networks to analyse urban form. Using this method, any city in the world can now also answer this question for themselves with easily obtained and globally consistent imagery. This methodology can be used to look at many different aspects of cities and understand what elements of their urban design leads them to work in different ways.
 
-\section{Acknowledgements}
-This project was made possible thanks to computer hardware purchased by the Transportation, Health, and Urban Design (THUD) Hub at the University of Melbourne. M.S. was supported by a National Health and Medical Research Council (Australia) Fellowship.
+
 
 \section{Data Availability}\label{sec:methods6} 
 The datasets, including raw data and trained neural network models, are available on request to the corresponding author.
 
-\section{Author contributions statement}
 
-K.N. designed and performed the experiment, analysed the results, and wrote the manuscript. J.T. conceived the experiment and contributed to the manuscript. J.S. designed the neural networks and contributed to the manuscript. G.A. contributed to the manuscript. M.S. reviewed the experiment and results. All authors reviewed the manuscript. 
 
 
 
@@ -646,32 +678,33 @@ K.N. designed and performed the experiment, analysed the results, and wrote the 
   \bibliographystyle{SageH}
   \bibliography{library}
 
-\begin{biogs}
-\textbf{Dr Kerry A. Nice, BA (English/Film), M.Env \& Sus, PhD (Urban Climate))}
-
-Building on a background in software engineering and urban climates, Dr. Kerry Nice's work uses modelling and artificial intelligence to study urban environments. His PhD at Monash University focused on the creation and use of an urban micro-climate model (VTUF-3D) to assess the positive human thermal comfort impacts in urban areas of increased urban vegetation and water sensitive design (WSUD) infrastructure. Kerry's research currently focuses on the investigation of urban factors impacting the accessibility of active transport, assessing the impacts of urban vegetation on transport, health, and micro-climates, and using artificial intelligence, especially deep learning using neural networks, to assess the influence of urban characteristics on urban environments and ultimately on the people who live there.
-
-\textbf{Dr Jason Thompson, BSc (Hons), M.Psych (Clinical), PhD (Medicine)}
-0000-0002-3146-1198
-
-Dr Jason Thompson’s work is focused on the translation of research into practice across the areas of transportation, heavy-vehicle safety, public health, post-injury rehabilitation, and health system design. Dr Thompson has expertise in methods of computational social science for the modelling of urban, social, organisational, safety, rehabilitation, and active transport systems and has pioneered the use of agent-based models in areas of traditional health systems and transportation research. In 2017, Dr Thompson was awarded an Australian Research Council Discovery Early Career Research Fellowship (DECRA). This project is focused on the effect that introduction of autonomous vehicles will have on Australia’s \$5billion personal injury insurance scheme market.
-
-\textbf{Dr Jasper Wijnands, PhD (Mathematics)}
-0000-0002-5832-4134
-
-Dr Jasper Wijnands has a background in applied mathematics, with extensive experience in quantitative analyses and mathematical methods throughout his education, research and consultancy career. His research has led to publications in various domains, including transport, climate science and the financial services sector. His PhD in mathematics (University of Melbourne) focussed on machine learning algorithms and other mathematical techniques to improve the accuracy of tropical cyclone forecasts in Australia and the South Pacific Ocean. Jasper’s research currently focusses on artificial intelligence, especially deep learning using neural networks, in relation to transport, health and urban design. Prior to this, Jasper was a manager and consultant in EY’s Advisory practices (financial risk management) in Melbourne, New York, Zurich and Amsterdam.
-
-\textbf{Dr. Gideon Aschwanden, MSc, PhD}
-0000-0003-0315-7778
-
-Gideon Aschwanden Lecturer of Urban Analytics at the University of Melbourne with a focus on big data and neural networks to evaluate the urban fabric for health, transportation and economic opportunities. He teaches in urban design, urban planning and property and leads research projects on open data, quantitative policy evaluation and blockchain development. Prior to this, he taught and researched at Princeton University on digital fabrication methods and building systems as part of the CHAOS lab (Cooling and Heating Architecturally Optimized Systems) in the Andlinger Centre for Energy and the Environment. He gained his MSc in Architecture and PhD in Science from the ETH Zurich and a founding member of the Future Cities Laboratory in Singapore.   
-
-\textbf{Professor Mark Stevenson, M. Public Health, PhD (Distinction)}
-0000-0003-3166-5876
-
-Professor Mark Stevenson is an epidemiologist and Professor of Urban Transport and Public Health at the University of Melbourne. His appointment is across the Melbourne Schools of Design, Engineering and Population and Global Health. He is a National Health and Medical Research Council (Australia) Research Fellow, an Honorary Professor in the Peking University Health Science Centre, China and an advisor for injury to the Director General of the World Health Organisation. Prof Stevenson has a PhD (Distinction) from The University of Western Australia and a Master’s degree in Public Health from Curtin University and became a Fellow of the Australasian College of Road Safety in 2008. He has published over 220 peer-reviewed articles, books, book chapters and technical reports and procured more than \$31 million in competitive research funding including funding from the NHMRC, ARC and the US National Institutes of Health. Prof Stevenson is the director of the Transport, Health and Urban Design research hub comprising a cross-disciplinary research team exploring how the effects of urban form and transportation influence the health of residents in cities.
-
-\end{biogs}
+%\begin{biogs}
+%\textbf{Dr Kerry A. Nice, BA (English/Film), M.Env \& Sus, PhD (Urban Climate))}
+%0000-0001-6102-1292
+%
+%Building on a background in software engineering and urban climates, Dr. Kerry Nice's work uses modelling and artificial intelligence to study urban environments. His PhD at Monash University focused on the creation and use of an urban micro-climate model (VTUF-3D) to assess the positive human thermal comfort impacts in urban areas of increased urban vegetation and water sensitive design (WSUD) infrastructure. Kerry's research currently focuses on the investigation of urban factors impacting the accessibility of active transport, assessing the impacts of urban vegetation on transport, health, and micro-climates, and using artificial intelligence, especially deep learning using neural networks, to assess the influence of urban characteristics on urban environments and ultimately on the people who live there.
+%
+%\textbf{Dr Jason Thompson, BSc (Hons), M.Psych (Clinical), PhD (Medicine)}
+%0000-0002-3146-1198
+%
+%Dr Jason Thompson’s work is focused on the translation of research into practice across the areas of transportation, heavy-vehicle safety, public health, post-injury rehabilitation, and health system design. Dr Thompson has expertise in methods of computational social science for the modelling of urban, social, organisational, safety, rehabilitation, and active transport systems and has pioneered the use of agent-based models in areas of traditional health systems and transportation research. In 2017, Dr Thompson was awarded an Australian Research Council Discovery Early Career Research Fellowship (DECRA). This project is focused on the effect that introduction of autonomous vehicles will have on Australia’s \$5billion personal injury insurance scheme market.
+%
+%\textbf{Dr Jasper Wijnands, PhD (Mathematics)}
+%0000-0002-5832-4134
+%
+%Dr Jasper Wijnands has a background in applied mathematics, with extensive experience in quantitative analyses and mathematical methods throughout his education, research and consultancy career. His research has led to publications in various domains, including transport, climate science and the financial services sector. His PhD in mathematics (University of Melbourne) focussed on machine learning algorithms and other mathematical techniques to improve the accuracy of tropical cyclone forecasts in Australia and the South Pacific Ocean. Jasper’s research currently focusses on artificial intelligence, especially deep learning using neural networks, in relation to transport, health and urban design. Prior to this, Jasper was a manager and consultant in EY’s Advisory practices (financial risk management) in Melbourne, New York, Zurich and Amsterdam.
+%
+%\textbf{Dr. Gideon Aschwanden, MSc, PhD}
+%0000-0003-0315-7778
+%
+%Gideon Aschwanden Lecturer of Urban Analytics at the University of Melbourne with a focus on big data and neural networks to evaluate the urban fabric for health, transportation and economic opportunities. He teaches in urban design, urban planning and property and leads research projects on open data, quantitative policy evaluation and blockchain development. Prior to this, he taught and researched at Princeton University on digital fabrication methods and building systems as part of the CHAOS lab (Cooling and Heating Architecturally Optimized Systems) in the Andlinger Centre for Energy and the Environment. He gained his MSc in Architecture and PhD in Science from the ETH Zurich and a founding member of the Future Cities Laboratory in Singapore.   
+%
+%\textbf{Professor Mark Stevenson, M. Public Health, PhD (Distinction)}
+%0000-0003-3166-5876
+%
+%Professor Mark Stevenson is an epidemiologist and Professor of Urban Transport and Public Health at the University of Melbourne. His appointment is across the Melbourne Schools of Design, Engineering and Population and Global Health. He is a National Health and Medical Research Council (Australia) Research Fellow, an Honorary Professor in the Peking University Health Science Centre, China and an advisor for injury to the Director General of the World Health Organisation. Prof Stevenson has a PhD (Distinction) from The University of Western Australia and a Master’s degree in Public Health from Curtin University and became a Fellow of the Australasian College of Road Safety in 2008. He has published over 220 peer-reviewed articles, books, book chapters and technical reports and procured more than \$31 million in competitive research funding including funding from the NHMRC, ARC and the US National Institutes of Health. Prof Stevenson is the director of the Transport, Health and Urban Design research hub comprising a cross-disciplinary research team exploring how the effects of urban form and transportation influence the health of residents in cities.
+%
+%\end{biogs}
 
 
 \end{document}
